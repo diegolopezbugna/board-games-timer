@@ -13,6 +13,7 @@
 		F1049AA41ECCCD4D00D05E8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9D1ECCCD4D00D05E8F /* ViewController.swift */; };
 		F1049AAD1ECCCF1800D05E8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1049AAB1ECCCF1800D05E8F /* Main.storyboard */; };
 		F1049AAE1ECCCF1800D05E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1049A971ECCCD4D00D05E8F /* Assets.xcassets */; };
+		F11F86741ECCD74E0034EC8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F11F86721ECCD74E0034EC8E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,8 +24,8 @@
 		F1049A9C1ECCCD4D00D05E8F /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerView.swift; path = BoardGamesTimer/PlayerView.swift; sourceTree = SOURCE_ROOT; };
 		F1049A9D1ECCCD4D00D05E8F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = BoardGamesTimer/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		F1049AAC1ECCCF1800D05E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BoardGamesTimer/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		F11F86731ECCD74E0034EC8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BoardGamesTimer/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		F1E366AC1ECA0A07006CBEAF /* BoardGamesTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardGamesTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1E366B91ECA0A07006CBEAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +58,7 @@
 		F1E366AE1ECA0A07006CBEAF /* BoardGamesTimer */ = {
 			isa = PBXGroup;
 			children = (
-				F1E366B81ECA0A07006CBEAF /* LaunchScreen.storyboard */,
+				F11F86721ECCD74E0034EC8E /* LaunchScreen.storyboard */,
 				F1049AAB1ECCCF1800D05E8F /* Main.storyboard */,
 				F1049A971ECCCD4D00D05E8F /* Assets.xcassets */,
 				F1049A9B1ECCCD4D00D05E8F /* Info.plist */,
@@ -130,6 +131,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F11F86741ECCD74E0034EC8E /* LaunchScreen.storyboard in Resources */,
 				F1049AAE1ECCCF1800D05E8F /* Assets.xcassets in Resources */,
 				F1049AAD1ECCCF1800D05E8F /* Main.storyboard in Resources */,
 			);
@@ -160,10 +162,10 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F1E366B81ECA0A07006CBEAF /* LaunchScreen.storyboard */ = {
+		F11F86721ECCD74E0034EC8E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F1E366B91ECA0A07006CBEAF /* Base */,
+				F11F86731ECCD74E0034EC8E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

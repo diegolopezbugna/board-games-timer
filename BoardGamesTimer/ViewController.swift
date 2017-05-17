@@ -21,8 +21,13 @@ class ViewController: UIViewController {
         jugadoresStepperValueChanged(jugadoresStepper)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // por ahora vamos directo
+        self.performSegue(withIdentifier: "toTimersSegue", sender: self)
+    }
+    
     @IBAction func jugadoresStepperValueChanged(_ sender: Any) {
-        jugadoresLabel.text =  "\(jugadoresStepper.value) jugadores"
+        jugadoresLabel.text =  "\(Int(jugadoresStepper.value)) jugadores"
     }
 
     override func didReceiveMemoryWarning() {
