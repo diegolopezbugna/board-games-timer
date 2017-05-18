@@ -101,6 +101,7 @@ class PlayerView: UIView {
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (t) in
             let timeInterval = Date().timeIntervalSince(self.currentTimerStart!)
             self.timerLabel.text = self.stringFromTimeInterval(interval: timeInterval, showMs: true)  // retain cycle? ui thread?
+            self.accumulateLabel.text = self.stringFromTimeInterval(interval: self.accumulatedTimeInterval + timeInterval, showMs: false)
         })
         
         UIView.animate(withDuration: 0.3,
