@@ -105,7 +105,7 @@ class PlayerView: UIView {
         
         UIView.animate(withDuration: 0.3,
                        delay: 0,
-                       options: [.repeat, .autoreverse],
+                       options: [.repeat, .autoreverse, .allowUserInteraction],
                        animations: {
                         self.backgroundColor = self.animationColor
                         },
