@@ -17,14 +17,14 @@ class TimersViewController: UIViewController {
         super.viewDidLoad()
 
         let red = UIColor(red: 0.6, green: 0, blue: 0, alpha: 1)
-        let red2 = UIColor(red: 0.5, green: 0, blue: 0, alpha: 1)
+        let red2 = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1)
         let green = UIColor(red: 0, green: 0.5, blue: 0, alpha: 1)
-        let green2 = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1)
-        let blue = UIColor(red: 0, green: 0, blue: 0.6, alpha: 1)
-        let blue2 = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1)
-        let yellow2 = UIColor(red: 0.8, green: 0.8, blue: 0, alpha: 1)
-        let black2 = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 1)
-        let white2 = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
+        let green2 = UIColor(red: 0, green: 0.7, blue: 0, alpha: 1)
+        let blue = UIColor(red: 0, green: 0, blue: 0.7, alpha: 1)
+        let blue2 = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
+        let yellow2 = UIColor(red: 0.75, green: 0.75, blue: 0, alpha: 1)
+        let black2 = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1)
+        let white2 = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
         
         let colors = [red, green, blue, UIColor.yellow, UIColor.black, UIColor.white]
         let animationColors = [red2, green2, blue2, yellow2, black2, white2]
