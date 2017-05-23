@@ -36,7 +36,7 @@ class TimersViewController: UIViewController {
             v.addGestureRecognizer(gesture)
         }
         
-        orientationChanged()
+        addPortraitConstraints()
     }
     
     func addPortraitConstraints() {
@@ -82,7 +82,7 @@ class TimersViewController: UIViewController {
             
             let topConstraint: NSLayoutConstraint, leftConstraint: NSLayoutConstraint
             
-            if (i <= columns) {
+            if (i < columns) {
                 topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
             } else {
                 topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: playerViews[0], attribute: .bottom, multiplier: 1, constant: 0)
