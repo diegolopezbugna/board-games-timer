@@ -26,6 +26,10 @@ class PlayerView: UIView {
     var accumulatedTimeInterval: TimeInterval!
     var currentTimerStart: Date?
     
+    convenience init(playerColor: PlayerColor) {
+        self.init(color: playerColor.bgColor, animationColor: playerColor.bgColor2, fontColor: playerColor.textColor)
+    }
+    
     init(color: UIColor, animationColor: UIColor, fontColor: UIColor) {
         super.init(frame: CGRect())
         self.color = color
@@ -104,9 +108,9 @@ class PlayerView: UIView {
             self.accumulateLabel.text = self.stringFromTimeInterval(interval: self.accumulatedTimeInterval + timeInterval, showMs: false)
         })
         
-        UIView.animate(withDuration: 0.3,
+        UIView.animate(withDuration: 1,
                        delay: 0,
-                       options: [.repeat, .autoreverse, .allowUserInteraction],
+                       options: [.repeat, .autoreverse, .curveEaseIn, .allowUserInteraction],
                        animations: {
                         self.backgroundColor = self.animationColor
                         },

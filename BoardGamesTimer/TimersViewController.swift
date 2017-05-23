@@ -10,8 +10,9 @@ import UIKit
 
 class TimersViewController: UIViewController {
     
-    var jugadores: Int?
+    var totalPlayers: Int?
     var playerViews = [PlayerView]()
+    var playerColors: [PlayerColor]?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,23 +27,9 @@ class TimersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let red = UIColor(red: 0.6, green: 0, blue: 0, alpha: 1)
-        let red2 = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1)
-        let green = UIColor(red: 0, green: 0.5, blue: 0, alpha: 1)
-        let green2 = UIColor(red: 0, green: 0.7, blue: 0, alpha: 1)
-        let blue = UIColor(red: 0, green: 0, blue: 0.7, alpha: 1)
-        let blue2 = UIColor(red: 0, green: 0, blue: 1, alpha: 1)
-        let yellow2 = UIColor(red: 0.75, green: 0.75, blue: 0, alpha: 1)
-        let black2 = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1)
-        let white2 = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
-        
-        let colors = [red, green, blue, UIColor.yellow, UIColor.black, UIColor.white]
-        let animationColors = [red2, green2, blue2, yellow2, black2, white2]
-        let fontColors = [UIColor.white, UIColor.white, UIColor.white, UIColor.black, UIColor.white, UIColor.black]
-        
-        for i in 0..<jugadores! {
+        for i in 0..<totalPlayers! {
 
-            let v = PlayerView(color: colors[i], animationColor: animationColors[i], fontColor: fontColors[i])
+            let v = PlayerView(playerColor: playerColors![i])
             playerViews.append(v)
             
             let gesture = UITapGestureRecognizer(target: self, action: #selector (self.didTap(sender:)))
@@ -54,22 +41,20 @@ class TimersViewController: UIViewController {
     
     func addPortraitConstraints() {
         
-        for i in 0..<jugadores! {
+        for i in 0..<totalPlayers! {
             
             let v = playerViews[i]
             v.removeFromSuperview()
             view.addSubview(v)
+            let rows = Int(ceil(Double(totalPlayers!) / 2))
             
             let topConstraint: NSLayoutConstraint, leftConstraint: NSLayoutConstraint
 
             if (i < 2) {
                 topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 20)
             }
-            else if (i >= 2 && i < 4) {
-                topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: playerViews[0], attribute: .bottom, multiplier: 1, constant: 0)
-            }
             else {
-                topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: playerViews[2], attribute: .bottom, multiplier: 1, constant: 0)
+                topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: playerViews[i-2], attribute: .bottom, multiplier: 1, constant: 0)
             }
             
             if (i % 2 == 0) {
@@ -79,7 +64,7 @@ class TimersViewController: UIViewController {
             }
             
             let widthConstraint = NSLayoutConstraint(item: v, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/2, constant: 0)
-            let heightConstraint = NSLayoutConstraint(item: v, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1/3, constant: -(20/3))
+            let heightConstraint = NSLayoutConstraint(item: v, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1 / CGFloat(rows), constant: -20 / CGFloat(rows))
             
             NSLayoutConstraint.activate([topConstraint, leftConstraint, heightConstraint, widthConstraint])
         }
@@ -88,29 +73,28 @@ class TimersViewController: UIViewController {
     
     func addLandscapeConstraints() {
         
-        for i in 0..<jugadores! {
+        for i in 0..<totalPlayers! {
             
             let v = playerViews[i]
             v.removeFromSuperview()
             view.addSubview(v)
+            let columns = Int(ceil(Double(totalPlayers!) / 2))
             
             let topConstraint: NSLayoutConstraint, leftConstraint: NSLayoutConstraint
             
-            if (i < 3) {
+            if (i <= columns) {
                 topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
             } else {
                 topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: playerViews[0], attribute: .bottom, multiplier: 1, constant: 0)
             }
             
-            if (i % 3 == 0) {
+            if (i % columns == 0) {
                 leftConstraint = NSLayoutConstraint(item: v, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
-            } else if (i % 3 == 1) {
-                leftConstraint = NSLayoutConstraint(item: v, attribute: .leading, relatedBy: .equal, toItem: playerViews[0], attribute: .trailing, multiplier: 1, constant: 0)
             } else {
-                leftConstraint = NSLayoutConstraint(item: v, attribute: .leading, relatedBy: .equal, toItem: playerViews[1], attribute: .trailing, multiplier: 1, constant: 0)
+                leftConstraint = NSLayoutConstraint(item: v, attribute: .leading, relatedBy: .equal, toItem: playerViews[i-1], attribute: .trailing, multiplier: 1, constant: 0)
             }
             
-            let widthConstraint = NSLayoutConstraint(item: v, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1/3, constant: 0)
+            let widthConstraint = NSLayoutConstraint(item: v, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1 / CGFloat(columns), constant: 0)
             let heightConstraint = NSLayoutConstraint(item: v, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1/2, constant: 0)
 
             NSLayoutConstraint.activate([topConstraint, leftConstraint, heightConstraint, widthConstraint])
