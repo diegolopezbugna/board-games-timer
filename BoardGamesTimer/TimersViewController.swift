@@ -39,6 +39,10 @@ class TimersViewController: UIViewController {
         addPortraitConstraints()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func addPortraitConstraints() {
         
         for i in 0..<totalPlayers! {
