@@ -44,7 +44,9 @@ class TimersViewController: UIViewController {
     }
     
     func addPortraitConstraints() {
-        
+
+        self.navigationController?.navigationBar.isHidden = false
+
         for i in 0..<totalPlayers! {
             
             let v = playerViews[i]
@@ -56,7 +58,7 @@ class TimersViewController: UIViewController {
             let topConstraint: NSLayoutConstraint, leftConstraint: NSLayoutConstraint
 
             if (i == 0 || (i < 2 && columns > 1)) {
-                topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 20)
+                topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 65)
             }
             else {
                 topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: playerViews[i-columns], attribute: .bottom, multiplier: 1, constant: 0)
@@ -69,7 +71,7 @@ class TimersViewController: UIViewController {
             }
             
             let widthConstraint = NSLayoutConstraint(item: v, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1 / CGFloat(columns), constant: 0)
-            let heightConstraint = NSLayoutConstraint(item: v, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1 / CGFloat(rows), constant: -20 / CGFloat(rows))
+            let heightConstraint = NSLayoutConstraint(item: v, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1 / CGFloat(rows), constant: -65 / CGFloat(rows))
             
             NSLayoutConstraint.activate([topConstraint, leftConstraint, heightConstraint, widthConstraint])
         }
@@ -77,6 +79,8 @@ class TimersViewController: UIViewController {
     }
     
     func addLandscapeConstraints() {
+        
+        self.navigationController?.navigationBar.isHidden = true
         
         for i in 0..<totalPlayers! {
             
