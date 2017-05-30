@@ -26,6 +26,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="iZy-wj-KxP" secondAttribute="height" multiplier="1:1" id="ofh-6l-7T2"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <state key="normal" title="&lt;"/>
                     <connections>
                         <action selector="leftTap:" destination="-1" eventType="touchUpInside" id="Pli-0a-PgG"/>
@@ -33,6 +34,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ZP-4P-vHa">
                     <rect key="frame" x="308" y="10" width="63" height="63"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
                     <state key="normal" title="&gt;"/>
                     <connections>
                         <action selector="rightTap:" destination="-1" eventType="touchUpInside" id="fEb-5d-Ssl"/>
