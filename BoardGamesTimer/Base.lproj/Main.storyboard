@@ -81,7 +81,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="DKI-ZM-EGz">
+                    <navigationItem key="navigationItem" title="Setup" id="DKI-ZM-EGz">
                         <barButtonItem key="rightBarButtonItem" title="Continue" id="hCt-Ou-pyf">
                             <connections>
                                 <segue destination="GYc-24-aEi" kind="show" id="vUR-1h-kGL"/>
