@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet var playersLabel: UILabel!
     @IBOutlet var playersStepper: UIStepper!
     @IBOutlet var colorSelectorsView: UIView!
+    @IBOutlet var colorSelectors2View: UIView!
     
     var colorSelectors = [ColorSelectorViewController]()
 
@@ -63,16 +64,17 @@ class ViewController: UIViewController {
 
             colorSelectors.append(colorSelectorVC)
 
+            let colorSelectorsViewReferent = i < 4 ? colorSelectorsView : colorSelectors2View
             var top: NSLayoutConstraint
-            if (i == 0) {
-                top = NSLayoutConstraint(item: colorSelector, attribute: .top, relatedBy: .equal, toItem: colorSelectorsView, attribute: .top, multiplier: 1, constant: 0)
+            if (i == 0 || i == 4) {
+                top = NSLayoutConstraint(item: colorSelector, attribute: .top, relatedBy: .equal, toItem: colorSelectorsViewReferent, attribute: .top, multiplier: 1, constant: 0)
             }
             else {
-                top = NSLayoutConstraint(item: colorSelector, attribute: .top, relatedBy: .equal, toItem: colorSelectors[i-1].view, attribute: .bottom, multiplier: 1, constant: 0)
+                top = NSLayoutConstraint(item: colorSelector, attribute: .top, relatedBy: .equal, toItem: colorSelectors[i-1].view, attribute: .bottom, multiplier: 1, constant: 10)
             }
-            let left = NSLayoutConstraint(item: colorSelector, attribute: .left, relatedBy: .equal, toItem: colorSelectorsView, attribute: .left, multiplier: 1, constant: 30)
-            let right = NSLayoutConstraint(item: colorSelector, attribute: .right, relatedBy: .equal, toItem: colorSelectorsView, attribute: .right, multiplier: 1, constant: -30)
-            let height = NSLayoutConstraint(item: colorSelector, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
+            let left = NSLayoutConstraint(item: colorSelector, attribute: .left, relatedBy: .equal, toItem: colorSelectorsViewReferent, attribute: .left, multiplier: 1, constant: 30)
+            let right = NSLayoutConstraint(item: colorSelector, attribute: .right, relatedBy: .equal, toItem: colorSelectorsViewReferent, attribute: .right, multiplier: 1, constant: -30)
+            let height = NSLayoutConstraint(item: colorSelector, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 30)
             
             NSLayoutConstraint.activate([top, height, left, right])
         }
@@ -104,5 +106,4 @@ class ViewController: UIViewController {
         vc.view.removeFromSuperview()
         vc.removeFromParentViewController()
     }
-
 }
