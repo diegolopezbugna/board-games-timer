@@ -102,9 +102,9 @@ class PlayerView: UIView {
         
         currentTimerStart = Date()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.083, repeats: true, block: { (t) in // número primo, así refresca todos los números de los milisegundos y no sólo el 1ro
+        timer = Timer.scheduledTimer(withTimeInterval: 0.083, repeats: true, block: { [unowned self] (t) in // número primo, así refresca todos los números de los milisegundos y no sólo el 1ro
             let timeInterval = Date().timeIntervalSince(self.currentTimerStart!)
-            self.timerLabel.text = self.stringFromTimeInterval(interval: timeInterval, showMs: true)  // retain cycle? ui thread?
+            self.timerLabel.text = self.stringFromTimeInterval(interval: timeInterval, showMs: true)
             self.accumulateLabel.text = self.stringFromTimeInterval(interval: self.accumulatedTimeInterval + timeInterval, showMs: false)
         })
         
