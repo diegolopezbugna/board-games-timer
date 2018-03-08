@@ -24,15 +24,15 @@ class ViewController: UIViewController {
     var colorSelectors = [ColorSelectorViewController]()
 
     let availableColors = [
-                        PlayerColor(textColor: UIColor.white, bgColor: UIColor(red: 0.6, green: 0, blue: 0), bgColor2: UIColor(red: 0.8, green: 0, blue: 0)),
-                        PlayerColor(textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0.5, blue: 0), bgColor2: UIColor(red: 0, green: 0.7, blue: 0)),
-                        PlayerColor(textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0, blue: 0.7), bgColor2: UIColor(red: 0, green: 0, blue: 1)),
-                        PlayerColor(textColor: UIColor.black, bgColor: UIColor.yellow, bgColor2: UIColor(red: 0.75, green: 0.75, blue: 0)),
-                        PlayerColor(textColor: UIColor.white, bgColor: UIColor.black, bgColor2: UIColor(red: 0.25, green: 0.25, blue: 0.25)),
-                        PlayerColor(textColor: UIColor.black, bgColor: UIColor.white, bgColor2: UIColor(red: 0.7, green: 0.7, blue: 0.7)),
-                        PlayerColor(textColor: UIColor.white, bgColor: UIColor(red: 0.85, green: 0.4, blue: 0), bgColor2: UIColor.orange),
-                        PlayerColor(textColor: UIColor.white, bgColor: UIColor.purple, bgColor2: UIColor(red: 0.7, green: 0, blue: 0.7)),
-                        PlayerColor(textColor: UIColor.white, bgColor: UIColor.brown, bgColor2: UIColor(red: 0.75, green: 0.55, blue: 0.35)),
+                        PlayerColor(textColor: UIColor.white, bgColor: UIColor(red: 0.6, green: 0, blue: 0), bgColor2: UIColor(red: 1, green: 0, blue: 0)),
+                        PlayerColor(textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0.5, blue: 0), bgColor2: UIColor(red: 0, green: 0.9, blue: 0)),
+                        PlayerColor(textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0, blue: 0.6), bgColor2: UIColor(red: 0.3, green: 0.3, blue: 1)),
+                        PlayerColor(textColor: UIColor.black, bgColor: UIColor.yellow, bgColor2: UIColor(red: 0.6, green: 0.6, blue: 0)),
+                        PlayerColor(textColor: UIColor.white, bgColor: UIColor.black, bgColor2: UIColor(red: 0.4, green: 0.4, blue: 0.4)),
+                        PlayerColor(textColor: UIColor.black, bgColor: UIColor.white, bgColor2: UIColor(red: 0.6, green: 0.6, blue: 0.6)),
+                        PlayerColor(textColor: UIColor.white, bgColor: UIColor.orange, bgColor2: UIColor(red: 0.6, green: 0.3, blue: 0)),
+                        PlayerColor(textColor: UIColor.white, bgColor: UIColor.purple, bgColor2: UIColor(red: 0.9, green: 0, blue: 0.9)),
+                        PlayerColor(textColor: UIColor.white, bgColor: UIColor.brown, bgColor2: UIColor(red: 0.9, green: 0.7, blue: 0.5)),
                         ]
     
     override func viewDidLoad() {
