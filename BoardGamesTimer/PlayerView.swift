@@ -51,6 +51,13 @@ class PlayerView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    deinit {
+        if (timer != nil) {
+            timer!.invalidate()
+            timer = nil
+        }
+    }
 
     func createLabel(fontSize: CGFloat, constraintConstantY: CGFloat) -> UILabel {
         let label = UILabel()
