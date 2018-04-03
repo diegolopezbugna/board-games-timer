@@ -111,7 +111,7 @@ class TimersViewController: UIViewController {
         }
     }
 
-    func didTap(sender: UITapGestureRecognizer) {
+    @objc func didTap(sender: UITapGestureRecognizer) {
         let tappedView = sender.view as! PlayerView
         
         for v in playerViews {
@@ -133,7 +133,7 @@ class TimersViewController: UIViewController {
         }
     }
 
-    func orientationChanged() {
+    @objc func orientationChanged() {
         if UIDevice.current.orientation.isLandscape {
             addLandscapeConstraints()
         }
