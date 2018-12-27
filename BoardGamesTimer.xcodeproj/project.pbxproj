@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E824F2312114E70900458890 /* PlayersSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824F2302114E70900458890 /* PlayersSetupViewController.swift */; };
 		F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */; };
 		F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */; };
 		F1049AA31ECCCD4D00D05E8F /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9C1ECCCD4D00D05E8F /* PlayerView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E824F2302114E70900458890 /* PlayersSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersSetupViewController.swift; sourceTree = "<group>"; };
 		F1049A971ECCCD4D00D05E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BoardGamesTimer/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BoardGamesTimer/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimersViewController.swift; path = BoardGamesTimer/TimersViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -70,14 +72,14 @@
 				F1049A9B1ECCCD4D00D05E8F /* Info.plist */,
 				F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */,
 				F1049A9D1ECCCD4D00D05E8F /* ViewController.swift */,
+				E824F2302114E70900458890 /* PlayersSetupViewController.swift */,
 				F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */,
 				F1049A9C1ECCCD4D00D05E8F /* PlayerView.swift */,
 				F14038751ED3613B00320314 /* ColorSelectorView.xib */,
 				F161CAF41ED4A4FD00EB904F /* ColorSelectorViewController.swift */,
 				F14038771ED3734400320314 /* UIColorExtensions.swift */,
 			);
-			name = BoardGamesTimer;
-			path = BoardGameClock;
+			path = BoardGamesTimer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +159,7 @@
 			files = (
 				F1049AA31ECCCD4D00D05E8F /* PlayerView.swift in Sources */,
 				F161CAF51ED4A4FD00EB904F /* ColorSelectorViewController.swift in Sources */,
+				E824F2312114E70900458890 /* PlayersSetupViewController.swift in Sources */,
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
 				F14038781ED3734400320314 /* UIColorExtensions.swift in Sources */,
 				F1049AA41ECCCD4D00D05E8F /* ViewController.swift in Sources */,

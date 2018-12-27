@@ -87,6 +87,7 @@ class ViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let timersVC = segue.destination as! TimersViewController
+        timersVC.hidesBottomBarWhenPushed = true
         timersVC.totalPlayers = Int(playersStepper.value)
         
         timersVC.playerColors = colorSelectors.map({ (vc) -> PlayerColor in

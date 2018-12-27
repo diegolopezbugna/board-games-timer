@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GOg-pb-gHT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GOg-pb-gHT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,10 +14,6 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController title="Setup" id="BYZ-38-t0r" customClass="ViewController" customModule="BoardGamesTimer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,21 +44,22 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OPs-fE-7c7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Bg-Aw-Rkk"/>
+                            <constraint firstItem="OPs-fE-7c7" firstAttribute="centerX" secondItem="jDG-yw-8o0" secondAttribute="centerX" id="0Bg-Aw-Rkk"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="top" secondItem="YSo-ve-XTZ" secondAttribute="bottom" id="2wa-lm-JUQ"/>
                             <constraint firstItem="OPs-fE-7c7" firstAttribute="top" secondItem="hRh-Jf-McD" secondAttribute="bottom" constant="12" id="3JC-sG-iQr"/>
-                            <constraint firstItem="YSo-ve-XTZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3dm-78-3uz"/>
+                            <constraint firstItem="YSo-ve-XTZ" firstAttribute="leading" secondItem="jDG-yw-8o0" secondAttribute="leading" id="3dm-78-3uz"/>
                             <constraint firstItem="YSo-ve-XTZ" firstAttribute="top" secondItem="OPs-fE-7c7" secondAttribute="bottom" constant="20" id="613-PL-4rs"/>
-                            <constraint firstItem="hRh-Jf-McD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="BGy-s0-ziI"/>
+                            <constraint firstItem="hRh-Jf-McD" firstAttribute="top" secondItem="jDG-yw-8o0" secondAttribute="top" constant="20" id="BGy-s0-ziI"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="width" secondItem="YSo-ve-XTZ" secondAttribute="width" id="I3E-qu-Da8"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="leading" secondItem="YSo-ve-XTZ" secondAttribute="trailing" id="JGG-tt-K9V"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="top" secondItem="YSo-ve-XTZ" secondAttribute="top" id="ZWB-me-T9T"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="leading" secondItem="YSo-ve-XTZ" secondAttribute="leading" id="ech-qw-GTO"/>
-                            <constraint firstItem="hRh-Jf-McD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fJ4-et-oML"/>
-                            <constraint firstAttribute="trailing" secondItem="J6k-bu-goQ" secondAttribute="trailing" id="jDY-oG-O38"/>
+                            <constraint firstItem="hRh-Jf-McD" firstAttribute="centerX" secondItem="jDG-yw-8o0" secondAttribute="centerX" id="fJ4-et-oML"/>
+                            <constraint firstItem="jDG-yw-8o0" firstAttribute="trailing" secondItem="J6k-bu-goQ" secondAttribute="trailing" id="jDY-oG-O38"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="height" secondItem="YSo-ve-XTZ" secondAttribute="height" id="qO8-Ua-fNa"/>
-                            <constraint firstAttribute="trailing" secondItem="YSo-ve-XTZ" secondAttribute="trailing" id="tae-9E-orz"/>
+                            <constraint firstItem="jDG-yw-8o0" firstAttribute="trailing" secondItem="YSo-ve-XTZ" secondAttribute="trailing" id="tae-9E-orz"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="jDG-yw-8o0"/>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="I3E-qu-Da8"/>
@@ -104,14 +102,11 @@
         <scene sceneID="ct4-hZ-fsf">
             <objects>
                 <viewController title="Timers" id="GYc-24-aEi" customClass="TimersViewController" customModule="BoardGamesTimer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jRz-ue-Xfy"/>
-                        <viewControllerLayoutGuide type="bottom" id="ziz-eM-ZZ0"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cgZ-CW-dZa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="XcD-X6-DyY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Jugar" id="7Nf-57-v8A"/>
                     <navigationItem key="navigationItem" title="Timers" id="Ilb-2C-pbo"/>
@@ -145,6 +140,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GOg-pb-gHT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uWA-IX-sxa">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -162,34 +158,49 @@
         <!--Home-->
         <scene sceneID="4TL-Uu-1LE">
             <objects>
-                <viewController id="k37-bg-xRz" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="fql-30-Uzn"/>
-                        <viewControllerLayoutGuide type="bottom" id="QzS-6q-wtu"/>
-                    </layoutGuides>
+                <viewController id="k37-bg-xRz" customClass="PlayersSetupViewController" customModule="BoardGamesTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9lC-yH-lda">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lek-T4-wyg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="572"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BA-gz-ihb">
+                                <rect key="frame" x="150" y="580" width="74" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7w8-Hh-sse"/>
+                                </constraints>
+                                <state key="normal" title="Add player"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2Ia-m8-0DN" firstAttribute="bottom" secondItem="8BA-gz-ihb" secondAttribute="bottom" constant="8" id="Fi8-Fn-YWp"/>
+                            <constraint firstItem="8BA-gz-ihb" firstAttribute="centerX" secondItem="2Ia-m8-0DN" secondAttribute="centerX" id="eHz-7u-xhg"/>
+                            <constraint firstItem="8BA-gz-ihb" firstAttribute="top" secondItem="lek-T4-wyg" secondAttribute="bottom" constant="8" id="kEx-yi-C6l"/>
+                            <constraint firstItem="lek-T4-wyg" firstAttribute="trailing" secondItem="2Ia-m8-0DN" secondAttribute="trailing" id="laP-HC-8wm"/>
+                            <constraint firstItem="lek-T4-wyg" firstAttribute="leading" secondItem="2Ia-m8-0DN" secondAttribute="leading" id="xUT-1G-ebI"/>
+                            <constraint firstItem="lek-T4-wyg" firstAttribute="top" secondItem="9lC-yH-lda" secondAttribute="top" id="zmX-Ic-wnh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Ia-m8-0DN"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="Ymc-ty-gaE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eOT-je-8Q8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="262" y="1013"/>
+            <point key="canvasLocation" x="261.60000000000002" y="1012.4437781109445"/>
         </scene>
         <!--Totales-->
         <scene sceneID="6Op-RE-uKR">
             <objects>
                 <viewController id="ybw-48-VWL" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hMR-Sz-tSS"/>
-                        <viewControllerLayoutGuide type="bottom" id="NVu-Bl-g8d"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Gck-V9-IlM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gtS-CR-XFB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Totales" id="2aE-CE-Ipv"/>
                 </viewController>
