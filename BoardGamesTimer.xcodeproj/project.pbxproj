@@ -142,6 +142,7 @@
 				TargetAttributes = {
 					F1E366AB1ECA0A07006CBEAF = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = X32L2WT2YT;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
@@ -331,7 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X32L2WT2YT;
 				INFOPLIST_FILE = "$(SRCROOT)/BoardGamesTimer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DiegoLB.BoardGamesTimer;
@@ -345,7 +346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = X32L2WT2YT;
 				INFOPLIST_FILE = "$(SRCROOT)/BoardGamesTimer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DiegoLB.BoardGamesTimer;
