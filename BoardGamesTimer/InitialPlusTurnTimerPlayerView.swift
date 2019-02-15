@@ -28,8 +28,9 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     var timePenaltyLabel: UILabel!
 
     var timer: Timer?
-    var audioPlayer: AVAudioPlayer!
-    
+    var audioPlayer1: AVAudioPlayer!
+    var audioPlayer2: AVAudioPlayer!
+
     var remainingTimeInterval: TimeInterval = 0 {
         didSet {
             self.remainingTimeLabel.text = remainingTimeInterval.toString(showMs: false)
@@ -63,12 +64,16 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.remainingTimeInterval = initialTime
 
-        let audioFilePath = Bundle.main.path(forResource: "lost", ofType: "mp3")
-        if audioFilePath != nil {
-            let audioFileUrl = URL(fileURLWithPath: audioFilePath!)
-            self.audioPlayer = try! AVAudioPlayer(contentsOf: audioFileUrl)
+        if let audioFilePath = Bundle.main.path(forResource: "lost", ofType: "mp3") {
+            let audioFileUrl = URL(fileURLWithPath: audioFilePath)
+            self.audioPlayer1 = try! AVAudioPlayer(contentsOf: audioFileUrl)
         }
-        
+        if let audioFilePath = Bundle.main.path(forResource: "lostF", ofType: "mp3") {
+            let audioFileUrl = URL(fileURLWithPath: audioFilePath)
+            self.audioPlayer2 = try! AVAudioPlayer(contentsOf: audioFileUrl)
+            self.audioPlayer2.numberOfLoops = 100
+        }
+
         self.remainingTimeLabel = createLabel(fontSize: 44, constraintConstantY: 20)
         self.remainingTimeLabel.text = remainingTimeInterval.toString(showMs: false)
         self.delaysLabel = createLabel(fontSize: 16, constraintConstantY: -55)
@@ -131,8 +136,9 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
         self.remainingTimeInterval = TimeInterval.minimum(self.remainingTimeInterval + turnTime, self.initialTime)
         let currentTimerStart = Date()
         let currentTimerEnd = currentTimerStart.addingTimeInterval(remainingTimeInterval)
+        let previousTimePenaltyTimeInterval = self.timePenaltyTimeInterval
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.083, repeats: true, block: { [weak self] (t) in // número primo, así refresca todos los números de los milisegundos y no sólo el 1ro
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.083, repeats: true, block: { [weak self] (t) in // número primo, así refresca todos los números de los milisegundos y no sólo el 1ro
             guard let strongSelf = self else { return }
             
             strongSelf.remainingTimeInterval = currentTimerEnd.timeIntervalSince(Date())
@@ -140,15 +146,19 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
             if strongSelf.remainingTimeInterval < 0.0 {
                 strongSelf.remainingTimeInterval = 0
                 strongSelf.delays += 1
-                strongSelf.stopTimer()
-                strongSelf.audioPlayer?.stop()
-                strongSelf.audioPlayer?.currentTime = 0
-                // TODO: increase timePenalty
-            } else if strongSelf.remainingTimeInterval < 22.0 {
-                strongSelf.audioPlayer?.play()
+                strongSelf.timer?.invalidate()
+                strongSelf.audioPlayer1?.stop()
+                strongSelf.audioPlayer1?.currentTime = 0
+                strongSelf.audioPlayer2?.play()
+                strongSelf.timer = Timer.scheduledTimer(withTimeInterval: 0.083, repeats: true, block: { [weak self] (t) in // número primo, así refresca todos los números de los milisegundos y no sólo el 1ro
+                    guard let strongSelf = self else { return }
+                    strongSelf.timePenaltyTimeInterval = previousTimePenaltyTimeInterval + Date().timeIntervalSince(currentTimerEnd)
+                })
+                
+            } else if strongSelf.remainingTimeInterval < 29.5 {
+                strongSelf.audioPlayer1?.play()
+                strongSelf.audioPlayer2?.prepareToPlay()
             }
-
-            strongSelf.remainingTimeLabel.text = strongSelf.remainingTimeInterval.toString(showMs: false)
         })
         
         UIView.animate(withDuration: 1,
@@ -172,8 +182,10 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
             timer = nil
         }
         
-        self.audioPlayer?.stop()
-        self.audioPlayer?.currentTime = 0
+        self.audioPlayer1?.stop()
+        self.audioPlayer1?.currentTime = 0
+        self.audioPlayer2?.stop()
+        self.audioPlayer2?.currentTime = 0
 
         UIView.animate(withDuration: 0.3) {
             self.backgroundColor = self.color

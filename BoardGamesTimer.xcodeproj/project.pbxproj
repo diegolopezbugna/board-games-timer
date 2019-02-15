@@ -10,7 +10,8 @@
 		E824F2312114E70900458890 /* PlayersSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824F2302114E70900458890 /* PlayersSetupViewController.swift */; };
 		E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */; };
 		E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */; };
-		E8B116A52217500B005A1D9A /* lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116A422174F49005A1D9A /* lost.mp3 */; };
+		E8B116B222176200005A1D9A /* lostF.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116B122176200005A1D9A /* lostF.mp3 */; };
+		E8B116B422176633005A1D9A /* lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116B322176633005A1D9A /* lost.mp3 */; };
 		F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */; };
 		F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */; };
 		F1049AA31ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9C1ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift */; };
@@ -27,7 +28,8 @@
 		E824F2302114E70900458890 /* PlayersSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersSetupViewController.swift; sourceTree = "<group>"; };
 		E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
 		E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialPlusTurnTimerPlayerView.swift; sourceTree = "<group>"; };
-		E8B116A422174F49005A1D9A /* lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lost.mp3; sourceTree = "<group>"; };
+		E8B116B122176200005A1D9A /* lostF.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lostF.mp3; sourceTree = "<group>"; };
+		E8B116B322176633005A1D9A /* lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lost.mp3; sourceTree = "<group>"; };
 		F1049A971ECCCD4D00D05E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BoardGamesTimer/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BoardGamesTimer/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimersViewController.swift; path = BoardGamesTimer/TimersViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -65,7 +67,8 @@
 		E8B116A02217498E005A1D9A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E8B116A422174F49005A1D9A /* lost.mp3 */,
+				E8B116B322176633005A1D9A /* lost.mp3 */,
+				E8B116B122176200005A1D9A /* lostF.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -168,7 +171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11F86741ECCD74E0034EC8E /* LaunchScreen.storyboard in Resources */,
-				E8B116A52217500B005A1D9A /* lost.mp3 in Resources */,
+				E8B116B222176200005A1D9A /* lostF.mp3 in Resources */,
+				E8B116B422176633005A1D9A /* lost.mp3 in Resources */,
 				F14038761ED3613B00320314 /* ColorSelectorView.xib in Resources */,
 				F1049AAE1ECCCF1800D05E8F /* Assets.xcassets in Resources */,
 				F1049AAD1ECCCF1800D05E8F /* Main.storyboard in Resources */,
