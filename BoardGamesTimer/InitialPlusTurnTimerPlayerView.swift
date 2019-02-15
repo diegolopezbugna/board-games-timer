@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
 
@@ -27,6 +28,8 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     var timePenaltyLabel: UILabel!
 
     var timer: Timer?
+    var audioPlayer: AVAudioPlayer!
+    
     var remainingTimeInterval: TimeInterval = 0 {
         didSet {
             self.remainingTimeLabel.text = remainingTimeInterval.toString(showMs: false)
@@ -60,6 +63,12 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.remainingTimeInterval = initialTime
 
+        let audioFilePath = Bundle.main.path(forResource: "lost", ofType: "mp3")
+        if audioFilePath != nil {
+            let audioFileUrl = URL(fileURLWithPath: audioFilePath!)
+            self.audioPlayer = try! AVAudioPlayer(contentsOf: audioFileUrl)
+        }
+        
         self.remainingTimeLabel = createLabel(fontSize: 44, constraintConstantY: 20)
         self.remainingTimeLabel.text = remainingTimeInterval.toString(showMs: false)
         self.delaysLabel = createLabel(fontSize: 16, constraintConstantY: -55)
@@ -128,11 +137,15 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
             
             strongSelf.remainingTimeInterval = currentTimerEnd.timeIntervalSince(Date())
 
-            if strongSelf.remainingTimeInterval < 0 {
+            if strongSelf.remainingTimeInterval < 0.0 {
                 strongSelf.remainingTimeInterval = 0
                 strongSelf.delays += 1
                 strongSelf.stopTimer()
+                strongSelf.audioPlayer?.stop()
+                strongSelf.audioPlayer?.currentTime = 0
                 // TODO: increase timePenalty
+            } else if strongSelf.remainingTimeInterval < 22.0 {
+                strongSelf.audioPlayer?.play()
             }
 
             strongSelf.remainingTimeLabel.text = strongSelf.remainingTimeInterval.toString(showMs: false)
@@ -158,6 +171,9 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
             timer!.invalidate()
             timer = nil
         }
+        
+        self.audioPlayer?.stop()
+        self.audioPlayer?.currentTime = 0
 
         UIView.animate(withDuration: 0.3) {
             self.backgroundColor = self.color
