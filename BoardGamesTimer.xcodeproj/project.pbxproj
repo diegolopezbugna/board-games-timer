@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		E824F2312114E70900458890 /* PlayersSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824F2302114E70900458890 /* PlayersSetupViewController.swift */; };
+		E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */; };
+		E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */; };
 		F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */; };
 		F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */; };
-		F1049AA31ECCCD4D00D05E8F /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9C1ECCCD4D00D05E8F /* PlayerView.swift */; };
+		F1049AA31ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9C1ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift */; };
 		F1049AA41ECCCD4D00D05E8F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9D1ECCCD4D00D05E8F /* ViewController.swift */; };
 		F1049AAD1ECCCF1800D05E8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1049AAB1ECCCF1800D05E8F /* Main.storyboard */; };
 		F1049AAE1ECCCF1800D05E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1049A971ECCCD4D00D05E8F /* Assets.xcassets */; };
@@ -22,16 +24,18 @@
 
 /* Begin PBXFileReference section */
 		E824F2302114E70900458890 /* PlayersSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersSetupViewController.swift; sourceTree = "<group>"; };
+		E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
+		E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialPlusTurnTimerPlayerView.swift; sourceTree = "<group>"; };
 		F1049A971ECCCD4D00D05E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BoardGamesTimer/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BoardGamesTimer/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimersViewController.swift; path = BoardGamesTimer/TimersViewController.swift; sourceTree = SOURCE_ROOT; };
 		F1049A9B1ECCCD4D00D05E8F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BoardGamesTimer/Info.plist; sourceTree = SOURCE_ROOT; };
-		F1049A9C1ECCCD4D00D05E8F /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerView.swift; path = BoardGamesTimer/PlayerView.swift; sourceTree = SOURCE_ROOT; };
+		F1049A9C1ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IncrementalTimerPlayerView.swift; path = BoardGamesTimer/IncrementalTimerPlayerView.swift; sourceTree = SOURCE_ROOT; };
 		F1049A9D1ECCCD4D00D05E8F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = BoardGamesTimer/ViewController.swift; sourceTree = SOURCE_ROOT; };
 		F1049AAC1ECCCF1800D05E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BoardGamesTimer/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		F11F86731ECCD74E0034EC8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BoardGamesTimer/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		F14038751ED3613B00320314 /* ColorSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ColorSelectorView.xib; path = BoardGamesTimer/ColorSelectorView.xib; sourceTree = SOURCE_ROOT; };
-		F14038771ED3734400320314 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = BoardGamesTimer/UIColorExtensions.swift; sourceTree = SOURCE_ROOT; };
+		F14038771ED3734400320314 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = BoardGamesTimer/Extensions/UIColorExtensions.swift; sourceTree = SOURCE_ROOT; };
 		F161CAF41ED4A4FD00EB904F /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSelectorViewController.swift; path = BoardGamesTimer/ColorSelectorViewController.swift; sourceTree = SOURCE_ROOT; };
 		F1E366AC1ECA0A07006CBEAF /* BoardGamesTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardGamesTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -47,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E8B1169B221714BC005A1D9A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F14038771ED3734400320314 /* UIColorExtensions.swift */,
+				E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F1E366A31ECA0A07006CBEAF = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +79,7 @@
 		F1E366AE1ECA0A07006CBEAF /* BoardGamesTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E8B1169B221714BC005A1D9A /* Extensions */,
 				F11F86721ECCD74E0034EC8E /* LaunchScreen.storyboard */,
 				F1049AAB1ECCCF1800D05E8F /* Main.storyboard */,
 				F1049A971ECCCD4D00D05E8F /* Assets.xcassets */,
@@ -74,10 +88,10 @@
 				F1049A9D1ECCCD4D00D05E8F /* ViewController.swift */,
 				E824F2302114E70900458890 /* PlayersSetupViewController.swift */,
 				F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */,
-				F1049A9C1ECCCD4D00D05E8F /* PlayerView.swift */,
+				F1049A9C1ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift */,
+				E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */,
 				F14038751ED3613B00320314 /* ColorSelectorView.xib */,
 				F161CAF41ED4A4FD00EB904F /* ColorSelectorViewController.swift */,
-				F14038771ED3734400320314 /* UIColorExtensions.swift */,
 			);
 			path = BoardGamesTimer;
 			sourceTree = "<group>";
@@ -114,7 +128,6 @@
 				TargetAttributes = {
 					F1E366AB1ECA0A07006CBEAF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = X32L2WT2YT;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
@@ -157,9 +170,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1049AA31ECCCD4D00D05E8F /* PlayerView.swift in Sources */,
+				F1049AA31ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift in Sources */,
 				F161CAF51ED4A4FD00EB904F /* ColorSelectorViewController.swift in Sources */,
 				E824F2312114E70900458890 /* PlayersSetupViewController.swift in Sources */,
+				E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */,
+				E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */,
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
 				F14038781ED3734400320314 /* UIColorExtensions.swift in Sources */,
 				F1049AA41ECCCD4D00D05E8F /* ViewController.swift in Sources */,
@@ -300,7 +315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X32L2WT2YT;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/BoardGamesTimer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DiegoLB.BoardGamesTimer;
@@ -314,7 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X32L2WT2YT;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/BoardGamesTimer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = DiegoLB.BoardGamesTimer;

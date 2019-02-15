@@ -8,10 +8,24 @@
 
 import UIKit
 
+protocol TimerPlayer {
+    func isRunning() -> Bool
+    func startTimer()
+    func stopTimer()
+}
+
+struct PlayerViewFactory {
+    static func createPlayerView(playerColor: PlayerColor, initialTime: TimeInterval, turnTime: TimeInterval) -> UIView {
+        return InitialPlusTurnTimerPlayerView(playerColor: playerColor, initialTime: initialTime, turnTime: turnTime)
+    }
+}
+
 class TimersViewController: UIViewController {
     
+    var initialTime: TimeInterval?
+    var turnTime: TimeInterval?
     var totalPlayers: Int?
-    var playerViews = [PlayerView]()
+    var playerViews = [UIView]()
     var playerColors: [PlayerColor]?
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +43,7 @@ class TimersViewController: UIViewController {
 
         for i in 0..<totalPlayers! {
 
-            let v = PlayerView(playerColor: playerColors![i])
+            let v = PlayerViewFactory.createPlayerView(playerColor: playerColors![i], initialTime: self.initialTime!, turnTime: self.turnTime!)
             playerViews.append(v)
             
             let gesture = UITapGestureRecognizer(target: self, action: #selector (self.didTap(sender:)))
@@ -112,21 +126,19 @@ class TimersViewController: UIViewController {
     }
 
     @objc func didTap(sender: UITapGestureRecognizer) {
-        let tappedView = sender.view as! PlayerView
-        
         for v in playerViews {
-            
-            if (v == tappedView) {
-                if (v.isRunning()) {
-                    v.stopTimer()
+            let vTimerPlayer = v as! TimerPlayer
+            if (v == sender.view) {
+                if (vTimerPlayer.isRunning()) {
+                    vTimerPlayer.stopTimer()
                 }
                 else {
-                    v.startTimer()
+                    vTimerPlayer.startTimer()
                 }
             }
             else {
-                if (v.isRunning()) {
-                    v.stopTimer()
+                if (vTimerPlayer.isRunning()) {
+                    vTimerPlayer.stopTimer()
                 }
             }
             

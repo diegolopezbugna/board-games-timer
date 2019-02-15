@@ -16,6 +16,11 @@ struct PlayerColor {
 
 class ViewController: UIViewController {
 
+    @IBOutlet var initialTimeLabel: UILabel!
+    @IBOutlet var initialTimeStepper: UIStepper!
+    @IBOutlet var turnTimeLabel: UILabel!
+    @IBOutlet var turnTimeStepper: UIStepper!
+    
     @IBOutlet var playersLabel: UILabel!
     @IBOutlet var playersStepper: UIStepper!
     @IBOutlet var colorSelectorsView: UIView!
@@ -39,6 +44,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        initialTimeStepper.addTarget(self, action: #selector(self.initialTimeStepperValueChanged), for: .valueChanged)
+        initialTimeStepper.maximumValue = 20 * 60
+        initialTimeStepper.stepValue = 30
+        initialTimeStepper.value = 180
+
+        turnTimeStepper.addTarget(self, action: #selector(self.turnTimeStepperValueChanged), for: .valueChanged)
+        turnTimeStepper.maximumValue = 3 * 60
+        turnTimeStepper.stepValue = 5
+        turnTimeStepper.value = 30
+        
         playersStepper.value = 6
         playersStepper.minimumValue = 2
         playersStepper.maximumValue = 8
@@ -46,6 +61,14 @@ class ViewController: UIViewController {
         playersStepperValueChanged(playersStepper)
     }
     
+    @objc func initialTimeStepperValueChanged() {
+        initialTimeLabel.text = TimeInterval(initialTimeStepper.value).toString(showMs: false)
+    }
+
+    @objc func turnTimeStepperValueChanged() {
+        turnTimeLabel.text = TimeInterval(turnTimeStepper.value).toString(showMs: false)
+    }
+
     @IBAction func playersStepperValueChanged(_ sender: Any) {
         let totalPlayers = Int(playersStepper.value)
         playersLabel.text =  "\(totalPlayers) players"
@@ -88,6 +111,8 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let timersVC = segue.destination as! TimersViewController
         timersVC.hidesBottomBarWhenPushed = true
+        timersVC.initialTime = initialTimeStepper.value
+        timersVC.turnTime = turnTimeStepper.value
         timersVC.totalPlayers = Int(playersStepper.value)
         
         timersVC.playerColors = colorSelectors.map({ (vc) -> PlayerColor in

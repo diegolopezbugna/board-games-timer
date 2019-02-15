@@ -1,5 +1,5 @@
 //
-//  PlayerView.swift
+//  IncrementalTimerPlayerView.swift
 //  BoardGamesTimer
 //
 //  Created by Diego on 5/16/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlayerView: UIView {
+class IncrementalTimerPlayerView: UIView, TimerPlayer {
 
     var color: UIColor? {
         didSet {
@@ -75,32 +75,6 @@ class PlayerView: UIView {
         return label
     }
     
-    func stringFromTimeInterval(interval: TimeInterval, showMs: Bool) -> String {
-        
-        let ti = NSInteger(interval)
-        let ms = Int(interval.truncatingRemainder(dividingBy: 1) * 1000)
-        let seconds = ti % 60
-        let minutes = (ti / 60) % 60
-        let hours = (ti / 3600)
-        
-        if (showMs) {
-            if (hours > 0) {
-                return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
-            }
-            else {
-                return String(format: "%0.2d:%0.2d.%0.3d",minutes,seconds,ms)
-            }
-        }
-        else {
-            if (hours > 0) {
-                return String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
-            }
-            else {
-                return String(format: "%0.2d:%0.2d",minutes,seconds)
-            }
-        }
-    }
-
     func isRunning() -> Bool {
         return timer != nil
     }
@@ -111,8 +85,8 @@ class PlayerView: UIView {
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.083, repeats: true, block: { [unowned self] (t) in // número primo, así refresca todos los números de los milisegundos y no sólo el 1ro
             let timeInterval = Date().timeIntervalSince(self.currentTimerStart!)
-            self.timerLabel.text = self.stringFromTimeInterval(interval: timeInterval, showMs: true)
-            self.accumulateLabel.text = self.stringFromTimeInterval(interval: self.accumulatedTimeInterval + timeInterval, showMs: false)
+            self.timerLabel.text = timeInterval.toString(showMs: true)
+            self.accumulateLabel.text = (self.accumulatedTimeInterval + timeInterval).toString(showMs: false)
         })
         
         UIView.animate(withDuration: 1,
@@ -128,12 +102,9 @@ class PlayerView: UIView {
     func stopTimer() {
 
         let timeInterval = Date().timeIntervalSince(self.currentTimerStart!)
-        self.timerLabel.text = self.stringFromTimeInterval(interval: timeInterval, showMs: true)
+        self.timerLabel.text = timeInterval.toString(showMs: true)
+        self.accumulateLabel.text = (self.accumulatedTimeInterval + timeInterval).toString(showMs: false)
 
-        accumulatedTimeInterval = accumulatedTimeInterval + timeInterval
-        
-        accumulateLabel.text = self.stringFromTimeInterval(interval: accumulatedTimeInterval, showMs: false)
-        
         if (timer != nil) {
             timer!.invalidate()
             timer = nil
