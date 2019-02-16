@@ -43,6 +43,7 @@ class Player: NSObject, NSCoding {
         allPlayers[player.name] = player
         let data = NSKeyedArchiver.archivedData(withRootObject: allPlayers)
         UserDefaults.standard.set(data, forKey: "players")
+        // TODO: no anda el edit?
     }
 }
 
@@ -55,6 +56,7 @@ class PlayersViewController: UIViewController {
     override func viewDidLoad() {
         self.players = Array(Player.all().values)
         playersTableView.dataSource = self
+        playersTableView.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,4 +85,15 @@ extension PlayersViewController: UITableViewDataSource {
         return cell
     }
 
+}
+
+extension PlayersViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let player = self.players[indexPath.row]
+        let board = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc = board.instantiateViewController(withIdentifier: "AddPlayer") as! AddPlayerViewController
+        vc.player = player
+        vc.delegate = self
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="1980" y="994.45277361319347"/>
         </scene>
-        <!--Add Player View Controller-->
+        <!--Add Player-->
         <scene sceneID="S4O-IP-Lrg">
             <objects>
-                <viewController id="sjg-Oo-SHO" customClass="AddPlayerViewController" customModule="BoardGamesTimer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddPlayer" id="sjg-Oo-SHO" customClass="AddPlayerViewController" customModule="BoardGamesTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G7V-fc-jDs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,7 +339,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zkz-Hw-wwz"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9us-at-uTg">
+                    <navigationItem key="navigationItem" title="Add Player" id="9us-at-uTg">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="DAP-yR-Rr2">
                             <connections>
                                 <action selector="saveButtonPressed:" destination="sjg-Oo-SHO" id="34H-E6-fMR"/>
@@ -349,6 +349,7 @@
                     <connections>
                         <outlet property="bggUserTextField" destination="NLE-XG-xLa" id="5VI-Rj-fMF"/>
                         <outlet property="nameTextField" destination="eja-dZ-WFr" id="tY7-9P-qd8"/>
+                        <outlet property="titleLabel" destination="KSi-UA-Q73" id="qND-jA-TZs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sz5-aq-0yF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -380,7 +381,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Zfc-l1-UcB">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chartCell" id="Zfc-l1-UcB">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zfc-l1-UcB" id="nkE-SF-LeR">

@@ -13,16 +13,26 @@ protocol AddPlayerViewControllerDelegate: class {
 }
 
 class AddPlayerViewController: UIViewController {
+    
+    var player: Player?
 
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var bggUserTextField: UITextField!
+    @IBOutlet var titleLabel: UILabel!
     
     weak var delegate: AddPlayerViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let player = player {
+            self.nameTextField.text = player.name
+            self.bggUserTextField.text = player.bggUser
+            self.title = "Edit Player"
+            self.titleLabel.text = "Edit Player"
+        }
     }
-    
+
     @IBAction func saveButtonPressed(_ sender: Any) {
         guard let name = nameTextField.text else {
             return
