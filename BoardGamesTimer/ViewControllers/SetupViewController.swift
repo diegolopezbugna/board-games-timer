@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SetupViewController.swift
 //  BoardGamesTimer
 //
 //  Created by Diego on 5/15/17.
@@ -14,7 +14,7 @@ struct PlayerColor {
     var bgColor2: UIColor
 }
 
-class ViewController: UIViewController {
+class SetupViewController: UIViewController {
 
     @IBOutlet var initialTimeLabel: UILabel!
     @IBOutlet var initialTimeStepper: UIStepper!
