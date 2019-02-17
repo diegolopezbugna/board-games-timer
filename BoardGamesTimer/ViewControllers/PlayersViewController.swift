@@ -12,7 +12,7 @@ class Player: NSObject, NSCoding {
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.name, forKey: "name");
-        aCoder.encode(self.name, forKey: "bggUser");
+        aCoder.encode(self.bggUser, forKey: "bggUser");
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,7 +43,6 @@ class Player: NSObject, NSCoding {
         allPlayers[player.name] = player
         let data = NSKeyedArchiver.archivedData(withRootObject: allPlayers)
         UserDefaults.standard.set(data, forKey: "players")
-        // TODO: no anda el edit?
     }
 }
 
