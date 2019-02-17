@@ -44,6 +44,13 @@ class Player: NSObject, NSCoding {
         let data = NSKeyedArchiver.archivedData(withRootObject: allPlayers)
         UserDefaults.standard.set(data, forKey: "players")
     }
+    
+    static func deletePlayer(_ player: Player) {
+        var allPlayers = all()
+        allPlayers.removeValue(forKey: player.name)
+        let data = NSKeyedArchiver.archivedData(withRootObject: allPlayers)
+        UserDefaults.standard.set(data, forKey: "players")
+    }
 }
 
 class PlayersViewController: UIViewController {
@@ -66,9 +73,19 @@ class PlayersViewController: UIViewController {
 }
 
 extension PlayersViewController: AddPlayerViewControllerDelegate {
+    
     func adedOrUpdatedPlayer(_ player: Player) {
         self.players = Array(Player.all().values)
         playersTableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            Player.deletePlayer(self.players[indexPath.row])
+            self.players = Array(Player.all().values)
+            tableView.reloadData()
+        }
+        return [deleteAction]
     }
 }
 
