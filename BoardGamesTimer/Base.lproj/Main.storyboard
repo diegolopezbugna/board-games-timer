@@ -182,13 +182,35 @@
                     <view key="view" contentMode="scaleToFill" id="LsD-bZ-T25">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga5-wl-gXm">
+                                <rect key="frame" x="16" y="80" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="501" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gGu-uQ-p5M">
+                                <rect key="frame" x="16" y="117" width="343" height="501"/>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gGu-uQ-p5M" firstAttribute="leading" secondItem="0rr-Qg-dNR" secondAttribute="leading" constant="16" id="0kL-HF-Rob"/>
+                            <constraint firstItem="gGu-uQ-p5M" firstAttribute="top" secondItem="ga5-wl-gXm" secondAttribute="bottom" constant="16" id="1Qt-lp-QZY"/>
+                            <constraint firstItem="ga5-wl-gXm" firstAttribute="top" secondItem="0rr-Qg-dNR" secondAttribute="top" constant="16" id="6U8-8d-BLV"/>
+                            <constraint firstItem="ga5-wl-gXm" firstAttribute="leading" secondItem="0rr-Qg-dNR" secondAttribute="leading" constant="16" id="HtG-Pp-bDY"/>
+                            <constraint firstItem="0rr-Qg-dNR" firstAttribute="trailing" secondItem="ga5-wl-gXm" secondAttribute="trailing" constant="16" id="WtM-zM-sfJ"/>
+                            <constraint firstItem="0rr-Qg-dNR" firstAttribute="trailing" secondItem="gGu-uQ-p5M" secondAttribute="trailing" constant="16" id="X7B-Eo-bKV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0rr-Qg-dNR"/>
                     </view>
+                    <connections>
+                        <outlet property="stackView" destination="gGu-uQ-p5M" id="nuT-Cs-666"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbf-g7-jiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3612" y="149"/>
+            <point key="canvasLocation" x="3612" y="148.87556221889056"/>
         </scene>
         <!--Play-->
         <scene sceneID="hAK-yb-OAY">

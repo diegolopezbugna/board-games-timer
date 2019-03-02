@@ -10,22 +10,52 @@ import UIKit
 
 class EndGameViewController: UIViewController {
 
+    @IBOutlet weak var stackView: UIStackView!
+    
     var timerPlayers: [TimerPlayer]?
+    let players = Player.allSorted()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let stackView = UIStackView(frame: CGRect())
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        self.view.addSubview(stackView)
+
         if let timerPlayers = timerPlayers {
             for t in timerPlayers {
                 let v = EndGamePlayerView(timerPlayer: t)
+                v.pickerView?.dataSource = self
+                v.pickerView?.delegate = self
                 stackView.addArrangedSubview(v)
             }
         }
-        let centerX = NSLayoutConstraint(item: stackView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
-        let centerY = NSLayoutConstraint(item: stackView, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
-        self.view.addConstraints([centerX, centerY])
+    }
+}
+
+extension EndGameViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.players.count + 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 25
+    }
+}
+
+extension EndGameViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.players[row].name
+    }
+
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel = view as? UILabel
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel!.font = UIFont.systemFont(ofSize: 17)
+            pickerLabel!.textAlignment  = .center
+        }
+        pickerLabel!.text = row > 0 ? self.players[row - 1].name : ""
+        return pickerLabel!
     }
 }

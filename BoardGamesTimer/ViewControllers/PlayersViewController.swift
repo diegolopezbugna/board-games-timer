@@ -42,6 +42,10 @@ class Player: NSObject, NSCoding {
         return [:]
     }
     
+    static func allSorted() -> [Player] {
+        return Array(Player.all().values).sorted { $0.name < $1.name }
+    }
+    
     static func addOrUpdatePlayer(_ player: Player) {
         var allPlayers = all()
         allPlayers[player.id] = player
@@ -64,7 +68,7 @@ class PlayersViewController: UIViewController {
     @IBOutlet var playersTableView: UITableView!
     
     override func viewDidLoad() {
-        self.players = Array(Player.all().values)
+        self.players = Player.allSorted()
         playersTableView.dataSource = self
         playersTableView.delegate = self
     }
@@ -79,14 +83,14 @@ class PlayersViewController: UIViewController {
 extension PlayersViewController: AddPlayerViewControllerDelegate {
     
     func adedOrUpdatedPlayer(_ player: Player) {
-        self.players = Array(Player.all().values)
+        self.players = Player.allSorted()
         playersTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             Player.deletePlayer(self.players[indexPath.row])
-            self.players = Array(Player.all().values)
+            self.players = Player.allSorted()
             tableView.reloadData()
         }
         return [deleteAction]
