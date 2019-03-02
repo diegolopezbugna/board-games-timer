@@ -19,8 +19,8 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
             self.backgroundColor = color
         }
     }
+    var colorName: String = ""
     var animationColor: UIColor?
-
     var fontColor: UIColor?
     
     var remainingTimeLabel: UILabel!
@@ -28,6 +28,8 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     var timePenaltyLabel: UILabel!
 
     var timer: Timer?
+    var accumulatedTimeInterval: TimeInterval = 0
+    var currentTimerStart: Date?
     var audioPlayer1: AVAudioPlayer!
     var audioPlayer2: AVAudioPlayer!
 
@@ -48,14 +50,15 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     }
     
     convenience init(playerColor: PlayerColor, initialTime: TimeInterval, turnTime: TimeInterval) {
-        self.init(color: playerColor.bgColor, animationColor: playerColor.bgColor2, fontColor: playerColor.textColor, initialTime: initialTime, turnTime: turnTime)
+        self.init(color: playerColor.bgColor, colorName: playerColor.name, animationColor: playerColor.bgColor2, fontColor: playerColor.textColor, initialTime: initialTime, turnTime: turnTime)
     }
     
-    init(color: UIColor, animationColor: UIColor, fontColor: UIColor, initialTime: TimeInterval, turnTime: TimeInterval) {
+    init(color: UIColor, colorName: String, animationColor: UIColor, fontColor: UIColor, initialTime: TimeInterval, turnTime: TimeInterval) {
         self.initialTime = initialTime
         self.turnTime = turnTime
         super.init(frame: CGRect())
         self.color = color
+        self.colorName = colorName
         self.animationColor = animationColor
         self.fontColor = fontColor
         self.backgroundColor = self.color
@@ -134,8 +137,8 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     func startTimer() {
         
         self.remainingTimeInterval = TimeInterval.minimum(self.remainingTimeInterval + turnTime, self.initialTime)
-        let currentTimerStart = Date()
-        let currentTimerEnd = currentTimerStart.addingTimeInterval(remainingTimeInterval)
+        self.currentTimerStart = Date()
+        let currentTimerEnd = self.currentTimerStart!.addingTimeInterval(remainingTimeInterval)
         let previousTimePenaltyTimeInterval = self.timePenaltyTimeInterval
         
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.083, repeats: true, block: { [weak self] (t) in // número primo, así refresca todos los números de los milisegundos y no sólo el 1ro
@@ -171,11 +174,9 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     }
     
     func stopTimer() {
-//        guard let currentTimerStart = self.currentTimerStart else { return }
-//
-//        let timeInterval = Date().timeIntervalSince(currentTimerStart)
-//        self.timerLabel.text = timeInterval.toString(showMs: true)
-//        self.accumulateLabel.text = (self.accumulatedTimeInterval + timeInterval).toString(showMs: false)
+        guard let currentTimerStart = self.currentTimerStart else { return }
+        let timeInterval = Date().timeIntervalSince(currentTimerStart)
+        self.accumulatedTimeInterval += timeInterval
 
         if (timer != nil) {
             timer!.invalidate()
@@ -190,5 +191,9 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
         UIView.animate(withDuration: 0.3) {
             self.backgroundColor = self.color
         }
+    }
+    
+    var totalTime: TimeInterval {
+        return self.accumulatedTimeInterval
     }
 }

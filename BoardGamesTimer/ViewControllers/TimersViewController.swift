@@ -9,6 +9,8 @@
 import UIKit
 
 protocol TimerPlayer {
+    var colorName: String { get }
+    var totalTime: TimeInterval { get }
     func isRunning() -> Bool
     func startTimer()
     func stopTimer()
@@ -56,7 +58,67 @@ class TimersViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "endGameSegue" {
+            let alert = UIAlertController(title: "End Game", message: "Are you sure?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+                self.endGame()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return false
+        }
+        return super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "endGameSegue" {
+            if let vc = segue.destination as? EndGameViewController {
+                vc.timerPlayers = self.playerViews.map({ $0 as! TimerPlayer })
+            }
+        }
+    }
+    
+    @objc func didTap(sender: UITapGestureRecognizer) {
+        for v in playerViews {
+            let vTimerPlayer = v as! TimerPlayer
+            if (v == sender.view) {
+                if (vTimerPlayer.isRunning()) {
+                    vTimerPlayer.stopTimer()
+                }
+                else {
+                    vTimerPlayer.startTimer()
+                }
+            }
+            else {
+                if (vTimerPlayer.isRunning()) {
+                    vTimerPlayer.stopTimer()
+                }
+            }
+            
+        }
+    }
+    
+    func endGame() {
+        for v in playerViews {
+            let vTimerPlayer = v as! TimerPlayer
+            if (vTimerPlayer.isRunning()) {
+                vTimerPlayer.stopTimer()
+            }
+        }
+        self.performSegue(withIdentifier: "endGameSegue", sender: self)
+    }
+    
+    @objc func orientationChanged() {
+        if UIDevice.current.orientation.isLandscape {
+            addLandscapeConstraints()
+        }
+        else if UIDevice.current.orientation == .portrait {
+            addPortraitConstraints()
+        }
+    }
+
     func addPortraitConstraints() {
 
         self.navigationController?.navigationBar.isHidden = false
@@ -124,39 +186,4 @@ class TimersViewController: UIViewController {
             NSLayoutConstraint.activate([topConstraint, leftConstraint, heightConstraint, widthConstraint])
         }
     }
-
-    @objc func didTap(sender: UITapGestureRecognizer) {
-        for v in playerViews {
-            let vTimerPlayer = v as! TimerPlayer
-            if (v == sender.view) {
-                if (vTimerPlayer.isRunning()) {
-                    vTimerPlayer.stopTimer()
-                }
-                else {
-                    vTimerPlayer.startTimer()
-                }
-            }
-            else {
-                if (vTimerPlayer.isRunning()) {
-                    vTimerPlayer.stopTimer()
-                }
-            }
-            
-        }
-    }
-
-    @objc func orientationChanged() {
-        if UIDevice.current.orientation.isLandscape {
-            addLandscapeConstraints()
-        }
-        else if UIDevice.current.orientation == .portrait {
-            addPortraitConstraints()
-        }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }

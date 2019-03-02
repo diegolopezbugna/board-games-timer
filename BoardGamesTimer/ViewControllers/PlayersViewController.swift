@@ -11,28 +11,32 @@ import UIKit
 class Player: NSObject, NSCoding {
     
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.id, forKey: "id");
         aCoder.encode(self.name, forKey: "name");
         aCoder.encode(self.bggUser, forKey: "bggUser");
     }
     
     required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as! UUID
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.bggUser = aDecoder.decodeObject(forKey: "bggUser") as? String
         super.init()
     }
     
+    var id: UUID
     var name: String
     var bggUser: String?
     var preferredColor: String?
     
-    init(name: String, bggUser: String?) {
+    init(id: UUID, name: String, bggUser: String?) {
+        self.id = id
         self.name = name
         self.bggUser = bggUser
     }
     
-    static func all() -> [String: Player] {
+    static func all() -> [UUID: Player] {
         if let data = UserDefaults.standard.data(forKey: "players"),
-            let players = NSKeyedUnarchiver.unarchiveObject(with: data) as? [String: Player] {
+            let players = NSKeyedUnarchiver.unarchiveObject(with: data) as? [UUID: Player] {
             return players
         }
         return [:]
@@ -40,14 +44,14 @@ class Player: NSObject, NSCoding {
     
     static func addOrUpdatePlayer(_ player: Player) {
         var allPlayers = all()
-        allPlayers[player.name] = player
+        allPlayers[player.id] = player
         let data = NSKeyedArchiver.archivedData(withRootObject: allPlayers)
         UserDefaults.standard.set(data, forKey: "players")
     }
     
     static func deletePlayer(_ player: Player) {
         var allPlayers = all()
-        allPlayers.removeValue(forKey: player.name)
+        allPlayers.removeValue(forKey: player.id)
         let data = NSKeyedArchiver.archivedData(withRootObject: allPlayers)
         UserDefaults.standard.set(data, forKey: "players")
     }

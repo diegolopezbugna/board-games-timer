@@ -15,6 +15,7 @@ class IncrementalTimerPlayerView: UIView, TimerPlayer {
             self.backgroundColor = color
         }
     }
+    var colorName: String = ""
     var animationColor: UIColor?
 
     var fontColor: UIColor?
@@ -23,14 +24,14 @@ class IncrementalTimerPlayerView: UIView, TimerPlayer {
     var accumulateLabel: UILabel!
     
     var timer: Timer?
-    var accumulatedTimeInterval: TimeInterval!
+    var accumulatedTimeInterval: TimeInterval = 0
     var currentTimerStart: Date?
     
     convenience init(playerColor: PlayerColor) {
-        self.init(color: playerColor.bgColor, animationColor: playerColor.bgColor2, fontColor: playerColor.textColor)
+        self.init(color: playerColor.bgColor, colorName: playerColor.name, animationColor: playerColor.bgColor2, fontColor: playerColor.textColor)
     }
     
-    init(color: UIColor, animationColor: UIColor, fontColor: UIColor) {
+    init(color: UIColor, colorName: String, animationColor: UIColor, fontColor: UIColor) {
         super.init(frame: CGRect())
         self.color = color
         self.animationColor = animationColor
@@ -44,8 +45,6 @@ class IncrementalTimerPlayerView: UIView, TimerPlayer {
         timerLabel.text = "00:00.000"
         accumulateLabel = createLabel(fontSize: 44, constraintConstantY: 20)
         accumulateLabel.text = "00:00"
-        
-        accumulatedTimeInterval = 0  // grabar?
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -114,5 +113,9 @@ class IncrementalTimerPlayerView: UIView, TimerPlayer {
             self.backgroundColor = self.color
         }
 
+    }
+    
+    var totalTime: TimeInterval {
+        return self.accumulatedTimeInterval
     }
 }

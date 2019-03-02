@@ -34,13 +34,19 @@ class AddPlayerViewController: UIViewController {
     }
 
     @IBAction func saveButtonPressed(_ sender: Any) {
-        guard let name = nameTextField.text else {
+        guard let name = nameTextField.text, !name.isEmpty else {
             return
         }
         
-        let player = Player(name: name, bggUser: bggUserTextField.text)
-        Player.addOrUpdatePlayer(player)
-        self.delegate?.adedOrUpdatedPlayer(player)
+        var player = self.player
+        if player != nil {
+            player!.name = name
+            player!.bggUser = bggUserTextField.text
+        } else {
+            player = Player(id: UUID(), name: name, bggUser: bggUserTextField.text)
+        }
+        Player.addOrUpdatePlayer(player!)
+        self.delegate?.adedOrUpdatedPlayer(player!)
         self.navigationController?.popViewController(animated: true)
     }
 }

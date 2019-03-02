@@ -163,11 +163,32 @@
                         <viewLayoutGuide key="safeArea" id="rVI-vw-73K"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Jugar" id="7Nf-57-v8A"/>
-                    <navigationItem key="navigationItem" title="Timers" id="Ilb-2C-pbo"/>
+                    <navigationItem key="navigationItem" title="Timers" id="Ilb-2C-pbo">
+                        <barButtonItem key="rightBarButtonItem" title="End Game" id="NNx-K7-d43">
+                            <connections>
+                                <segue destination="U5G-eU-eZo" kind="show" identifier="endGameSegue" id="S1X-fc-WZI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMO-Sy-jkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2736.8000000000002" y="137.18140929535232"/>
+        </scene>
+        <!--End Game-->
+        <scene sceneID="HF5-Fs-pn5">
+            <objects>
+                <viewController title="End Game" id="U5G-eU-eZo" customClass="EndGameViewController" customModule="BoardGamesTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LsD-bZ-T25">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0rr-Qg-dNR"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sbf-g7-jiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3612" y="149"/>
         </scene>
         <!--Play-->
         <scene sceneID="hAK-yb-OAY">
