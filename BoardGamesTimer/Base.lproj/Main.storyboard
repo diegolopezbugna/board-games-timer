@@ -164,7 +164,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Jugar" id="7Nf-57-v8A"/>
                     <navigationItem key="navigationItem" title="Timers" id="Ilb-2C-pbo">
-                        <barButtonItem key="rightBarButtonItem" title="End Game" id="NNx-K7-d43">
+                        <barButtonItem key="rightBarButtonItem" title="Finish Game" id="NNx-K7-d43">
                             <connections>
                                 <segue destination="U5G-eU-eZo" kind="show" identifier="endGameSegue" id="S1X-fc-WZI"/>
                             </connections>
@@ -183,7 +183,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga5-wl-gXm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga5-wl-gXm">
                                 <rect key="frame" x="16" y="80" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -195,22 +195,56 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gGu-uQ-p5M" firstAttribute="leading" secondItem="0rr-Qg-dNR" secondAttribute="leading" constant="16" id="0kL-HF-Rob"/>
                             <constraint firstItem="gGu-uQ-p5M" firstAttribute="top" secondItem="ga5-wl-gXm" secondAttribute="bottom" constant="16" id="1Qt-lp-QZY"/>
                             <constraint firstItem="ga5-wl-gXm" firstAttribute="top" secondItem="0rr-Qg-dNR" secondAttribute="top" constant="16" id="6U8-8d-BLV"/>
                             <constraint firstItem="ga5-wl-gXm" firstAttribute="leading" secondItem="0rr-Qg-dNR" secondAttribute="leading" constant="16" id="HtG-Pp-bDY"/>
+                            <constraint firstItem="gGu-uQ-p5M" firstAttribute="centerX" secondItem="0rr-Qg-dNR" secondAttribute="centerX" id="Lse-WT-iZ4"/>
                             <constraint firstItem="0rr-Qg-dNR" firstAttribute="trailing" secondItem="ga5-wl-gXm" secondAttribute="trailing" constant="16" id="WtM-zM-sfJ"/>
-                            <constraint firstItem="0rr-Qg-dNR" firstAttribute="trailing" secondItem="gGu-uQ-p5M" secondAttribute="trailing" constant="16" id="X7B-Eo-bKV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0rr-Qg-dNR"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Game Finished" id="CD6-ad-N1g">
+                        <barButtonItem key="rightBarButtonItem" title="Positions" id="CY1-ya-wHK" userLabel="Positions">
+                            <connections>
+                                <segue destination="4K8-Ne-esq" kind="show" identifier="positionsSegue" id="yPh-38-iyy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="stackView" destination="gGu-uQ-p5M" id="nuT-Cs-666"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbf-g7-jiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3612" y="148.87556221889056"/>
+            <point key="canvasLocation" x="3553" y="137"/>
+        </scene>
+        <!--Positions-->
+        <scene sceneID="Upt-Df-880">
+            <objects>
+                <tableViewController title="Positions" id="4K8-Ne-esq" customClass="PositionsViewController" customModule="BoardGamesTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="HTR-uI-4Yv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="r0y-fD-cgY" customClass="Position2TableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r0y-fD-cgY" id="EY7-OV-fa7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4K8-Ne-esq" id="Cec-m0-Gmm"/>
+                            <outlet property="delegate" destination="4K8-Ne-esq" id="k3n-oY-6is"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OVb-jb-AeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4447" y="140"/>
         </scene>
         <!--Play-->
         <scene sceneID="hAK-yb-OAY">

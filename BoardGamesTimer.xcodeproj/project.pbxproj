@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E819A639222D8B2A006C7EA6 /* PositionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E819A638222D8B2A006C7EA6 /* PositionsViewController.swift */; };
+		E819A63B222D8EBA006C7EA6 /* PositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E819A63A222D8EBA006C7EA6 /* PositionTableViewCell.swift */; };
 		E824F2312114E70900458890 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824F2302114E70900458890 /* PlayersViewController.swift */; };
 		E851D69D222A4FD40074BA6D /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851D69C222A4FD40074BA6D /* EndGameViewController.swift */; };
 		E851D69F222A523E0074BA6D /* EndGamePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851D69E222A523E0074BA6D /* EndGamePlayerView.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E819A638222D8B2A006C7EA6 /* PositionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsViewController.swift; sourceTree = "<group>"; };
+		E819A63A222D8EBA006C7EA6 /* PositionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionTableViewCell.swift; sourceTree = "<group>"; };
 		E824F2302114E70900458890 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		E851D69C222A4FD40074BA6D /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		E851D69E222A523E0074BA6D /* EndGamePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePlayerView.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 				E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */,
 				F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */,
 				E851D69C222A4FD40074BA6D /* EndGameViewController.swift */,
+				E819A638222D8B2A006C7EA6 /* PositionsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -81,6 +86,7 @@
 				E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */,
 				F14038751ED3613B00320314 /* ColorSelectorView.xib */,
 				E851D69E222A523E0074BA6D /* EndGamePlayerView.swift */,
+				E819A63A222D8EBA006C7EA6 /* PositionTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,7 +168,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Diego;
 				TargetAttributes = {
 					F1E366AB1ECA0A07006CBEAF = {
@@ -212,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E819A63B222D8EBA006C7EA6 /* PositionTableViewCell.swift in Sources */,
 				F1049AA31ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift in Sources */,
 				E8B0CB862217C30D006FB19F /* AddPlayerViewController.swift in Sources */,
 				F161CAF51ED4A4FD00EB904F /* ColorSelectorViewController.swift in Sources */,
@@ -219,6 +226,7 @@
 				E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */,
 				E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */,
 				E851D69D222A4FD40074BA6D /* EndGameViewController.swift in Sources */,
+				E819A639222D8B2A006C7EA6 /* PositionsViewController.swift in Sources */,
 				E851D69F222A523E0074BA6D /* EndGamePlayerView.swift in Sources */,
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
 				F14038781ED3734400320314 /* UIColorExtensions.swift in Sources */,
@@ -262,6 +270,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -269,6 +278,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -319,6 +329,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -326,6 +337,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

@@ -14,14 +14,12 @@ class EndGamePlayerView: UIView {
 
     var leftLabel: UILabel?
     var rightLabel: UILabel?
-    var pickerView: UIPickerView?
 
     init(timerPlayer: TimerPlayer) {
         self.timerPlayer = timerPlayer
         super.init(frame: CGRect())
         self.createLeftLabel(timerPlayer: timerPlayer)
         self.createRightLabel(timerPlayer: timerPlayer)
-        self.createPicker()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,21 +49,10 @@ class EndGamePlayerView: UIView {
         let bottom = NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: self.leftLabel!, attribute: .bottom, multiplier: 1, constant: 0)
         let left = NSLayoutConstraint(item: label, attribute: .leading, relatedBy: .equal, toItem: self.leftLabel!, attribute: .trailing, multiplier: 1, constant: 8)
         let width = NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60)
-        self.addConstraints([top, left, width, bottom])
+        let right = NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -16)
+        self.addConstraints([top, left, width, bottom, right])
         label.text = timerPlayer.totalTime.toString(showMs: false)
         self.rightLabel = label
     }
 
-    func createPicker() {
-        let picker = UIPickerView()
-        picker.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(picker)
-        let left = NSLayoutConstraint(item: picker, attribute: .leading, relatedBy: .equal, toItem: self.rightLabel!, attribute: .trailing, multiplier: 1, constant: 8)
-        let right = NSLayoutConstraint(item: picker, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -16)
-        let top = NSLayoutConstraint(item: picker, attribute: .top, relatedBy: .equal, toItem: self.leftLabel!, attribute: .top, multiplier: 1, constant: 0)
-        let bottom = NSLayoutConstraint(item: picker, attribute: .bottom, relatedBy: .equal, toItem: self.leftLabel!, attribute: .bottom, multiplier: 1, constant: 0)
-        let heigth = NSLayoutConstraint(item: picker, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40)
-        self.addConstraints([left, right, top, bottom, heigth])
-        self.pickerView = picker
-    }
 }
