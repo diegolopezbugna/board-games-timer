@@ -10,13 +10,15 @@ import UIKit
 
 class PositionsViewController: UITableViewController {
     let cellIdentifier = "positionCell"
-    
+    let headerCellIdentifier = "headerPositionCell"
+
     var timerPlayers: [TimerPlayer]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.register(PositionTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        self.tableView.register(PositionHeaderTableViewCell.self, forHeaderFooterViewReuseIdentifier: headerCellIdentifier)
         self.tableView.isEditing = true
     }
     
@@ -25,11 +27,16 @@ class PositionsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PositionTableViewCell
-        cell.positionLabel.text = String(indexPath.row + 1)
-        cell.colorLabel.text = self.timerPlayers?[indexPath.row].colorName
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PositionTableViewCell
+        cell?.positionLabel.text = String(indexPath.row + 1)
+        cell?.colorLabel.text = self.timerPlayers?[indexPath.row].colorName
 //        cell.pickerView.selectRow
-        return cell
+        return cell ?? UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: self.headerCellIdentifier) as? PositionHeaderTableViewCell
+        return cell ?? UIView()
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {

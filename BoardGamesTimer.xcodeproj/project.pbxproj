@@ -12,6 +12,7 @@
 		E824F2312114E70900458890 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824F2302114E70900458890 /* PlayersViewController.swift */; };
 		E851D69D222A4FD40074BA6D /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851D69C222A4FD40074BA6D /* EndGameViewController.swift */; };
 		E851D69F222A523E0074BA6D /* EndGamePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851D69E222A523E0074BA6D /* EndGamePlayerView.swift */; };
+		E8A50FC7222EB80800CD720F /* PositionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */; };
 		E8B0CB862217C30D006FB19F /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */; };
 		E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */; };
 		E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */; };
@@ -35,6 +36,7 @@
 		E824F2302114E70900458890 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		E851D69C222A4FD40074BA6D /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		E851D69E222A523E0074BA6D /* EndGamePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGamePlayerView.swift; sourceTree = "<group>"; };
+		E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
 		E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialPlusTurnTimerPlayerView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				F14038751ED3613B00320314 /* ColorSelectorView.xib */,
 				E851D69E222A523E0074BA6D /* EndGamePlayerView.swift */,
 				E819A63A222D8EBA006C7EA6 /* PositionTableViewCell.swift */,
+				E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */,
 				E851D69D222A4FD40074BA6D /* EndGameViewController.swift in Sources */,
 				E819A639222D8B2A006C7EA6 /* PositionsViewController.swift in Sources */,
+				E8A50FC7222EB80800CD720F /* PositionHeaderTableViewCell.swift in Sources */,
 				E851D69F222A523E0074BA6D /* EndGamePlayerView.swift in Sources */,
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
 				F14038781ED3734400320314 /* UIColorExtensions.swift in Sources */,
