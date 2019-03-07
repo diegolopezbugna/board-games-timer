@@ -131,25 +131,22 @@ class TimersViewController: UIViewController {
             let rows = totalPlayers! < 4 ? totalPlayers! : Int(ceil(Double(totalPlayers!) / 2))
             let columns = totalPlayers! < 4 ? 1 : 2
             
-            let topConstraint: NSLayoutConstraint, leftConstraint: NSLayoutConstraint
-
             if (i == 0 || (i < 2 && columns > 1)) {
-                topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 65)
-            }
-            else {
-                topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: playerViews[i-columns], attribute: .bottom, multiplier: 1, constant: 0)
+                v.autoPinEdge(.top, to: .top, of: view, withOffset: 65)
+            } else {
+                v.autoPinEdge(.top, to: .bottom, of: playerViews[i-columns])
             }
             
             if (i % 2 == 0 || columns == 1) {
-                leftConstraint = NSLayoutConstraint(item: v, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+                v.autoPinEdge(.left, to: .left, of: view)
             } else {
-                leftConstraint = NSLayoutConstraint(item: v, attribute: .leading, relatedBy: .equal, toItem: playerViews[0], attribute: .trailing, multiplier: 1, constant: 0)
+                v.autoPinEdge(.left, to: .right, of: playerViews[0])
             }
             
-            let widthConstraint = NSLayoutConstraint(item: v, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1 / CGFloat(columns), constant: 0)
-            let heightConstraint = NSLayoutConstraint(item: v, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1 / CGFloat(rows), constant: -65 / CGFloat(rows))
+            v.autoMatch(.width, to: .width, of: view, withMultiplier: 1 / CGFloat(columns))
             
-            NSLayoutConstraint.activate([topConstraint, leftConstraint, heightConstraint, widthConstraint])
+            let heightConstraint = NSLayoutConstraint(item: v, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1 / CGFloat(rows), constant: -65 / CGFloat(rows)) // no pureLayout for both multiplier and offset
+            NSLayoutConstraint.activate([heightConstraint])
         }
         
     }
@@ -166,24 +163,20 @@ class TimersViewController: UIViewController {
             let columns = totalPlayers! > 3 ? Int(ceil(Double(totalPlayers!) / 2)) : totalPlayers!
             let rows = totalPlayers! > 3 ? 2 : 1
             
-            let topConstraint: NSLayoutConstraint, leftConstraint: NSLayoutConstraint
-            
             if (i < columns) {
-                topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+                v.autoPinEdge(.top, to: .top, of: view)
             } else {
-                topConstraint = NSLayoutConstraint(item: v, attribute: .top, relatedBy: .equal, toItem: playerViews[0], attribute: .bottom, multiplier: 1, constant: 0)
+                v.autoPinEdge(.top, to: .bottom, of: playerViews[0])
             }
             
             if (i % columns == 0) {
-                leftConstraint = NSLayoutConstraint(item: v, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0)
+                v.autoPinEdge(.left, to: .left, of: view)
             } else {
-                leftConstraint = NSLayoutConstraint(item: v, attribute: .leading, relatedBy: .equal, toItem: playerViews[i-1], attribute: .trailing, multiplier: 1, constant: 0)
+                v.autoPinEdge(.left, to: .right, of: playerViews[i-1])
             }
             
-            let widthConstraint = NSLayoutConstraint(item: v, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1 / CGFloat(columns), constant: 0)
-            let heightConstraint = NSLayoutConstraint(item: v, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 1 / CGFloat(rows), constant: 0)
-
-            NSLayoutConstraint.activate([topConstraint, leftConstraint, heightConstraint, widthConstraint])
+            v.autoMatch(.width, to: .width, of: view, withMultiplier: 1 / CGFloat(columns))
+            v.autoMatch(.height, to: .height, of: view, withMultiplier: 1 / CGFloat(rows))
         }
     }
 }
