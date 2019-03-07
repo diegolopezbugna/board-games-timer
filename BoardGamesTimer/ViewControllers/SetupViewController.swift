@@ -89,18 +89,15 @@ class SetupViewController: UIViewController {
             colorSelectors.append(colorSelectorVC)
 
             let colorSelectorsViewReferent = i < 4 ? colorSelectorsView : colorSelectors2View
-            var top: NSLayoutConstraint
             if (i == 0 || i == 4) {
-                top = NSLayoutConstraint(item: colorSelector, attribute: .top, relatedBy: .equal, toItem: colorSelectorsViewReferent, attribute: .top, multiplier: 1, constant: 0)
+                colorSelector.autoPinEdge(.top, to: .top, of: colorSelectorsViewReferent!)
+            } else {
+                colorSelector.autoPinEdge(.top, to: .bottom, of: colorSelectors[i-1].view, withOffset: 10)
             }
-            else {
-                top = NSLayoutConstraint(item: colorSelector, attribute: .top, relatedBy: .equal, toItem: colorSelectors[i-1].view, attribute: .bottom, multiplier: 1, constant: 10)
-            }
-            let left = NSLayoutConstraint(item: colorSelector, attribute: .left, relatedBy: .equal, toItem: colorSelectorsViewReferent, attribute: .left, multiplier: 1, constant: 30)
-            let right = NSLayoutConstraint(item: colorSelector, attribute: .right, relatedBy: .equal, toItem: colorSelectorsViewReferent, attribute: .right, multiplier: 1, constant: -30)
-            let height = NSLayoutConstraint(item: colorSelector, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 30)
             
-            NSLayoutConstraint.activate([top, height, left, right])
+            colorSelector.autoPinEdge(.left, to: .left, of: colorSelectorsViewReferent!, withOffset: 30)
+            colorSelector.autoPinEdge(.right, to: .right, of: colorSelectorsViewReferent!, withOffset: -30)
+            colorSelector.autoSetDimension(.height, toSize: 30)
         }
     }
     
