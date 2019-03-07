@@ -106,27 +106,9 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
         
         self.addSubview(label)
         
-        let centerYConstraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: constraintConstantY)
-        let centerXConstraint = NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0)
-        
-        NSLayoutConstraint.activate([centerYConstraint, centerXConstraint])
-        
-        return label
-    }
-    
-    func createDelaysLabel(fontSize: CGFloat) -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = self.fontColor
-        label.font = UIFont.init(name: "Verdana", size: fontSize)
-        
-        self.addSubview(label)
+        label.autoAlignAxis(.horizontal, toSameAxisOf: self, withOffset: constraintConstantY)
+        label.autoAlignAxis(.vertical, toSameAxisOf: self)
 
-        let trailingConstraint = NSLayoutConstraint(item: label, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -16)
-        let bottomConstraint = NSLayoutConstraint(item: label, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: -16)
-        
-        NSLayoutConstraint.activate([trailingConstraint, bottomConstraint])
-        
         return label
     }
     

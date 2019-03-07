@@ -66,10 +66,8 @@ class IncrementalTimerPlayerView: UIView, TimerPlayer {
         
         self.addSubview(label)
         
-        let centerYConstraint = NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: constraintConstantY)
-        let centerXConstraint = NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0)
-        
-        NSLayoutConstraint.activate([centerYConstraint, centerXConstraint])
+        label.autoAlignAxis(.horizontal, toSameAxisOf: self, withOffset: constraintConstantY)
+        label.autoAlignAxis(.vertical, toSameAxisOf: self)
         
         return label
     }
