@@ -35,7 +35,6 @@ class PositionTableViewCell: UITableViewCell {
         self.pickerView.dataSource = self
         self.pickerView.delegate = self
         stackView.addArrangedSubview(self.pickerView)
-        self.pickerView.autoSetDimension(.height, toSize: 40)
     }
     
     required init?(coder aDecoder: NSCoder) {
