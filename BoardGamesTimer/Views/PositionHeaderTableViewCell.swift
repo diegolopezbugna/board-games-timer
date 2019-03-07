@@ -7,27 +7,25 @@
 //
 
 import UIKit
+import PureLayout
 
 class PositionHeaderTableViewCell: UITableViewHeaderFooterView {
     
-//    var positionLabel: UILabel!
-//    var colorLabel: UILabel!
-//    var playerLabel: UILabel!
-
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        let stackView = UIStackView(forAutoLayout: ())
         stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         self.addSubview(stackView)
-        // TODO: constraints
+        stackView.autoPinEdgesToSuperviewEdges()
         let positionLabel = self.createLabel()
         positionLabel.text = "#"
         stackView.addArrangedSubview(positionLabel)
+        positionLabel.autoSetDimension(.width, toSize: 40)
         let colorLabel = self.createLabel()
         colorLabel.text = "Color"
         stackView.addArrangedSubview(colorLabel)
+        colorLabel.autoSetDimension(.width, toSize: 80)
         let playerLabel = self.createLabel()
         playerLabel.text = "Player"
         stackView.addArrangedSubview(playerLabel)
@@ -38,8 +36,9 @@ class PositionHeaderTableViewCell: UITableViewHeaderFooterView {
     }
     
     func createLabel() -> UILabel {
-        let label = UILabel()
+        let label = UILabel(forAutoLayout: ())
         label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.textAlignment = .center
         return label
     }
     
