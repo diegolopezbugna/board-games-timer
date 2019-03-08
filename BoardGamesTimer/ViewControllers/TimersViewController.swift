@@ -14,6 +14,7 @@ protocol TimerPlayer {
     func isRunning() -> Bool
     func startTimer()
     func stopTimer()
+    func showTotal()
 }
 
 struct PlayerViewFactory {
@@ -29,6 +30,7 @@ class TimersViewController: UIViewController {
     var totalPlayers: Int?
     var playerViews = [UIView]()
     var playerColors: [PlayerColor]?
+    var hasFinished = false
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -60,7 +62,10 @@ class TimersViewController: UIViewController {
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "endGameSegue" {
+        if identifier == "finishGameSegue" {
+            if self.hasFinished {
+                return true
+            }
             let alert = UIAlertController(title: "End Game", message: "Are you sure?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
                 self.endGame()
@@ -73,14 +78,15 @@ class TimersViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "endGameSegue" {
-            if let vc = segue.destination as? EndGameViewController {
+        if segue.identifier == "finishGameSegue" {
+            if let vc = segue.destination as? PositionsViewController {
                 vc.timerPlayers = self.playerViews.map({ $0 as! TimerPlayer })
             }
         }
     }
     
     @objc func didTap(sender: UITapGestureRecognizer) {
+        guard !self.hasFinished else { return }
         for v in playerViews {
             let vTimerPlayer = v as! TimerPlayer
             if (v == sender.view) {
@@ -96,18 +102,23 @@ class TimersViewController: UIViewController {
                     vTimerPlayer.stopTimer()
                 }
             }
-            
         }
     }
     
     func endGame() {
-        for v in playerViews {
-            let vTimerPlayer = v as! TimerPlayer
-            if (vTimerPlayer.isRunning()) {
-                vTimerPlayer.stopTimer()
+        if !self.hasFinished {
+            for v in playerViews {
+                let vTimerPlayer = v as! TimerPlayer
+                if (vTimerPlayer.isRunning()) {
+                    vTimerPlayer.stopTimer()
+                }
+                vTimerPlayer.showTotal()
             }
+            self.hasFinished = true
+            self.navigationItem.rightBarButtonItem?.title = "Positions"
+        } else {
+            self.performSegue(withIdentifier: "finishGameSegue", sender: self)
         }
-        self.performSegue(withIdentifier: "endGameSegue", sender: self)
     }
     
     @objc func orientationChanged() {

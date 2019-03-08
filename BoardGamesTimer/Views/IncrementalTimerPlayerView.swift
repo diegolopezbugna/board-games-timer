@@ -100,7 +100,9 @@ class IncrementalTimerPlayerView: UIView, TimerPlayer {
 
         let timeInterval = Date().timeIntervalSince(self.currentTimerStart!)
         self.timerLabel.text = timeInterval.toString(showMs: true)
-        self.accumulateLabel.text = (self.accumulatedTimeInterval + timeInterval).toString(showMs: false)
+        
+        self.accumulatedTimeInterval = self.accumulatedTimeInterval + timeInterval
+        self.accumulateLabel.text = self.accumulatedTimeInterval.toString(showMs: false)
 
         if (timer != nil) {
             timer!.invalidate()
@@ -115,5 +117,9 @@ class IncrementalTimerPlayerView: UIView, TimerPlayer {
     
     var totalTime: TimeInterval {
         return self.accumulatedTimeInterval
+    }
+    
+    func showTotal() {
+        self.timerLabel.text = "TOTAL:"
     }
 }

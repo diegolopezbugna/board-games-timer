@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 
 class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
-
     let initialTime: TimeInterval
     let turnTime: TimeInterval
 
@@ -24,7 +23,6 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     var fontColor: UIColor?
     
     var remainingTimeLabel: UILabel!
-    var delaysLabel: UILabel!
     var timePenaltyLabel: UILabel!
 
     var timer: Timer?
@@ -38,14 +36,10 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
             self.remainingTimeLabel.text = remainingTimeInterval.toString(showMs: false)
         }
     }
-    var delays: Int = 0 {
-        didSet {
-            self.delaysLabel?.text = String(delays)
-        }
-    }
+    var delays: Int = 0
     var timePenaltyTimeInterval: TimeInterval = 0 {
         didSet {
-            self.timePenaltyLabel.text = timePenaltyTimeInterval.toString(showMs: false)
+            self.timePenaltyLabel.text = timePenaltyTimeInterval.toString(showMs: false) + " exceeded"
         }
     }
     
@@ -79,8 +73,6 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
 
         self.remainingTimeLabel = createLabel(fontSize: 44, constraintConstantY: 20)
         self.remainingTimeLabel.text = remainingTimeInterval.toString(showMs: false)
-        self.delaysLabel = createLabel(fontSize: 16, constraintConstantY: -55)
-        self.delaysLabel.text = String(delays)
         self.timePenaltyLabel = createLabel(fontSize: 16, constraintConstantY: -30)
         self.timePenaltyLabel.text = timePenaltyTimeInterval.toString(showMs: false)
     }
@@ -99,8 +91,7 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     }
 
     func createLabel(fontSize: CGFloat, constraintConstantY: CGFloat) -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+        let label = UILabel(forAutoLayout: ())
         label.textColor = self.fontColor
         label.font = UIFont.init(name: "Verdana", size: fontSize)
         
@@ -177,5 +168,10 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     
     var totalTime: TimeInterval {
         return self.accumulatedTimeInterval
+    }
+    
+    func showTotal() {
+        self.timePenaltyLabel.text = "TOTAL:"
+        self.remainingTimeLabel.text = self.totalTime.toString(showMs: false)
     }
 }
