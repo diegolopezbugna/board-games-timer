@@ -28,9 +28,9 @@ class PositionsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PositionTableViewCell
-        cell?.positionLabel.text = String(indexPath.row + 1)
+//        cell?.positionLabel.text = String(indexPath.row + 1)
         cell?.colorLabel.text = self.timerPlayers?[indexPath.row].colorName
-//        cell.pickerView.selectRow
+//        cell?.pointsLabel.text = "0"
         return cell ?? UITableViewCell()
     }
     

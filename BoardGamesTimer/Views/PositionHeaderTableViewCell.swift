@@ -11,31 +11,32 @@ import PureLayout
 
 class PositionHeaderTableViewCell: UITableViewHeaderFooterView {
     
+    var stackView: UIStackView!
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        let stackView = UIStackView(forAutoLayout: ())
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
+        self.stackView = UIStackView(forAutoLayout: ())
+        self.stackView.axis = .horizontal
+        self.stackView.distribution = .fillEqually
         self.addSubview(stackView)
-        stackView.autoPinEdgesToSuperviewEdges()
-        let positionLabel = self.createLabel()
-        positionLabel.text = "#"
-        stackView.addArrangedSubview(positionLabel)
-        positionLabel.autoSetDimension(.width, toSize: 40)
-        let colorLabel = self.createLabel()
-        colorLabel.text = "Color"
-        stackView.addArrangedSubview(colorLabel)
-        colorLabel.autoSetDimension(.width, toSize: 80)
-        let playerLabel = self.createLabel()
-        playerLabel.text = "Player"
-        stackView.addArrangedSubview(playerLabel)
+        self.stackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 52))
+
+        self.addColumnTitle("Color", width: 80)
+        self.addColumnTitle("Points", width: 80)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func createLabel() -> UILabel {
+    private func addColumnTitle(_ title: String, width: CGFloat) {
+        let label = self.createLabel()
+        label.text = title
+        self.stackView.addArrangedSubview(label)
+//        label.autoSetDimension(.width, toSize: width)
+    }
+    
+    private func createLabel() -> UILabel {
         let label = UILabel(forAutoLayout: ())
         label.font = UIFont.boldSystemFont(ofSize: 17)
         label.textAlignment = .center

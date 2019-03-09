@@ -10,9 +10,8 @@ import UIKit
 
 class PositionTableViewCell: UITableViewCell {
     
-    var positionLabel: UILabel!
     var colorLabel: UILabel!
-    var pickerView: UIPickerView!
+    var pointsLabel: UILabel!
     let players = Player.allSorted()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -20,21 +19,17 @@ class PositionTableViewCell: UITableViewCell {
         
         let stackView = UIStackView(forAutoLayout: ())
         stackView.axis = .horizontal
-        stackView.distribution = .fill
+        stackView.distribution = .fillEqually
         self.addSubview(stackView)
-        stackView.autoPinEdgesToSuperviewEdges()
+        stackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 52))
         
-        self.positionLabel = self.createLabel()
-        stackView.addArrangedSubview(self.positionLabel)
-        self.positionLabel.autoSetDimension(.width, toSize: 40)
         self.colorLabel = self.createLabel()
         stackView.addArrangedSubview(self.colorLabel)
-        self.colorLabel.autoSetDimension(.width, toSize: 80)
-
-        self.pickerView = UIPickerView(forAutoLayout: ())
-        self.pickerView.dataSource = self
-        self.pickerView.delegate = self
-        stackView.addArrangedSubview(self.pickerView)
+//        self.colorLabel.autoSetDimension(.width, toSize: 80)
+        
+        self.pointsLabel = self.createLabel()
+        stackView.addArrangedSubview(self.pointsLabel)
+//        self.pointsTextField.autoSetDimension(.width, toSize: 80)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,38 +42,12 @@ class PositionTableViewCell: UITableViewCell {
         label.textAlignment = .center
         return label
     }
+    
+    func createTextField() -> UITextField {
+        let textField = UITextField(forAutoLayout: ())
+        textField.textAlignment = .center
+        textField.borderStyle = .bezel
+        return textField
+    }
 
 }
-
-extension PositionTableViewCell: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.players[row].name
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        var pickerLabel = view as? UILabel
-        if pickerLabel == nil {
-            pickerLabel = UILabel()
-            pickerLabel!.font = UIFont.systemFont(ofSize: 17)
-            pickerLabel!.textAlignment  = .center
-        }
-        pickerLabel!.text = row > 0 ? self.players[row - 1].name : ""
-        return pickerLabel!
-    }
-}
-
-extension PositionTableViewCell: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.players.count + 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 25
-    }
-}
-
-
