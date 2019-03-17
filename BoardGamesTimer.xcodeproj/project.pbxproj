@@ -9,14 +9,17 @@
 /* Begin PBXBuildFile section */
 		D25ED460CF76A30A08594BB0 /* Pods_BoardGamesTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A592835F9F62E4D8390805 /* Pods_BoardGamesTimer.framework */; };
 		E80129BE22335C6E0090A896 /* PositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80129BD22335C6E0090A896 /* PositionTableViewCell.swift */; };
-		E819A639222D8B2A006C7EA6 /* PositionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E819A638222D8B2A006C7EA6 /* PositionsViewController.swift */; };
 		E824F2312114E70900458890 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824F2302114E70900458890 /* PlayersViewController.swift */; };
+		E8545DCB2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */; };
+		E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCC2235B74700A65759 /* LogPlayViewController.swift */; };
+		E85C1820223E0A870029963D /* PlayerSelectorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C181F223E0A870029963D /* PlayerSelectorControl.swift */; };
 		E8A50FC7222EB80800CD720F /* PositionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */; };
 		E8B0CB862217C30D006FB19F /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */; };
 		E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */; };
 		E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */; };
 		E8B116B222176200005A1D9A /* lostF.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116B122176200005A1D9A /* lostF.mp3 */; };
 		E8B116B422176633005A1D9A /* lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116B322176633005A1D9A /* lost.mp3 */; };
+		E8D650FE223D9ECC007D9F72 /* AlwaysPopupSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D650FD223D9ECC007D9F72 /* AlwaysPopupSegue.swift */; };
 		F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */; };
 		F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */; };
 		F1049AA31ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9C1ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift */; };
@@ -33,14 +36,17 @@
 		611FDBE10BA4EF324A44B672 /* Pods-BoardGamesTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoardGamesTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoardGamesTimer/Pods-BoardGamesTimer.release.xcconfig"; sourceTree = "<group>"; };
 		E3A592835F9F62E4D8390805 /* Pods_BoardGamesTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoardGamesTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E80129BD22335C6E0090A896 /* PositionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionTableViewCell.swift; sourceTree = "<group>"; };
-		E819A638222D8B2A006C7EA6 /* PositionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionsViewController.swift; sourceTree = "<group>"; };
 		E824F2302114E70900458890 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
+		E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayPlayerDetailsViewController.swift; sourceTree = "<group>"; };
+		E8545DCC2235B74700A65759 /* LogPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayViewController.swift; sourceTree = "<group>"; };
+		E85C181F223E0A870029963D /* PlayerSelectorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectorControl.swift; sourceTree = "<group>"; };
 		E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
 		E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialPlusTurnTimerPlayerView.swift; sourceTree = "<group>"; };
 		E8B116B122176200005A1D9A /* lostF.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lostF.mp3; sourceTree = "<group>"; };
 		E8B116B322176633005A1D9A /* lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lost.mp3; sourceTree = "<group>"; };
+		E8D650FD223D9ECC007D9F72 /* AlwaysPopupSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysPopupSegue.swift; sourceTree = "<group>"; };
 		F1049A971ECCCD4D00D05E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BoardGamesTimer/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BoardGamesTimer/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimersViewController.swift; path = BoardGamesTimer/ViewControllers/TimersViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -76,6 +82,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E85C1822223E0AE00029963D /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				E85C181F223E0A870029963D /* PlayerSelectorControl.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		E8B0CB872217CBF2006FB19F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +98,8 @@
 				E824F2302114E70900458890 /* PlayersViewController.swift */,
 				E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */,
 				F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */,
-				E819A638222D8B2A006C7EA6 /* PositionsViewController.swift */,
+				E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */,
+				E8545DCC2235B74700A65759 /* LogPlayViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -104,6 +119,7 @@
 		E8B1169B221714BC005A1D9A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E8D650FD223D9ECC007D9F72 /* AlwaysPopupSegue.swift */,
 				F14038771ED3734400320314 /* UIColorExtensions.swift */,
 				E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */,
 			);
@@ -141,6 +157,7 @@
 		F1E366AE1ECA0A07006CBEAF /* BoardGamesTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E85C1822223E0AE00029963D /* Controls */,
 				E8B0CB882217CC32006FB19F /* Views */,
 				E8B0CB872217CBF2006FB19F /* ViewControllers */,
 				E8B116A02217498E005A1D9A /* Resources */,
@@ -288,19 +305,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8D650FE223D9ECC007D9F72 /* AlwaysPopupSegue.swift in Sources */,
 				F1049AA31ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift in Sources */,
 				E8B0CB862217C30D006FB19F /* AddPlayerViewController.swift in Sources */,
+				E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */,
 				F161CAF51ED4A4FD00EB904F /* ColorSelectorViewController.swift in Sources */,
 				E824F2312114E70900458890 /* PlayersViewController.swift in Sources */,
 				E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */,
 				E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */,
-				E819A639222D8B2A006C7EA6 /* PositionsViewController.swift in Sources */,
 				E8A50FC7222EB80800CD720F /* PositionHeaderTableViewCell.swift in Sources */,
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
 				E80129BE22335C6E0090A896 /* PositionTableViewCell.swift in Sources */,
 				F14038781ED3734400320314 /* UIColorExtensions.swift in Sources */,
 				F1049AA41ECCCD4D00D05E8F /* SetupViewController.swift in Sources */,
+				E85C1820223E0A870029963D /* PlayerSelectorControl.swift in Sources */,
 				F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */,
+				E8545DCB2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

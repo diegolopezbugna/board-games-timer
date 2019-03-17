@@ -62,7 +62,7 @@ class TimersViewController: UIViewController {
     }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "finishGameSegue" {
+        if identifier == "logPlaySegue" {
             if self.hasFinished {
                 return true
             }
@@ -78,8 +78,8 @@ class TimersViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "finishGameSegue" {
-            if let vc = segue.destination as? PositionsViewController {
+        if segue.identifier == "logPlaySegue" {
+            if let vc = segue.destination as? LogPlayViewController {
                 vc.timerPlayers = self.playerViews.map({ $0 as! TimerPlayer })
             }
         }
@@ -117,7 +117,7 @@ class TimersViewController: UIViewController {
             self.hasFinished = true
             self.navigationItem.rightBarButtonItem?.title = "Positions"
         } else {
-            self.performSegue(withIdentifier: "finishGameSegue", sender: self)
+            self.performSegue(withIdentifier: "logPlaySegue", sender: self)
         }
     }
     
