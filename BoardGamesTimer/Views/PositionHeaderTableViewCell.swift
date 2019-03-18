@@ -22,6 +22,7 @@ class PositionHeaderTableViewCell: UITableViewHeaderFooterView {
         self.stackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 52))
 
         self.addColumnTitle("Color", width: 80)
+        self.addColumnTitle("Player", width: 80)
         self.addColumnTitle("Points", width: 80)
     }
     

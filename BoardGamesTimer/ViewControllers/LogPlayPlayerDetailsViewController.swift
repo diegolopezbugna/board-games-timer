@@ -9,16 +9,7 @@
 import UIKit
 
 protocol LogPlayPlayerDetailsDelegate: class {
-    func detailsDismissed(playerDetails: PlayerDetails?)
-}
-
-struct PlayerDetails {
-    let player: Player
-    let won: Bool?
-    let score: Int?
-    let teamColor: String?
-    let startingPosition: String?
-    let playRating: String?
+    func detailsDismissed(playerDetails: PlayPlayerDetails?)
 }
 
 class LogPlayPlayerDetailsViewController: UIViewController {
@@ -29,20 +20,39 @@ class LogPlayPlayerDetailsViewController: UIViewController {
     @IBOutlet var teamColorTextField: UITextField!
     @IBOutlet var startingPositionTextField: UITextField!
     @IBOutlet var playRatingTextField: UITextField!
+    @IBOutlet var firstTimePlaying: UISwitch!
     
     weak var delegate: LogPlayPlayerDetailsDelegate?
+    var playerDetails: PlayPlayerDetails?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.popoverPresentationController?.delegate = self
+        
+        if let d = playerDetails {
+            playerSelectorControl.selectedPlayer = d.player
+            wonSwitch.isOn = d.won ?? false
+            scoreTextField.text = d.score != nil ? String(d.score!) : ""
+            teamColorTextField.text = d.teamColor
+            startingPositionTextField.text = d.startingPosition
+            playRatingTextField.text = d.playRating
+            firstTimePlaying.isOn = d.firstTimePlaying ?? false
+        }
     }
 }
 
 extension LogPlayPlayerDetailsViewController: UIPopoverPresentationControllerDelegate {
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         if let player = playerSelectorControl.selectedPlayer {
-            let playerDetails = PlayerDetails(player: player, won: wonSwitch.isOn, score: Int(scoreTextField.text ?? ""), teamColor: teamColorTextField.text, startingPosition: startingPositionTextField.text, playRating: playRatingTextField.text)
+            let playerDetails = self.playerDetails ?? PlayPlayerDetails()
+            playerDetails.player = player
+            playerDetails.won = wonSwitch.isOn
+            playerDetails.firstTimePlaying = firstTimePlaying.isOn
+            playerDetails.score =  Int(scoreTextField.text ?? "")
+            playerDetails.teamColor = teamColorTextField.text
+            playerDetails.startingPosition = startingPositionTextField.text
+            playerDetails.playRating = playRatingTextField.text
             self.delegate?.detailsDismissed(playerDetails: playerDetails)
         }
     }

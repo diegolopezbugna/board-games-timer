@@ -13,6 +13,9 @@
 		E8545DCB2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */; };
 		E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCC2235B74700A65759 /* LogPlayViewController.swift */; };
 		E85C1820223E0A870029963D /* PlayerSelectorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C181F223E0A870029963D /* PlayerSelectorControl.swift */; };
+		E86CBDA8223F2E98000C3658 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDA7223F2E98000C3658 /* Play.swift */; };
+		E86CBDAA223F2EBA000C3658 /* PlayPlayerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDA9223F2EBA000C3658 /* PlayPlayerDetails.swift */; };
+		E86CBDAC223F2F20000C3658 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDAB223F2F20000C3658 /* Player.swift */; };
 		E8A50FC7222EB80800CD720F /* PositionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */; };
 		E8B0CB862217C30D006FB19F /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */; };
 		E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */; };
@@ -40,6 +43,9 @@
 		E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayPlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		E8545DCC2235B74700A65759 /* LogPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayViewController.swift; sourceTree = "<group>"; };
 		E85C181F223E0A870029963D /* PlayerSelectorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectorControl.swift; sourceTree = "<group>"; };
+		E86CBDA7223F2E98000C3658 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
+		E86CBDA9223F2EBA000C3658 /* PlayPlayerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPlayerDetails.swift; sourceTree = "<group>"; };
+		E86CBDAB223F2F20000C3658 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
@@ -88,6 +94,16 @@
 				E85C181F223E0A870029963D /* PlayerSelectorControl.swift */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		E86CBDA6223F2E79000C3658 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E86CBDA7223F2E98000C3658 /* Play.swift */,
+				E86CBDA9223F2EBA000C3658 /* PlayPlayerDetails.swift */,
+				E86CBDAB223F2F20000C3658 /* Player.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E8B0CB872217CBF2006FB19F /* ViewControllers */ = {
@@ -157,6 +173,7 @@
 		F1E366AE1ECA0A07006CBEAF /* BoardGamesTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E86CBDA6223F2E79000C3658 /* Models */,
 				E85C1822223E0AE00029963D /* Controls */,
 				E8B0CB882217CC32006FB19F /* Views */,
 				E8B0CB872217CBF2006FB19F /* ViewControllers */,
@@ -311,14 +328,17 @@
 				E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */,
 				F161CAF51ED4A4FD00EB904F /* ColorSelectorViewController.swift in Sources */,
 				E824F2312114E70900458890 /* PlayersViewController.swift in Sources */,
+				E86CBDA8223F2E98000C3658 /* Play.swift in Sources */,
 				E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */,
 				E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */,
 				E8A50FC7222EB80800CD720F /* PositionHeaderTableViewCell.swift in Sources */,
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
+				E86CBDAA223F2EBA000C3658 /* PlayPlayerDetails.swift in Sources */,
 				E80129BE22335C6E0090A896 /* PositionTableViewCell.swift in Sources */,
 				F14038781ED3734400320314 /* UIColorExtensions.swift in Sources */,
 				F1049AA41ECCCD4D00D05E8F /* SetupViewController.swift in Sources */,
 				E85C1820223E0A870029963D /* PlayerSelectorControl.swift in Sources */,
+				E86CBDAC223F2F20000C3658 /* Player.swift in Sources */,
 				F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */,
 				E8545DCB2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift in Sources */,
 			);

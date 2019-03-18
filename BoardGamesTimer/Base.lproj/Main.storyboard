@@ -277,6 +277,7 @@
                     <connections>
                         <outlet property="commentsTextView" destination="nG4-06-YUS" id="HBq-kB-5yr"/>
                         <outlet property="locationTextField" destination="Xie-hb-GcW" id="Sfe-5C-8zL"/>
+                        <outlet property="saveButton" destination="z1J-36-t2u" id="KGS-PO-qXF"/>
                         <outlet property="tableView" destination="kf9-U4-vAd" id="gD6-hd-tg3"/>
                     </connections>
                 </viewController>
@@ -311,37 +312,43 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="300"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4J9-T6-cQU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="88" height="36.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="88" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Won?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbH-Oi-lca">
-                                                        <rect key="frame" x="0.0" y="52.5" width="88" height="37"/>
+                                                        <rect key="frame" x="0.0" y="45" width="88" height="29.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q64-2p-Xxf">
-                                                        <rect key="frame" x="0.0" y="105.5" width="88" height="36.5"/>
+                                                        <rect key="frame" x="0.0" y="90.5" width="88" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team/Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQ9-yZ-mCV" userLabel="Team Color">
-                                                        <rect key="frame" x="0.0" y="158" width="88" height="36.5"/>
+                                                        <rect key="frame" x="0.0" y="135.5" width="88" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starting Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWo-J8-Apb">
-                                                        <rect key="frame" x="0.0" y="210.5" width="88" height="37"/>
+                                                        <rect key="frame" x="0.0" y="180.5" width="88" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2O-h8-4KG" userLabel="Play Rating">
-                                                        <rect key="frame" x="0.0" y="263.5" width="88" height="36.5"/>
+                                                        <rect key="frame" x="0.0" y="225.5" width="88" height="29.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Time Playing?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojm-aN-D9E" userLabel="Play Rating">
+                                                        <rect key="frame" x="0.0" y="271" width="88" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -352,14 +359,14 @@
                                                 <rect key="frame" x="104" y="0.0" width="239" height="300"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHT-pm-eHV" customClass="PlayerSelectorControl" customModule="BoardGamesTimer" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="239" height="36.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="239" height="29"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MnV-cJ-hgj">
-                                                        <rect key="frame" x="0.0" y="52.5" width="239" height="37"/>
+                                                        <rect key="frame" x="0.0" y="45" width="239" height="29.5"/>
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nsc-0q-BdA">
-                                                                <rect key="frame" x="0.0" y="3" width="51" height="31"/>
+                                                                <rect key="frame" x="0.0" y="-1" width="51" height="31"/>
                                                             </switch>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -369,29 +376,42 @@
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAg-5d-a9A">
-                                                        <rect key="frame" x="0.0" y="105.5" width="239" height="36.5"/>
+                                                        <rect key="frame" x="0.0" y="90.5" width="239" height="29"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SO9-h7-5Nq">
-                                                        <rect key="frame" x="0.0" y="158" width="239" height="36.5"/>
+                                                        <rect key="frame" x="0.0" y="135.5" width="239" height="29"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mOL-iy-Un0">
-                                                        <rect key="frame" x="0.0" y="210.5" width="239" height="37"/>
+                                                        <rect key="frame" x="0.0" y="180.5" width="239" height="29"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vbu-gg-mOz">
-                                                        <rect key="frame" x="0.0" y="263.5" width="239" height="36.5"/>
+                                                        <rect key="frame" x="0.0" y="225.5" width="239" height="29.5"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbg-4m-b0v">
+                                                        <rect key="frame" x="0.0" y="271" width="239" height="29"/>
+                                                        <subviews>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sWv-7O-7g5">
+                                                                <rect key="frame" x="0.0" y="-1" width="51" height="31"/>
+                                                            </switch>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="sWv-7O-7g5" firstAttribute="centerY" secondItem="Fbg-4m-b0v" secondAttribute="centerY" id="JFa-bd-zEQ"/>
+                                                            <constraint firstItem="sWv-7O-7g5" firstAttribute="leading" secondItem="Fbg-4m-b0v" secondAttribute="leading" id="Qid-HJ-3he"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -421,6 +441,7 @@
                         <viewLayoutGuide key="safeArea" id="Phl-fV-RUH"/>
                     </view>
                     <connections>
+                        <outlet property="firstTimePlaying" destination="sWv-7O-7g5" id="18r-pZ-4jK"/>
                         <outlet property="playRatingTextField" destination="vbu-gg-mOz" id="YAz-yQ-KKt"/>
                         <outlet property="playerSelectorControl" destination="YHT-pm-eHV" id="Ei2-xw-jvX"/>
                         <outlet property="scoreTextField" destination="TAg-5d-a9A" id="nE1-yv-yf3"/>
@@ -636,7 +657,7 @@
             </objects>
             <point key="canvasLocation" x="262" y="1734"/>
         </scene>
-        <!--Games-->
+        <!--Plays-->
         <scene sceneID="rwX-kf-6lN">
             <objects>
                 <tableViewController id="krW-8C-SuC" sceneMemberID="viewController">
@@ -659,7 +680,7 @@
                             <outlet property="delegate" destination="krW-8C-SuC" id="rLO-G3-vJd"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Games" image="list-simple-star-7" id="Ysj-Li-Idl"/>
+                    <tabBarItem key="tabBarItem" title="Plays" image="list-simple-star-7" id="Ysj-Li-Idl"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nv3-SC-ikc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,7 +11,8 @@ import UIKit
 class PositionTableViewCell: UITableViewCell {
     
     var colorLabel: UILabel!
-    var pointsLabel: UILabel!
+    var playerLabel: UILabel!
+    var scoreLabel: UILabel!
     let players = Player.allSorted()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -25,11 +26,15 @@ class PositionTableViewCell: UITableViewCell {
         
         self.colorLabel = self.createLabel()
         stackView.addArrangedSubview(self.colorLabel)
-//        self.colorLabel.autoSetDimension(.width, toSize: 80)
+        self.colorLabel.autoSetDimension(.width, toSize: 80)
         
-        self.pointsLabel = self.createLabel()
-        stackView.addArrangedSubview(self.pointsLabel)
-//        self.pointsTextField.autoSetDimension(.width, toSize: 80)
+        self.playerLabel = self.createLabel()
+        stackView.addArrangedSubview(self.playerLabel)
+        self.playerLabel.autoSetDimension(.width, toSize: 80)
+        
+        self.scoreLabel = self.createLabel()
+        stackView.addArrangedSubview(self.scoreLabel)
+        self.scoreLabel.autoSetDimension(.width, toSize: 80)
     }
     
     required init?(coder aDecoder: NSCoder) {

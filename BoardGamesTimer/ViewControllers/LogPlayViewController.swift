@@ -15,14 +15,11 @@ class LogPlayViewController: UIViewController {
     @IBOutlet var locationTextField: UITextField!
     @IBOutlet var commentsTextView: UITextView!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var saveButton: UIBarButtonItem!
     
-    // TODO: cambiar
-    var timerPlayers: [TimerPlayer]? {
-        didSet {
-            
-        }
-    }
     var play: Play?
+    var playPlayerDetails: [PlayPlayerDetails]?
+    var selectedPlayer: PlayPlayerDetails?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,26 +30,42 @@ class LogPlayViewController: UIViewController {
         self.tableView.register(PositionTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.register(PositionHeaderTableViewCell.self, forHeaderFooterViewReuseIdentifier: headerCellIdentifier)
 //        self.tableView.isEditing = true
+        
+        self.saveButton.target = self
+        self.saveButton.action = #selector(self.saveTapped)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let vc = segue.destination as? LogPlayPlayerDetailsViewController {
             vc.delegate = self
+            vc.playerDetails = self.selectedPlayer
         }
+    }
+    
+    @objc func saveTapped() {
+        // TODO: start date? length?
+        let play = Play(date: Date(), gameLength: 90)
+        play.location = locationTextField.text
+        play.comments = commentsTextView.text
+        play.playerDetails = self.playPlayerDetails
+        Play.insertPlay(play)
     }
 }
 
 extension LogPlayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.timerPlayers?.count ?? 0
+        return self.playPlayerDetails?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PositionTableViewCell
-        //        cell?.positionLabel.text = String(indexPath.row + 1)
-        cell?.colorLabel.text = self.timerPlayers?[indexPath.row].colorName
-        //        cell?.pointsLabel.text = "0"
+        if let d = self.playPlayerDetails?[indexPath.row] {
+            //cell?.positionLabel.text = String(indexPath.row + 1)
+            cell?.colorLabel.text = d.teamColor
+            cell?.playerLabel.text = d.player?.name
+            cell?.scoreLabel.text = d.score != nil ? String(d.score!) : ""
+        }
         return cell ?? UITableViewCell()
     }
     
@@ -62,10 +75,10 @@ extension LogPlayViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.timerPlayers?[sourceIndexPath.row]
+        let movedObject = self.playPlayerDetails?[sourceIndexPath.row]
         if let movedObject = movedObject {
-            self.timerPlayers?.remove(at: sourceIndexPath.row)
-            self.timerPlayers?.insert(movedObject, at: destinationIndexPath.row)
+            self.playPlayerDetails?.remove(at: sourceIndexPath.row)
+            self.playPlayerDetails?.insert(movedObject, at: destinationIndexPath.row)
             self.tableView.reloadData()
         }
     }
@@ -89,17 +102,13 @@ extension LogPlayViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var selectedTimerPlayer = self.timerPlayers?[indexPath.row]
+        self.selectedPlayer = self.playPlayerDetails?[indexPath.row]
         self.performSegue(withIdentifier: "logPlayPlayerDetailsSegue", sender: self)
-//        let vc = LogPlayPlayerDetailsViewController()
-//        vc.delegate = self
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension LogPlayViewController: LogPlayPlayerDetailsDelegate {
-    func detailsDismissed(playerDetails: PlayerDetails?) {
-        // TODO: update timerPlayers
+    func detailsDismissed(playerDetails: PlayPlayerDetails?) {
         self.tableView.reloadData()
     }
 }
