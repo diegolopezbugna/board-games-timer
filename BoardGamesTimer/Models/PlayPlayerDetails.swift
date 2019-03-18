@@ -21,6 +21,12 @@ class PlayPlayerDetails: NSObject, NSCoding {
         super.init()
     }
     
+    init(player: Player, won: Bool, score: Int) {
+        self.player = player
+        self.won = won
+        self.score = score
+    }
+    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.player, forKey: "player");
         aCoder.encode(self.won, forKey: "won");

@@ -50,6 +50,24 @@ class Play: NSObject, NSCoding {
         }
         return []
     }
+    static func allTest() -> [Play] {
+        let players = Player.allSorted()
+        guard players.count > 3 else { return [] }
+        var plays = [Play]()
+        for i in 0...1000 {
+            let calendar = Calendar.current
+            var components = DateComponents()
+            components.day = Int.random(in: 1...28)
+            components.month = Int.random(in: 1...28)
+            components.year = Int.random(in: 2017...2018)
+            let date = calendar.date(from: components)
+            let p = Play(date: date!, gameLength: i)
+            p.location = "loc: \(i)"
+            p.playerDetails = [PlayPlayerDetails(player: players[0], won: true, score: i), PlayPlayerDetails(player: players[1], won: false, score: i-1), PlayPlayerDetails(player: players[2], won: false, score: i-2)]
+            plays.append(p)
+        }
+        return plays
+    }
 
     // TODO: move to db or server
     static func insertPlay(_ play: Play) {
