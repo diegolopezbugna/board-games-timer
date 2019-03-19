@@ -13,6 +13,7 @@
 		E81A652E22402F19001A1D5F /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A652D22402F19001A1D5F /* DateExtensions.swift */; };
 		E81A653022403C89001A1D5F /* PlayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A652F22403C89001A1D5F /* PlayTableViewCell.swift */; };
 		E824F2312114E70900458890 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824F2302114E70900458890 /* PlayersViewController.swift */; };
+		E82FC2A0224083F400C19B27 /* PlaySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FC29F224083F400C19B27 /* PlaySectionHeaderView.swift */; };
 		E8545DCB2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */; };
 		E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCC2235B74700A65759 /* LogPlayViewController.swift */; };
 		E85C1820223E0A870029963D /* PlayerSelectorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C181F223E0A870029963D /* PlayerSelectorControl.swift */; };
@@ -46,6 +47,7 @@
 		E81A652D22402F19001A1D5F /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		E81A652F22403C89001A1D5F /* PlayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTableViewCell.swift; sourceTree = "<group>"; };
 		E824F2302114E70900458890 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
+		E82FC29F224083F400C19B27 /* PlaySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySectionHeaderView.swift; sourceTree = "<group>"; };
 		E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayPlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		E8545DCC2235B74700A65759 /* LogPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayViewController.swift; sourceTree = "<group>"; };
 		E85C181F223E0A870029963D /* PlayerSelectorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectorControl.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				E80129BD22335C6E0090A896 /* PositionTableViewCell.swift */,
 				E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */,
 				E81A652F22403C89001A1D5F /* PlayTableViewCell.swift */,
+				E82FC29F224083F400C19B27 /* PlaySectionHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
 				E86CBDAA223F2EBA000C3658 /* PlayPlayerDetails.swift in Sources */,
 				E80129BE22335C6E0090A896 /* PositionTableViewCell.swift in Sources */,
+				E82FC2A0224083F400C19B27 /* PlaySectionHeaderView.swift in Sources */,
 				E81A652E22402F19001A1D5F /* DateExtensions.swift in Sources */,
 				F14038781ED3734400320314 /* UIColorExtensions.swift in Sources */,
 				F1049AA41ECCCD4D00D05E8F /* SetupViewController.swift in Sources */,

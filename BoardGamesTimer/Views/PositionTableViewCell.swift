@@ -26,15 +26,15 @@ class PositionTableViewCell: UITableViewCell {
         
         self.colorLabel = self.createLabel()
         stackView.addArrangedSubview(self.colorLabel)
-        self.colorLabel.autoSetDimension(.width, toSize: 80)
+//        self.colorLabel.autoSetDimension(.width, toSize: 80)
         
         self.playerLabel = self.createLabel()
         stackView.addArrangedSubview(self.playerLabel)
-        self.playerLabel.autoSetDimension(.width, toSize: 80)
+//        self.playerLabel.autoSetDimension(.width, toSize: 80)
         
         self.scoreLabel = self.createLabel()
         stackView.addArrangedSubview(self.scoreLabel)
-        self.scoreLabel.autoSetDimension(.width, toSize: 80)
+//        self.scoreLabel.autoSetDimension(.width, toSize: 80)
     }
     
     required init?(coder aDecoder: NSCoder) {

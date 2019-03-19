@@ -29,6 +29,7 @@ struct MonthSection: Comparable {
 
 class PlaysViewController: UIViewController {
     let cellIdentifier = "playCell"
+    let sectionHeaderIdentifier = "monthPlaySectionHeader"
 
     @IBOutlet var tableView: UITableView!
     
@@ -39,7 +40,8 @@ class PlaysViewController: UIViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+
+        self.tableView.register(PlaySectionHeaderView.self, forHeaderFooterViewReuseIdentifier: self.sectionHeaderIdentifier)
         self.tableView.register(PlayTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
         
         self.sections = MonthSection.group(plays: Play.allTest())
@@ -47,6 +49,10 @@ class PlaysViewController: UIViewController {
 }
 
 extension PlaysViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.sections.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sections[section].plays.count
     }
@@ -57,10 +63,21 @@ extension PlaysViewController: UITableViewDataSource {
         return cell
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sections.count
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: self.sectionHeaderIdentifier) as! PlaySectionHeaderView
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM yyyy"
+        let title = dateFormatter.string(from: self.sections[section].month)
+        let colors = SetupViewController.availableColors.count
+        let textColor = SetupViewController.availableColors[section % colors].textColor
+        let backgroundColor = SetupViewController.availableColors[section % colors].bgColor
+        view.config(text: title, textColor: textColor, backgroundColor: backgroundColor)
+        return view
     }
 }
 
 extension PlaysViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
 }

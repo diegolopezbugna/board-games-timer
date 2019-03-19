@@ -29,7 +29,7 @@ class SetupViewController: UIViewController {
     
     var colorSelectors = [ColorSelectorViewController]()
 
-    let availableColors = [
+    static let availableColors = [
         PlayerColor(name: "Red", textColor: UIColor.white, bgColor: UIColor(red: 0.6, green: 0, blue: 0), bgColor2: UIColor(red: 1, green: 0, blue: 0)),
         PlayerColor(name: "Green", textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0.5, blue: 0), bgColor2: UIColor(red: 0, green: 0.9, blue: 0)),
         PlayerColor(name: "Blue", textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0, blue: 0.6), bgColor2: UIColor(red: 0.3, green: 0.3, blue: 1)),
@@ -81,7 +81,7 @@ class SetupViewController: UIViewController {
         
         for i in 0..<totalPlayers {
 
-            let colorSelectorVC = ColorSelectorViewController(availableColors: availableColors, selectedColorIndex: i)
+            let colorSelectorVC = ColorSelectorViewController(availableColors: SetupViewController.availableColors, selectedColorIndex: i)
             self.addViewController(colorSelectorVC)
             let colorSelector = colorSelectorVC.view!
             colorSelector.translatesAutoresizingMaskIntoConstraints = false
@@ -114,7 +114,7 @@ class SetupViewController: UIViewController {
         timersVC.totalPlayers = Int(playersStepper.value)
         
         timersVC.playerColors = colorSelectors.map({ (vc) -> PlayerColor in
-            return availableColors[vc.selectedColorIndex]
+            return SetupViewController.availableColors[vc.selectedColorIndex]
         })
     }
     

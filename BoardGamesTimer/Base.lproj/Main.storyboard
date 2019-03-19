@@ -486,8 +486,8 @@
                     <connections>
                         <segue destination="UDt-oL-pev" kind="relationship" relationship="viewControllers" id="CVt-3g-8Q2"/>
                         <segue destination="oVq-0g-Ts0" kind="relationship" relationship="viewControllers" id="oeC-ub-QSG"/>
-                        <segue destination="ybw-48-VWL" kind="relationship" relationship="viewControllers" id="Y8p-4e-wmm"/>
                         <segue destination="FDV-QF-0K1" kind="relationship" relationship="viewControllers" id="J7l-wJ-raH"/>
+                        <segue destination="ybw-48-VWL" kind="relationship" relationship="viewControllers" id="Y8p-4e-wmm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m10-2c-slg" userLabel="First Responder" sceneMemberID="firstResponder"/>
