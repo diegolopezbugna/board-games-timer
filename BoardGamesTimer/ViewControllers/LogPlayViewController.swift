@@ -21,6 +21,7 @@ class LogPlayViewController: UIViewController {
     var play: Play?
     var playPlayerDetails: [PlayPlayerDetails]?
     var selectedPlayer: PlayPlayerDetails?
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,6 @@ class LogPlayViewController: UIViewController {
         self.tableView.register(PositionHeaderTableViewCell.self, forHeaderFooterViewReuseIdentifier: headerCellIdentifier)
 //        self.tableView.isEditing = true
         
-        self.gameTextField.delegate = self
         self.gameTextField.addTarget(self, action: #selector(self.gameTextFieldEditingChanged), for: .editingChanged)
         
         self.commentsTextView.layer.cornerRadius = 5
@@ -62,9 +62,23 @@ class LogPlayViewController: UIViewController {
     }
     
     @objc func gameTextFieldEditingChanged() {
+        if let timer = self.timer {
+            timer.invalidate()
+            self.timer = nil
+        }
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false
+            , block: { (timer) in
+                self.searchGame()
+        })
+    }
+    
+    private func searchGame() {
+        guard let textField = self.gameTextField,
+            let prefix = textField.text,
+            prefix.count > 2 else {
+                return
+        }
         let c = GameConnector()
-        let textField = self.gameTextField!
-        let prefix = textField.text!
         let prefixUppercased = prefix.uppercased()
         c.searchGames(prefix: prefix) { (games) in
             for g in games {
@@ -139,33 +153,5 @@ extension LogPlayViewController: UITableViewDelegate {
 extension LogPlayViewController: LogPlayPlayerDetailsDelegate {
     func detailsDismissed(playerDetails: PlayPlayerDetails?) {
         self.tableView.reloadData()
-    }
-}
-
-extension LogPlayViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print("range: \(range)")
-        print("textfield.text: \(String(describing: textField.text))")
-        print("replacementString: \(string)")
-//
-//        var c = GameConnector()
-//        let prefix = textField.text!
-//        c.searchGames(prefix: prefix) { (games) in
-//            for g in games {
-//                DispatchQueue.main.async {
-//                    if g.name!.uppercased().starts(with: textField.text!.uppercased()) {
-//                        textField.text = g.name
-//                        textField.selectedTextRange = textField.textRange(
-//                            from: textField.position(from: textField.beginningOfDocument, offset: range.lowerBound + string.count)!,
-//                            to: textField.endOfDocument)
-//                    }
-//                }
-//            }
-//        }
-//
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
     }
 }
