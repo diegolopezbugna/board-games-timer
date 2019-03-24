@@ -12,6 +12,7 @@ class LogPlayViewController: UIViewController {
     let cellIdentifier = "positionCell"
     let headerCellIdentifier = "headerPositionCell"
 
+    @IBOutlet var gameTextField: UITextField!
     @IBOutlet var locationTextField: UITextField!
     @IBOutlet var commentsTextView: UITextView!
     @IBOutlet var tableView: UITableView!
@@ -30,6 +31,14 @@ class LogPlayViewController: UIViewController {
         self.tableView.register(PositionTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.register(PositionHeaderTableViewCell.self, forHeaderFooterViewReuseIdentifier: headerCellIdentifier)
 //        self.tableView.isEditing = true
+        
+        self.gameTextField.delegate = self
+        self.gameTextField.addTarget(self, action: #selector(self.gameTextFieldEditingChanged), for: .editingChanged)
+        
+        self.commentsTextView.layer.cornerRadius = 5
+        self.commentsTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+        self.commentsTextView.layer.borderWidth = 0.5
+        self.commentsTextView.clipsToBounds = true
         
         self.saveButton.target = self
         self.saveButton.action = #selector(self.saveTapped)
@@ -50,6 +59,26 @@ class LogPlayViewController: UIViewController {
         play.comments = commentsTextView.text
         play.playerDetails = self.playPlayerDetails
         Play.insertPlay(play)
+    }
+    
+    @objc func gameTextFieldEditingChanged() {
+        let c = GameConnector()
+        let textField = self.gameTextField!
+        let prefix = textField.text!
+        let prefixUppercased = prefix.uppercased()
+        c.searchGames(prefix: prefix) { (games) in
+            for g in games {
+                if g.name!.uppercased().starts(with: prefixUppercased) {
+                    DispatchQueue.main.async {
+                        textField.text = g.name
+                        textField.selectedTextRange = textField.textRange(
+                            from: textField.position(from: textField.beginningOfDocument, offset: prefix.count)!,
+                            to: textField.endOfDocument)
+                    }
+                    break
+                }
+            }
+        }
     }
 }
 
@@ -110,5 +139,33 @@ extension LogPlayViewController: UITableViewDelegate {
 extension LogPlayViewController: LogPlayPlayerDetailsDelegate {
     func detailsDismissed(playerDetails: PlayPlayerDetails?) {
         self.tableView.reloadData()
+    }
+}
+
+extension LogPlayViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("range: \(range)")
+        print("textfield.text: \(String(describing: textField.text))")
+        print("replacementString: \(string)")
+//
+//        var c = GameConnector()
+//        let prefix = textField.text!
+//        c.searchGames(prefix: prefix) { (games) in
+//            for g in games {
+//                DispatchQueue.main.async {
+//                    if g.name!.uppercased().starts(with: textField.text!.uppercased()) {
+//                        textField.text = g.name
+//                        textField.selectedTextRange = textField.textRange(
+//                            from: textField.position(from: textField.beginningOfDocument, offset: range.lowerBound + string.count)!,
+//                            to: textField.endOfDocument)
+//                    }
+//                }
+//            }
+//        }
+//
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
     }
 }

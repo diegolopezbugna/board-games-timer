@@ -14,6 +14,10 @@
 		E81A653022403C89001A1D5F /* PlayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A652F22403C89001A1D5F /* PlayTableViewCell.swift */; };
 		E824F2312114E70900458890 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824F2302114E70900458890 /* PlayersViewController.swift */; };
 		E82FC2A0224083F400C19B27 /* PlaySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FC29F224083F400C19B27 /* PlaySectionHeaderView.swift */; };
+		E838867D224693AE00E4E809 /* BaseConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E838867C224693AE00E4E809 /* BaseConnector.swift */; };
+		E838867F224697D600E4E809 /* GameConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E838867E224697D600E4E809 /* GameConnector.swift */; };
+		E83886812246D5B000E4E809 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83886802246D5B000E4E809 /* Game.swift */; };
+		E83886832246D9E700E4E809 /* BGGSearchResultsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83886822246D9E700E4E809 /* BGGSearchResultsParser.swift */; };
 		E8545DCB2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */; };
 		E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCC2235B74700A65759 /* LogPlayViewController.swift */; };
 		E85C1820223E0A870029963D /* PlayerSelectorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C181F223E0A870029963D /* PlayerSelectorControl.swift */; };
@@ -48,6 +52,10 @@
 		E81A652F22403C89001A1D5F /* PlayTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTableViewCell.swift; sourceTree = "<group>"; };
 		E824F2302114E70900458890 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
 		E82FC29F224083F400C19B27 /* PlaySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySectionHeaderView.swift; sourceTree = "<group>"; };
+		E838867C224693AE00E4E809 /* BaseConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConnector.swift; sourceTree = "<group>"; };
+		E838867E224697D600E4E809 /* GameConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConnector.swift; sourceTree = "<group>"; };
+		E83886802246D5B000E4E809 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		E83886822246D9E700E4E809 /* BGGSearchResultsParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BGGSearchResultsParser.swift; sourceTree = "<group>"; };
 		E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayPlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		E8545DCC2235B74700A65759 /* LogPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayViewController.swift; sourceTree = "<group>"; };
 		E85C181F223E0A870029963D /* PlayerSelectorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectorControl.swift; sourceTree = "<group>"; };
@@ -96,6 +104,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E838867B2246939900E4E809 /* Connectors */ = {
+			isa = PBXGroup;
+			children = (
+				E838867C224693AE00E4E809 /* BaseConnector.swift */,
+				E838867E224697D600E4E809 /* GameConnector.swift */,
+				E83886822246D9E700E4E809 /* BGGSearchResultsParser.swift */,
+			);
+			path = Connectors;
+			sourceTree = "<group>";
+		};
 		E85C1822223E0AE00029963D /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +128,7 @@
 				E86CBDA7223F2E98000C3658 /* Play.swift */,
 				E86CBDA9223F2EBA000C3658 /* PlayPlayerDetails.swift */,
 				E86CBDAB223F2F20000C3658 /* Player.swift */,
+				E83886802246D5B000E4E809 /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -185,6 +204,7 @@
 		F1E366AE1ECA0A07006CBEAF /* BoardGamesTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E838867B2246939900E4E809 /* Connectors */,
 				E86CBDA6223F2E79000C3658 /* Models */,
 				E85C1822223E0AE00029963D /* Controls */,
 				E8B0CB882217CC32006FB19F /* Views */,
@@ -293,12 +313,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BoardGamesTimer/Pods-BoardGamesTimer-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/XMLParsing/XMLParsing.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMLParsing.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -337,10 +361,14 @@
 				E8D650FE223D9ECC007D9F72 /* AlwaysPopupSegue.swift in Sources */,
 				F1049AA31ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift in Sources */,
 				E8B0CB862217C30D006FB19F /* AddPlayerViewController.swift in Sources */,
+				E83886812246D5B000E4E809 /* Game.swift in Sources */,
 				E81A653022403C89001A1D5F /* PlayTableViewCell.swift in Sources */,
+				E83886832246D9E700E4E809 /* BGGSearchResultsParser.swift in Sources */,
+				E838867D224693AE00E4E809 /* BaseConnector.swift in Sources */,
 				E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */,
 				F161CAF51ED4A4FD00EB904F /* ColorSelectorViewController.swift in Sources */,
 				E824F2312114E70900458890 /* PlayersViewController.swift in Sources */,
+				E838867F224697D600E4E809 /* GameConnector.swift in Sources */,
 				E86CBDA8223F2E98000C3658 /* Play.swift in Sources */,
 				E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */,
 				E81A652C22401412001A1D5F /* PlaysViewController.swift in Sources */,

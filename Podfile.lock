@@ -1,16 +1,32 @@
 PODS:
   - PureLayout (3.1.4)
+  - SwiftSoup (1.7.4)
+  - XMLParsing (0.0.3)
 
 DEPENDENCIES:
   - PureLayout
+  - SwiftSoup
+  - XMLParsing (from `https://github.com/ShawnMoore/XMLParsing.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - PureLayout
+    - SwiftSoup
+
+EXTERNAL SOURCES:
+  XMLParsing:
+    :git: https://github.com/ShawnMoore/XMLParsing.git
+
+CHECKOUT OPTIONS:
+  XMLParsing:
+    :commit: 594272e4df40798c53ae1735ee65f3f387291670
+    :git: https://github.com/ShawnMoore/XMLParsing.git
 
 SPEC CHECKSUMS:
   PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
+  SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
+  XMLParsing: 085edb6fa22c71d6b53a79299f990a91e7414d19
 
-PODFILE CHECKSUM: ec2b86859dd1f1b70e92bbc665e6f7ff2ca58b3d
+PODFILE CHECKSUM: b6fd841a09e663c334948d533ae00346cfde74a2
 
 COCOAPODS: 1.5.3

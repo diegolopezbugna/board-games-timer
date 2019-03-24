@@ -80,12 +80,14 @@ class TimersViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "logPlaySegue" {
             if let vc = segue.destination as? LogPlayViewController {
+                self.hidesBottomBarWhenPushed = false
                 let playPlayerDetails = self.playerViews.map({ (v) -> PlayPlayerDetails in
-                    var d = PlayPlayerDetails()
+                    let d = PlayPlayerDetails()
                     d.teamColor = (v as? TimerPlayer)?.colorName
                     return d
                 })
                 vc.playPlayerDetails = playPlayerDetails
+//                DispatchQueue.main.async { self.hidesBottomBarWhenPushed = true }
             }
         }
     }

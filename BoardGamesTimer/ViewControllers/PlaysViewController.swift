@@ -23,7 +23,7 @@ struct MonthSection: Comparable {
         let groups = Dictionary(grouping: plays) { (play) -> Date in
             return play.date.firstDayOfMonth()
         }
-        return groups.map({ MonthSection(month: $0.key, plays: $0.value) }).sorted()
+        return groups.map({ MonthSection(month: $0.key, plays: $0.value) }).sorted().reversed()
     }
 }
 

@@ -7,5 +7,7 @@ target 'BoardGamesTimer' do
 
   # Pods for BoardGamesTimer
   pod 'PureLayout'
+  pod 'SwiftSoup'
+  pod 'XMLParsing', :git => 'https://github.com/ShawnMoore/XMLParsing.git'
 
 end
