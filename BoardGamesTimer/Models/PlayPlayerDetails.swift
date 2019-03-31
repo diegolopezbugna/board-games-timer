@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PlayPlayerDetails: NSObject, NSCoding {
+class PlayPlayerDetails: NSObject, NSCoding, Codable {
     var player: Player?
     var won: Bool?
     var firstTimePlaying: Bool?
@@ -26,7 +26,17 @@ class PlayPlayerDetails: NSObject, NSCoding {
         self.won = won
         self.score = score
     }
-    
+
+    enum CodingKeys: String, CodingKey {
+//        case player
+        case won = "win"
+        case firstTimePlaying = "new"
+        case score
+        case teamColor = "color"
+        case startingPosition = "startposition"
+        case playRating = "rating"
+    }
+
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.player, forKey: "player");
         aCoder.encode(self.won, forKey: "won");

@@ -9,9 +9,16 @@
 import Foundation
 
 extension Date {
+    
     func firstDayOfMonth() -> Date {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month], from: self)
         return calendar.date(from: components)!
+    }
+    
+    func bggDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: self)
     }
 }

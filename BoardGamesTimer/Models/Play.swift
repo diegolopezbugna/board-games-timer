@@ -8,17 +8,50 @@
 
 import Foundation
 
-class Play: NSObject, NSCoding {
-    var date: Date
+class Plays: NSObject, NSCoding, Codable {
+    var plays: [Play]?
+    var page: Int
+
+    enum CodingKeys: String, CodingKey {
+        case plays = "play"
+        case page
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.page, forKey: "page");
+        aCoder.encode(self.plays, forKey: "plays");
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.page = aDecoder.decodeInteger(forKey: "page")
+        self.plays = aDecoder.decodeObject(forKey: "plays") as? [Play]
+    }
+    
+}
+
+class Play: NSObject, NSCoding, Codable {
+    var date: String
+    var game: Game
     var gameLength: Int
     var location: String?
     var comments: String?
     var playerDetails: [PlayPlayerDetails]?
     var dontCountWinStats: Bool = false
     var syncronizedWithBGG: Bool = false
-    
+
+    enum CodingKeys: String, CodingKey {
+        case date
+        case game = "item"
+        case gameLength = "length"
+        case location
+        case comments
+        case playerDetails = "players"
+        case dontCountWinStats = "nowinstats"
+    }
+
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.date, forKey: "date");
+        aCoder.encode(self.game, forKey: "game");
         aCoder.encode(self.gameLength, forKey: "gameLength");
         aCoder.encode(self.location, forKey: "location");
         aCoder.encode(self.comments, forKey: "comments");
@@ -28,7 +61,8 @@ class Play: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.date = aDecoder.decodeObject(forKey: "date") as! Date
+        self.date = aDecoder.decodeObject(forKey: "date") as! String
+        self.game = aDecoder.decodeObject(forKey: "game") as! Game
         self.gameLength = aDecoder.decodeInteger(forKey: "gameLength")
         self.location = aDecoder.decodeObject(forKey: "location") as! String?
         self.comments = aDecoder.decodeObject(forKey: "comments") as! String?
@@ -38,8 +72,9 @@ class Play: NSObject, NSCoding {
         super.init()
     }
 
-    init(date: Date, gameLength: Int) {
-        self.date = date
+    init(date: Date, game: Game, gameLength: Int) {
+        self.date = String(describing: date)  //.bggDate()
+        self.game = game
         self.gameLength = gameLength
     }
     
@@ -61,7 +96,7 @@ class Play: NSObject, NSCoding {
             components.month = Int.random(in: 1...28)
             components.year = Int.random(in: 2017...2018)
             let date = calendar.date(from: components)
-            let p = Play(date: date!, gameLength: i)
+            let p = Play(date: date!, game: Game(), gameLength: i)
             p.location = "loc: \(i)"
             p.playerDetails = [PlayPlayerDetails(player: players[0], won: true, score: i), PlayPlayerDetails(player: players[1], won: false, score: i-1), PlayPlayerDetails(player: players[2], won: false, score: i-2)]
             plays.append(p)

@@ -20,8 +20,9 @@ class LogPlayViewController: UIViewController {
     
     var play: Play?
     var playPlayerDetails: [PlayPlayerDetails]?
-    var selectedPlayer: PlayPlayerDetails?
-    var timer: Timer?
+    private var selectedPlayer: PlayPlayerDetails?
+    private var timer: Timer?
+    private var selectedGame: Game?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +54,10 @@ class LogPlayViewController: UIViewController {
     }
     
     @objc func saveTapped() {
+        guard let game = self.selectedGame else { return }
+        
         // TODO: start date? length?
-        let play = Play(date: Date(), gameLength: 90)
+        let play = Play(date: Date(), game: game, gameLength: 90)
         play.location = locationTextField.text
         play.comments = commentsTextView.text
         play.playerDetails = self.playPlayerDetails
@@ -88,6 +91,7 @@ class LogPlayViewController: UIViewController {
                         textField.selectedTextRange = textField.textRange(
                             from: textField.position(from: textField.beginningOfDocument, offset: prefix.count)!,
                             to: textField.endOfDocument)
+                        self.selectedGame = g
                     }
                     break
                 }

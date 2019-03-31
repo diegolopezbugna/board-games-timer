@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Player: NSObject, NSCoding {
+class Player: NSObject, NSCoding, Codable {
     let id: UUID
     var name: String
     var bggUser: String?

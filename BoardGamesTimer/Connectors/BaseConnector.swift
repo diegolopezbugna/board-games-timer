@@ -27,7 +27,7 @@ class BaseConnector {
             completion(nil)
             return
         }
-        NSLog("URL: \(url)")
+        NSLog("URL: \(url.absoluteString)")
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -44,7 +44,9 @@ class BaseConnector {
                 return
             }
             
-            let decoder = JSONDecoder()
+            NSLog("DATA: \(String(data: data, encoding: .utf8)!)")
+            
+            let decoder = XMLDecoder()
             do {
                 let decodable = try decoder.decode(T.self, from: data)
                 print("decoded: ", decodable)

@@ -21,7 +21,7 @@ struct MonthSection: Comparable {
     
     static func group(plays: [Play]) -> [MonthSection] {
         let groups = Dictionary(grouping: plays) { (play) -> Date in
-            return play.date.firstDayOfMonth()
+            return play.date.toBggDate().firstDayOfMonth()
         }
         return groups.map({ MonthSection(month: $0.key, plays: $0.value) }).sorted().reversed()
     }
@@ -43,8 +43,22 @@ class PlaysViewController: UIViewController {
 
         self.tableView.register(PlaySectionHeaderView.self, forHeaderFooterViewReuseIdentifier: self.sectionHeaderIdentifier)
         self.tableView.register(PlayTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
-        
-        self.sections = MonthSection.group(plays: Play.allTest())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let connector = PlaysConnector()
+        connector.getPlays { (plays) in
+            if let onlinePlays = plays?.plays {
+                var allPlays = Play.all()
+                allPlays.append(contentsOf: onlinePlays)
+                self.sections = MonthSection.group(plays: allPlays)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 }
 
@@ -59,7 +73,8 @@ extension PlaysViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! PlayTableViewCell
-        cell.gameLabel.text = self.sections[indexPath.section].plays[indexPath.row].location
+        cell.day.text = self.sections[indexPath.section].plays[indexPath.row].date
+        cell.gameLabel.text = self.sections[indexPath.section].plays[indexPath.row].game.name
         return cell
     }
     
