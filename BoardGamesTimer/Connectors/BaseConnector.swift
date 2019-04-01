@@ -71,7 +71,7 @@ class BaseConnector {
             completion(nil)
             return
         }
-        NSLog("URL: \(url)")
+        NSLog("URL: \(url.absoluteString)")
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
