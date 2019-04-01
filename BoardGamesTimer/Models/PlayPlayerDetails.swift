@@ -21,20 +21,10 @@ class PlayPlayerDetails: NSObject, NSCoding, Codable {
         super.init()
     }
     
-    init(player: Player, won: Bool, score: Int) {
+    init(player: Player, won: Bool, score: Int?) {
         self.player = player
         self.won = won
         self.score = score
-    }
-
-    enum CodingKeys: String, CodingKey {
-//        case player
-        case won = "win"
-        case firstTimePlaying = "new"
-        case score
-        case teamColor = "color"
-        case startingPosition = "startposition"
-        case playRating = "rating"
     }
 
     func encode(with aCoder: NSCoder) {

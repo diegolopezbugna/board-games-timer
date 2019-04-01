@@ -11,28 +11,28 @@ import Foundation
 class Player: NSObject, NSCoding, Codable {
     let id: UUID
     var name: String
-    var bggUser: String?
+    var bggUsername: String?
     var preferredColor: String?
     
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.id, forKey: "id");
         aCoder.encode(self.name, forKey: "name");
-        aCoder.encode(self.bggUser, forKey: "bggUser");
+        aCoder.encode(self.bggUsername, forKey: "bggUser");
     }
     
     required init?(coder aDecoder: NSCoder) {
         self.id = aDecoder.decodeObject(forKey: "id") as! UUID
         self.name = aDecoder.decodeObject(forKey: "name") as! String
-        self.bggUser = aDecoder.decodeObject(forKey: "bggUser") as? String
+        self.bggUsername = aDecoder.decodeObject(forKey: "bggUser") as? String
         super.init()
     }
     
-    init(id: UUID, name: String, bggUser: String?) {
+    init(id: UUID, name: String, bggUsername: String?) {
         self.id = id
         self.name = name
-        self.bggUser = bggUser
+        self.bggUsername = bggUsername
     }
-    
+
     static func all() -> [UUID: Player] {
         if let data = UserDefaults.standard.data(forKey: "players"),
             let players = NSKeyedUnarchiver.unarchiveObject(with: data) as? [UUID: Player] {
@@ -57,5 +57,12 @@ class Player: NSObject, NSCoding, Codable {
         allPlayers.removeValue(forKey: player.id)
         let data = NSKeyedArchiver.archivedData(withRootObject: allPlayers)
         UserDefaults.standard.set(data, forKey: "players")
+    }
+    
+    static func findByBggUsername(bggUsername: String) -> Player? {
+        return (all().first { (arg0) -> Bool in
+            let (_, value) = arg0
+            return value.bggUsername == bggUsername
+        })?.value
     }
 }

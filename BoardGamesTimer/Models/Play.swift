@@ -8,29 +8,8 @@
 
 import Foundation
 
-class Plays: NSObject, NSCoding, Codable {
-    var plays: [Play]?
-    var page: Int
-
-    enum CodingKeys: String, CodingKey {
-        case plays = "play"
-        case page
-    }
-
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(self.page, forKey: "page");
-        aCoder.encode(self.plays, forKey: "plays");
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        self.page = aDecoder.decodeInteger(forKey: "page")
-        self.plays = aDecoder.decodeObject(forKey: "plays") as? [Play]
-    }
-    
-}
-
 class Play: NSObject, NSCoding, Codable {
-    var date: String
+    var date: Date
     var game: Game
     var gameLength: Int
     var location: String?
@@ -38,16 +17,6 @@ class Play: NSObject, NSCoding, Codable {
     var playerDetails: [PlayPlayerDetails]?
     var dontCountWinStats: Bool = false
     var syncronizedWithBGG: Bool = false
-
-    enum CodingKeys: String, CodingKey {
-        case date
-        case game = "item"
-        case gameLength = "length"
-        case location
-        case comments
-        case playerDetails = "players"
-        case dontCountWinStats = "nowinstats"
-    }
 
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.date, forKey: "date");
@@ -61,7 +30,7 @@ class Play: NSObject, NSCoding, Codable {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.date = aDecoder.decodeObject(forKey: "date") as! String
+        self.date = aDecoder.decodeObject(forKey: "date") as! Date
         self.game = aDecoder.decodeObject(forKey: "game") as! Game
         self.gameLength = aDecoder.decodeInteger(forKey: "gameLength")
         self.location = aDecoder.decodeObject(forKey: "location") as! String?
@@ -73,7 +42,7 @@ class Play: NSObject, NSCoding, Codable {
     }
 
     init(date: Date, game: Game, gameLength: Int) {
-        self.date = String(describing: date)  //.bggDate()
+        self.date = date
         self.game = game
         self.gameLength = gameLength
     }

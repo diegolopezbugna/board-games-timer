@@ -16,9 +16,14 @@ extension Date {
         return calendar.date(from: components)!
     }
     
-    func bggDate() -> String {
+    func toBggDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter.string(from: self)
+    }
+    
+    func day() -> Int {
+        let calendar = Calendar.current
+        return calendar.component(.day, from: self)
     }
 }

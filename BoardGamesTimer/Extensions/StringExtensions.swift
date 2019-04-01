@@ -10,13 +10,11 @@ import Foundation
 
 extension String {
     
-    func toBggDate() -> Date {
+    func fromBggDate() -> Date {
         let parts = self.split(separator: "-")
         guard parts.count == 3 else { return Date() }
         let calendar = Calendar.current
         let components = DateComponents(calendar: calendar, timeZone: nil, era: nil, year: Int(parts[0]), month: Int(parts[1]), day: Int(parts[2]), hour: nil, minute: nil, second: nil, nanosecond: nil, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: nil, yearForWeekOfYear: nil)
         return calendar.date(from: components)!
-
     }
-    
 }

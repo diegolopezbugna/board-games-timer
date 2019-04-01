@@ -27,7 +27,7 @@ class AddPlayerViewController: UIViewController {
         
         if let player = player {
             self.nameTextField.text = player.name
-            self.bggUserTextField.text = player.bggUser
+            self.bggUserTextField.text = player.bggUsername
             self.title = "Edit Player"
             self.titleLabel.text = "Edit Player"
         }
@@ -41,9 +41,9 @@ class AddPlayerViewController: UIViewController {
         var player = self.player
         if player != nil {
             player!.name = name
-            player!.bggUser = bggUserTextField.text
+            player!.bggUsername = bggUserTextField.text
         } else {
-            player = Player(id: UUID(), name: name, bggUser: bggUserTextField.text)
+            player = Player(id: UUID(), name: name, bggUsername: bggUserTextField.text)
         }
         Player.addOrUpdatePlayer(player!)
         self.delegate?.adedOrUpdatedPlayer(player!)

@@ -21,7 +21,7 @@ struct MonthSection: Comparable {
     
     static func group(plays: [Play]) -> [MonthSection] {
         let groups = Dictionary(grouping: plays) { (play) -> Date in
-            return play.date.toBggDate().firstDayOfMonth()
+            return play.date.firstDayOfMonth()
         }
         return groups.map({ MonthSection(month: $0.key, plays: $0.value) }).sorted().reversed()
     }
@@ -50,7 +50,7 @@ class PlaysViewController: UIViewController {
 
         let connector = PlaysConnector()
         connector.getPlays { (plays) in
-            if let onlinePlays = plays?.plays {
+            if let onlinePlays = plays {
                 var allPlays = Play.all()
                 allPlays.append(contentsOf: onlinePlays)
                 self.sections = MonthSection.group(plays: allPlays)
@@ -73,7 +73,12 @@ extension PlaysViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! PlayTableViewCell
-        cell.day.text = self.sections[indexPath.section].plays[indexPath.row].date
+
+        let date = self.sections[indexPath.section].plays[indexPath.row].date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE d"
+        cell.day.text = dateFormatter.string(from: date)
+        
         cell.gameLabel.text = self.sections[indexPath.section].plays[indexPath.row].game.name
         return cell
     }
