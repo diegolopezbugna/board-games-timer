@@ -275,9 +275,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zo7-zu-S2i" kind="popoverPresentation" identifier="logPlayPlayerDetailsSegue" customClass="AlwaysPopupSegue" customModule="BoardGamesTimer" customModuleProvider="target" popoverAnchorView="kf9-U4-vAd" id="MdS-VT-G8z">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
+                                            <segue destination="zo7-zu-S2i" kind="show" identifier="logPlayPlayerDetailsSegue" id="MdS-VT-G8z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -319,7 +317,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEn-Am-y0R">
-                                <rect key="frame" x="0.0" y="20" width="375" height="352.5"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKI-Uf-P81">
                                         <rect key="frame" x="16" y="16" width="343" height="20.5"/>
@@ -448,7 +446,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="xj6-5v-18Q" firstAttribute="top" secondItem="JKI-Uf-P81" secondAttribute="bottom" constant="16" id="Z0N-AO-zmY"/>
-                                    <constraint firstAttribute="bottom" secondItem="xj6-5v-18Q" secondAttribute="bottom" id="b59-R1-hJE"/>
                                     <constraint firstItem="xj6-5v-18Q" firstAttribute="leading" secondItem="gEn-Am-y0R" secondAttribute="leading" constant="16" id="dOf-Vo-1Iv"/>
                                     <constraint firstItem="JKI-Uf-P81" firstAttribute="leading" secondItem="gEn-Am-y0R" secondAttribute="leading" constant="16" id="e4G-kE-X2A"/>
                                     <constraint firstAttribute="trailing" secondItem="JKI-Uf-P81" secondAttribute="trailing" constant="16" id="ehb-3f-dcd"/>
@@ -460,12 +457,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gEn-Am-y0R" firstAttribute="top" secondItem="Phl-fV-RUH" secondAttribute="top" id="bnF-2n-89h"/>
+                            <constraint firstItem="Phl-fV-RUH" firstAttribute="bottom" secondItem="gEn-Am-y0R" secondAttribute="bottom" id="hYY-9N-XLG"/>
                             <constraint firstItem="gEn-Am-y0R" firstAttribute="leading" secondItem="Phl-fV-RUH" secondAttribute="leading" id="imI-JP-c5P"/>
                             <constraint firstItem="gEn-Am-y0R" firstAttribute="trailing" secondItem="Phl-fV-RUH" secondAttribute="trailing" id="qRb-aT-Z5R"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Phl-fV-RUH"/>
                     </view>
                     <connections>
+                        <outlet property="bottomConstraint" destination="hYY-9N-XLG" id="b7D-9E-dWk"/>
                         <outlet property="firstTimePlaying" destination="sWv-7O-7g5" id="18r-pZ-4jK"/>
                         <outlet property="playRatingTextField" destination="vbu-gg-mOz" id="YAz-yQ-KKt"/>
                         <outlet property="playerSelectorControl" destination="YHT-pm-eHV" id="Ei2-xw-jvX"/>

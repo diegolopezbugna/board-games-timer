@@ -59,10 +59,17 @@ class Player: NSObject, NSCoding, Codable {
         UserDefaults.standard.set(data, forKey: "players")
     }
     
-    static func findByBggUsername(bggUsername: String) -> Player? {
+    static func findByBggUsername(_ bggUsername: String) -> Player? {
         return (all().first { (arg0) -> Bool in
             let (_, value) = arg0
             return value.bggUsername == bggUsername
+        })?.value
+    }
+    
+    static func findByName(_ name: String) -> Player? {
+        return (all().first { (arg0) -> Bool in
+            let (_, value) = arg0
+            return value.name == name
         })?.value
     }
 }

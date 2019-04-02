@@ -15,7 +15,6 @@ class PlaysConnector: BaseConnector {
         let uri = "xmlapi2/plays"
         
         let queryItems = [URLQueryItem(name: "username", value: username)] // TODO: page
-//        self.requestDecodable(uri: uri, queryItems: queryItems, completion: )
         self.requestDecodable(uri: uri, queryItems: queryItems) { (bggPlays: BggPlays?) in
             let plays = bggPlays?.play!.map({ (bggPlay) -> Play in
                 let game = Game(id: bggPlay.item.objectid, name: bggPlay.item.name)
@@ -23,7 +22,9 @@ class PlaysConnector: BaseConnector {
                 p.playerDetails = bggPlay.players!.player!.map({ (bggPlayerDetails) -> PlayPlayerDetails in
                     var player: Player
                     if bggPlayerDetails.username.count > 0,
-                        let foundPlayer = Player.findByBggUsername(bggUsername: bggPlayerDetails.username) {
+                        let foundPlayer = Player.findByBggUsername(bggPlayerDetails.username) {
+                        player = foundPlayer
+                    } else if let foundPlayer = Player.findByName(bggPlayerDetails.name) {
                         player = foundPlayer
                     } else {
                         player = Player(id: UUID(), name: bggPlayerDetails.name, bggUsername: bggPlayerDetails.username.count > 0 ? bggPlayerDetails.username : nil)

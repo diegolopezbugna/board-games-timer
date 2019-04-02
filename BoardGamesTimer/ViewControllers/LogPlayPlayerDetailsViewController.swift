@@ -14,23 +14,23 @@ protocol LogPlayPlayerDetailsDelegate: class {
 
 class LogPlayPlayerDetailsViewController: UIViewController {
     
-    @IBOutlet var playerSelectorControl: PlayerSelectorControl!
-    @IBOutlet var wonSwitch: UISwitch!
-    @IBOutlet var scoreTextField: UITextField!
-    @IBOutlet var teamColorTextField: UITextField!
-    @IBOutlet var startingPositionTextField: UITextField!
-    @IBOutlet var playRatingTextField: UITextField!
-    @IBOutlet var firstTimePlaying: UISwitch!
+    @IBOutlet private var playerSelectorControl: PlayerSelectorControl!
+    @IBOutlet private var wonSwitch: UISwitch!
+    @IBOutlet private var scoreTextField: UITextField!
+    @IBOutlet private var teamColorTextField: UITextField!
+    @IBOutlet private var startingPositionTextField: UITextField!
+    @IBOutlet private var playRatingTextField: UITextField!
+    @IBOutlet private var firstTimePlaying: UISwitch!
+    @IBOutlet private var bottomConstraint: NSLayoutConstraint!
     
     weak var delegate: LogPlayPlayerDetailsDelegate?
     var playerDetails: PlayPlayerDetails?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.popoverPresentationController?.delegate = self
+        self.hideKeyboardWhenTappedAround()
         
-        if let d = playerDetails {
+        if let d = self.playerDetails {
             playerSelectorControl.selectedPlayer = d.player
             wonSwitch.isOn = d.won ?? false
             scoreTextField.text = d.score != nil ? String(d.score!) : ""
@@ -40,11 +40,26 @@ class LogPlayPlayerDetailsViewController: UIViewController {
             firstTimePlaying.isOn = d.firstTimePlaying ?? false
         }
     }
-}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.addKeyboardChangeFrameObserver(willShow: { [weak self] (height) in
+            self?.view.frame.origin.y = -height / 2 // TODO: only move when bottom textfields are first responder
+            self?.view.layoutIfNeeded()
+            }, willHide: { [weak self] (height) in
+                self?.view.frame.origin.y = 0
+                self?.view.layoutIfNeeded()
+        })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.removeKeyboardChangeFrameObserver()
+        self.save()
+    }
 
-extension LogPlayPlayerDetailsViewController: UIPopoverPresentationControllerDelegate {
-    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
-        if let player = playerSelectorControl.selectedPlayer {
+    func save() {
+        if let player = self.playerSelectorControl.selectedPlayer {
             let playerDetails = self.playerDetails ?? PlayPlayerDetails()
             playerDetails.player = player
             playerDetails.won = wonSwitch.isOn
@@ -57,3 +72,4 @@ extension LogPlayPlayerDetailsViewController: UIPopoverPresentationControllerDel
         }
     }
 }
+

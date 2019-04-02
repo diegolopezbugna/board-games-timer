@@ -10,7 +10,6 @@ import Foundation
 import XMLParsing
 
 class BaseConnector {
-//    let baseUrlString = "https://www.boardgamegeek.com/xmlapi2/"
     let baseUrlString = "https://boardgamegeek.com/"
 
     var baseUrl: URL

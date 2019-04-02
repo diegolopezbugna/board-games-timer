@@ -34,6 +34,7 @@
 		E8B116B222176200005A1D9A /* lostF.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116B122176200005A1D9A /* lostF.mp3 */; };
 		E8B116B422176633005A1D9A /* lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116B322176633005A1D9A /* lost.mp3 */; };
 		E8D650FE223D9ECC007D9F72 /* AlwaysPopupSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D650FD223D9ECC007D9F72 /* AlwaysPopupSegue.swift */; };
+		E8DC52DF22537F1200EECFDA /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC52DE22537F1200EECFDA /* UIViewControllerExtensions.swift */; };
 		F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */; };
 		F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */; };
 		F1049AA31ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9C1ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift */; };
@@ -75,6 +76,7 @@
 		E8B116B122176200005A1D9A /* lostF.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lostF.mp3; sourceTree = "<group>"; };
 		E8B116B322176633005A1D9A /* lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lost.mp3; sourceTree = "<group>"; };
 		E8D650FD223D9ECC007D9F72 /* AlwaysPopupSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysPopupSegue.swift; sourceTree = "<group>"; };
+		E8DC52DE22537F1200EECFDA /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		F1049A971ECCCD4D00D05E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BoardGamesTimer/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BoardGamesTimer/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimersViewController.swift; path = BoardGamesTimer/ViewControllers/TimersViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -178,6 +180,7 @@
 				E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */,
 				E81A652D22402F19001A1D5F /* DateExtensions.swift */,
 				E850AAF7224DB630005BFC72 /* StringExtensions.swift */,
+				E8DC52DE22537F1200EECFDA /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
 				E86CBDAA223F2EBA000C3658 /* PlayPlayerDetails.swift in Sources */,
 				E89A6034225110FD00CE50B2 /* BggModels.swift in Sources */,
+				E8DC52DF22537F1200EECFDA /* UIViewControllerExtensions.swift in Sources */,
 				E80129BE22335C6E0090A896 /* PositionTableViewCell.swift in Sources */,
 				E82FC2A0224083F400C19B27 /* PlaySectionHeaderView.swift in Sources */,
 				E81A652E22402F19001A1D5F /* DateExtensions.swift in Sources */,

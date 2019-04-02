@@ -26,7 +26,8 @@ class LogPlayViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
+
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
@@ -54,7 +55,11 @@ class LogPlayViewController: UIViewController {
     }
     
     @objc func saveTapped() {
-        guard let game = self.selectedGame else { return }
+        guard let game = self.selectedGame else {
+            self.toggleErrorTextField(textField: self.gameTextField, isError: true)
+            self.gameTextField.becomeFirstResponder()
+            return
+        }
         
         // TODO: start date? length?
         let play = Play(date: Date(), game: game, gameLength: 90)
@@ -62,6 +67,18 @@ class LogPlayViewController: UIViewController {
         play.comments = commentsTextView.text
         play.playerDetails = self.playPlayerDetails
         Play.insertPlay(play)
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func toggleErrorTextField(textField: UITextField, isError: Bool) {
+        if isError {
+            textField.layer.borderColor = UIColor.red.cgColor
+            textField.layer.borderWidth = 1.0
+            textField.layer.cornerRadius = 8.0
+        } else {
+            textField.layer.borderWidth = 0
+        }
     }
     
     @objc func gameTextFieldEditingChanged() {
@@ -84,6 +101,7 @@ class LogPlayViewController: UIViewController {
         let c = GameConnector()
         let prefixUppercased = prefix.uppercased()
         c.searchGames(prefix: prefix) { (games) in
+            self.selectedGame = nil
             for g in games {
                 if g.name!.uppercased().starts(with: prefixUppercased) {
                     DispatchQueue.main.async {
@@ -92,6 +110,7 @@ class LogPlayViewController: UIViewController {
                             from: textField.position(from: textField.beginningOfDocument, offset: prefix.count)!,
                             to: textField.endOfDocument)
                         self.selectedGame = g
+                        self.toggleErrorTextField(textField: self.gameTextField, isError: false)
                     }
                     break
                 }
