@@ -11,7 +11,7 @@ import Foundation
 class Play: NSObject, NSCoding, Codable {
     var date: Date
     var game: Game
-    var gameLength: Int
+    var gameLength: Int?
     var location: String?
     var comments: String?
     var playerDetails: [PlayPlayerDetails]?
@@ -41,10 +41,9 @@ class Play: NSObject, NSCoding, Codable {
         super.init()
     }
 
-    init(date: Date, game: Game, gameLength: Int) {
+    init(date: Date, game: Game) {
         self.date = date
         self.game = game
-        self.gameLength = gameLength
     }
     
     static func all() -> [Play] {
@@ -65,7 +64,8 @@ class Play: NSObject, NSCoding, Codable {
             components.month = Int.random(in: 1...28)
             components.year = Int.random(in: 2017...2018)
             let date = calendar.date(from: components)
-            let p = Play(date: date!, game: Game(), gameLength: i)
+            let p = Play(date: date!, game: Game())
+            p.gameLength = i
             p.location = "loc: \(i)"
             p.playerDetails = [PlayPlayerDetails(player: players[0], won: true, score: i), PlayPlayerDetails(player: players[1], won: false, score: i-1), PlayPlayerDetails(player: players[2], won: false, score: i-2)]
             plays.append(p)

@@ -17,7 +17,10 @@ class PlaysConnector: BaseConnector {
         self.requestDecodable(uri: uri, queryItems: queryItems) { (bggPlays: BggPlays?) in
             let plays = bggPlays?.play?.map({ (bggPlay) -> Play in
                 let game = Game(id: bggPlay.item.objectid, name: bggPlay.item.name)
-                let p = Play(date: bggPlay.date.fromBggDate(), game: game, gameLength: bggPlay.length)
+                let p = Play(date: bggPlay.date.fromBggDate(), game: game)
+                if bggPlay.length > 0 {
+                    p.gameLength = bggPlay.length
+                }
                 p.playerDetails = bggPlay.players?.player?.map({ (bggPlayerDetails) -> PlayPlayerDetails in
                     var player: Player
                     if bggPlayerDetails.username.count > 0,

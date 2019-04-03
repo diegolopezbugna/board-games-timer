@@ -61,8 +61,8 @@ class LogPlayViewController: UIViewController {
             return
         }
         
-        // TODO: start date? length?
-        let play = Play(date: Date(), game: game, gameLength: 90)
+        let play = Play(date: Date(), game: game) // TODO: start date?
+        play.gameLength = 0 // TODO: game length?
         play.location = locationTextField.text
         play.comments = commentsTextView.text
         play.playerDetails = self.playPlayerDetails
