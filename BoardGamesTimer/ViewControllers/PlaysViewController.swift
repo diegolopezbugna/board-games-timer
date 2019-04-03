@@ -47,9 +47,18 @@ class PlaysViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        self.getPlays()
+    }
+    
+    private func getPlays() {
+        guard let bggUsername = UserDefaults.standard.value(forKey: UserDefaults.Keys.bggUsername.rawValue) as? String,
+            bggUsername.count > 0 else {
+                self.tabBarController?.selectedIndex = 3  // TODO: remove hardcoded
+            return
+        }
+        
         let connector = PlaysConnector()
-        connector.getPlays { (plays) in
+        connector.getPlays(username: bggUsername) { (plays) in
             if let onlinePlays = plays {
                 var allPlays = Play.all()
                 allPlays.append(contentsOf: onlinePlays)

@@ -27,6 +27,7 @@
 		E86CBDAA223F2EBA000C3658 /* PlayPlayerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDA9223F2EBA000C3658 /* PlayPlayerDetails.swift */; };
 		E86CBDAC223F2F20000C3658 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDAB223F2F20000C3658 /* Player.swift */; };
 		E89A6034225110FD00CE50B2 /* BggModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A6033225110FD00CE50B2 /* BggModels.swift */; };
+		E89DBBFA22543F5400C279B6 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89DBBF922543F5400C279B6 /* UserDefaultsExtensions.swift */; };
 		E8A50FC7222EB80800CD720F /* PositionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */; };
 		E8B0CB862217C30D006FB19F /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */; };
 		E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */; };
@@ -70,6 +71,7 @@
 		E86CBDA9223F2EBA000C3658 /* PlayPlayerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPlayerDetails.swift; sourceTree = "<group>"; };
 		E86CBDAB223F2F20000C3658 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E89A6033225110FD00CE50B2 /* BggModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BggModels.swift; sourceTree = "<group>"; };
+		E89DBBF922543F5400C279B6 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		E8B1169922171465005A1D9A /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				E81A652D22402F19001A1D5F /* DateExtensions.swift */,
 				E850AAF7224DB630005BFC72 /* StringExtensions.swift */,
 				E8DC52DE22537F1200EECFDA /* UIViewControllerExtensions.swift */,
+				E89DBBF922543F5400C279B6 /* UserDefaultsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				E824F2312114E70900458890 /* PlayersViewController.swift in Sources */,
 				E838867F224697D600E4E809 /* GameConnector.swift in Sources */,
 				E86CBDA8223F2E98000C3658 /* Play.swift in Sources */,
+				E89DBBFA22543F5400C279B6 /* UserDefaultsExtensions.swift in Sources */,
 				E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */,
 				E850AAF8224DB630005BFC72 /* StringExtensions.swift in Sources */,
 				E81A652C22401412001A1D5F /* PlaysViewController.swift in Sources */,

@@ -10,16 +10,15 @@ import Foundation
 
 class PlaysConnector: BaseConnector {
     
-    func getPlays(completion: @escaping ([Play]?) -> Void) {
-        let username = "dielop"  // TODO: settings
+    func getPlays(username: String, completion: @escaping ([Play]?) -> Void) {
         let uri = "xmlapi2/plays"
         
         let queryItems = [URLQueryItem(name: "username", value: username)] // TODO: page
         self.requestDecodable(uri: uri, queryItems: queryItems) { (bggPlays: BggPlays?) in
-            let plays = bggPlays?.play!.map({ (bggPlay) -> Play in
+            let plays = bggPlays?.play?.map({ (bggPlay) -> Play in
                 let game = Game(id: bggPlay.item.objectid, name: bggPlay.item.name)
                 let p = Play(date: bggPlay.date.fromBggDate(), game: game, gameLength: bggPlay.length)
-                p.playerDetails = bggPlay.players!.player!.map({ (bggPlayerDetails) -> PlayPlayerDetails in
+                p.playerDetails = bggPlay.players?.player?.map({ (bggPlayerDetails) -> PlayPlayerDetails in
                     var player: Player
                     if bggPlayerDetails.username.count > 0,
                         let foundPlayer = Player.findByBggUsername(bggPlayerDetails.username) {
