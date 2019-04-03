@@ -32,6 +32,8 @@ class TimersViewController: UIViewController {
 
     private var playerViews = [UIView]()
     private var hasFinished = false
+    private var gameStartDateTime: Date?
+    private var gameLength: TimeInterval?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -88,6 +90,8 @@ class TimersViewController: UIViewController {
                     return d
                 })
                 vc.playPlayerDetails = playPlayerDetails
+                vc.gameStartDateTime = self.gameStartDateTime
+                vc.gameLength = self.gameLength
 //                DispatchQueue.main.async { self.hidesBottomBarWhenPushed = true }
             }
         }
@@ -103,6 +107,9 @@ class TimersViewController: UIViewController {
                 }
                 else {
                     vTimerPlayer.startTimer()
+                    if self.gameStartDateTime == nil {
+                        self.gameStartDateTime = Date()
+                    }
                 }
             }
             else {
@@ -123,6 +130,9 @@ class TimersViewController: UIViewController {
                 vTimerPlayer.showTotal()
             }
             self.hasFinished = true
+            if let gameStartDateTime = self.gameStartDateTime {
+                self.gameLength = Date().timeIntervalSince(gameStartDateTime)
+            }
             self.navigationItem.rightBarButtonItem?.title = "Positions"
         } else {
             self.performSegue(withIdentifier: "logPlaySegue", sender: self)

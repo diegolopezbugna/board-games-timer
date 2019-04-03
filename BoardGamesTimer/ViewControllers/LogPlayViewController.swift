@@ -20,6 +20,8 @@ class LogPlayViewController: UIViewController {
     
     var play: Play?
     var playPlayerDetails: [PlayPlayerDetails]?
+    var gameStartDateTime: Date?
+    var gameLength: TimeInterval?
     private var selectedPlayer: PlayPlayerDetails?
     private var timer: Timer?
     private var selectedGame: Game?
@@ -61,8 +63,10 @@ class LogPlayViewController: UIViewController {
             return
         }
         
-        let play = Play(date: Date(), game: game) // TODO: start date? IMPORTANT
-        play.gameLength = 0 // TODO: game length? IMPORTANT
+        let play = Play(date: self.gameStartDateTime ?? Date(), game: game)
+        if let gameLength = self.gameLength {
+            play.gameLength = Int((gameLength / 60.0).rounded())
+        }
         play.location = locationTextField.text
         play.comments = commentsTextView.text
         play.playerDetails = self.playPlayerDetails
