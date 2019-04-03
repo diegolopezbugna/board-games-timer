@@ -17,17 +17,17 @@ struct PlayerColor {
 
 class SetupViewController: UIViewController {
 
-    @IBOutlet var initialTimeLabel: UILabel!
-    @IBOutlet var initialTimeStepper: UIStepper!
-    @IBOutlet var turnTimeLabel: UILabel!
-    @IBOutlet var turnTimeStepper: UIStepper!
+    @IBOutlet private var initialTimeLabel: UILabel!
+    @IBOutlet private var initialTimeStepper: UIStepper!
+    @IBOutlet private var turnTimeLabel: UILabel!
+    @IBOutlet private var turnTimeStepper: UIStepper!
     
-    @IBOutlet var playersLabel: UILabel!
-    @IBOutlet var playersStepper: UIStepper!
-    @IBOutlet var colorSelectorsView: UIView!
-    @IBOutlet var colorSelectors2View: UIView!
+    @IBOutlet private var playersLabel: UILabel!
+    @IBOutlet private var playersStepper: UIStepper!
+    @IBOutlet private var colorSelectorsView: UIView!
+    @IBOutlet private var colorSelectors2View: UIView!
     
-    var colorSelectors = [ColorSelectorViewController]()
+    private var colorSelectors = [ColorSelectorViewController]()
 
     static let availableColors = [
         PlayerColor(name: "Red", textColor: UIColor.white, bgColor: UIColor(red: 0.6, green: 0, blue: 0), bgColor2: UIColor(red: 1, green: 0, blue: 0)),
@@ -43,41 +43,40 @@ class SetupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        initialTimeStepper.addTarget(self, action: #selector(self.initialTimeStepperValueChanged), for: .valueChanged)
-        initialTimeStepper.maximumValue = 20 * 60
-        initialTimeStepper.stepValue = 30
-        initialTimeStepper.value = 180
+        self.initialTimeStepper.addTarget(self, action: #selector(self.initialTimeStepperValueChanged), for: .valueChanged)
+        self.initialTimeStepper.maximumValue = 20 * 60
+        self.initialTimeStepper.stepValue = 30
+        self.initialTimeStepper.value = 180
 
-        turnTimeStepper.addTarget(self, action: #selector(self.turnTimeStepperValueChanged), for: .valueChanged)
-        turnTimeStepper.maximumValue = 3 * 60
-        turnTimeStepper.stepValue = 5
-        turnTimeStepper.value = 30
+        self.turnTimeStepper.addTarget(self, action: #selector(self.turnTimeStepperValueChanged), for: .valueChanged)
+        self.turnTimeStepper.maximumValue = 3 * 60
+        self.turnTimeStepper.stepValue = 5
+        self.turnTimeStepper.value = 30
         
-        playersStepper.value = 6
-        playersStepper.minimumValue = 2
-        playersStepper.maximumValue = 8
+        self.playersStepper.value = 6
+        self.playersStepper.minimumValue = 2
+        self.playersStepper.maximumValue = 8
         
-        playersStepperValueChanged(playersStepper)
+        self.playersStepperValueChanged(self.playersStepper)
     }
     
     @objc func initialTimeStepperValueChanged() {
-        initialTimeLabel.text = TimeInterval(initialTimeStepper.value).toString(showMs: false)
+        self.initialTimeLabel.text = TimeInterval(self.initialTimeStepper.value).toString(showMs: false)
     }
 
     @objc func turnTimeStepperValueChanged() {
-        turnTimeLabel.text = TimeInterval(turnTimeStepper.value).toString(showMs: false)
+        self.turnTimeLabel.text = TimeInterval(self.turnTimeStepper.value).toString(showMs: false)
     }
 
     @IBAction func playersStepperValueChanged(_ sender: Any) {
-        let totalPlayers = Int(playersStepper.value)
-        playersLabel.text =  "\(totalPlayers) players"
+        let totalPlayers = Int(self.playersStepper.value)
+        self.playersLabel.text =  "\(totalPlayers) players"
 
-        for vc in colorSelectors {
-            removeViewController(vc)
+        for vc in self.colorSelectors {
+            self.removeViewController(vc)
         }
-        colorSelectors = [ColorSelectorViewController]()
+        self.colorSelectors = [ColorSelectorViewController]()
         
         for i in 0..<totalPlayers {
 
@@ -86,9 +85,9 @@ class SetupViewController: UIViewController {
             let colorSelector = colorSelectorVC.view!
             colorSelector.translatesAutoresizingMaskIntoConstraints = false
 
-            colorSelectors.append(colorSelectorVC)
+            self.colorSelectors.append(colorSelectorVC)
 
-            let colorSelectorsViewReferent = i < 4 ? colorSelectorsView : colorSelectors2View
+            let colorSelectorsViewReferent = i < 4 ? self.colorSelectorsView : self.colorSelectors2View
             if (i == 0 || i == 4) {
                 colorSelector.autoPinEdge(.top, to: .top, of: colorSelectorsViewReferent!)
             } else {
@@ -101,11 +100,6 @@ class SetupViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let timersVC = segue.destination as! TimersViewController
         timersVC.hidesBottomBarWhenPushed = true
@@ -113,19 +107,19 @@ class SetupViewController: UIViewController {
         timersVC.turnTime = turnTimeStepper.value
         timersVC.totalPlayers = Int(playersStepper.value)
         
-        timersVC.playerColors = colorSelectors.map({ (vc) -> PlayerColor in
+        timersVC.playerColors = self.colorSelectors.map({ (vc) -> PlayerColor in
             return SetupViewController.availableColors[vc.selectedColorIndex]
         })
     }
     
-    func addViewController(_ vc: UIViewController) {
+    private func addViewController(_ vc: UIViewController) {
         addChildViewController(vc)
         view.addSubview(vc.view)
         // constraints
         vc.didMove(toParentViewController: self)
     }
     
-    func removeViewController(_ vc: UIViewController) {
+    private func removeViewController(_ vc: UIViewController) {
         vc.willMove(toParentViewController: nil)
         vc.view.removeFromSuperview()
         vc.removeFromParentViewController()

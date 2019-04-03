@@ -10,14 +10,14 @@ import UIKit
 
 class PlayersViewController: UIViewController {
     
-    var players: [Player] = []
+    @IBOutlet private var playersTableView: UITableView!
     
-    @IBOutlet var playersTableView: UITableView!
+    private var players: [Player] = []
     
     override func viewDidLoad() {
         self.players = Player.allSorted()
-        playersTableView.dataSource = self
-        playersTableView.delegate = self
+        self.playersTableView.dataSource = self
+        self.playersTableView.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -31,7 +31,7 @@ extension PlayersViewController: AddPlayerViewControllerDelegate {
     
     func adedOrUpdatedPlayer(_ player: Player) {
         self.players = Player.allSorted()
-        playersTableView.reloadData()
+        self.playersTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -47,7 +47,7 @@ extension PlayersViewController: AddPlayerViewControllerDelegate {
 extension PlayersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        return self.players.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

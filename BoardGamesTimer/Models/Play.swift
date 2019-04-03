@@ -32,10 +32,10 @@ class Play: NSObject, NSCoding, Codable {
     required init?(coder aDecoder: NSCoder) {
         self.date = aDecoder.decodeObject(forKey: "date") as! Date
         self.game = aDecoder.decodeObject(forKey: "game") as! Game
-        self.gameLength = aDecoder.decodeInteger(forKey: "gameLength")
-        self.location = aDecoder.decodeObject(forKey: "location") as! String?
-        self.comments = aDecoder.decodeObject(forKey: "comments") as! String?
-        self.playerDetails = aDecoder.decodeObject(forKey: "playerDetails") as! [PlayPlayerDetails]?
+        self.gameLength = aDecoder.decodeObject(forKey: "gameLength") as? Int
+        self.location = aDecoder.decodeObject(forKey: "location") as? String
+        self.comments = aDecoder.decodeObject(forKey: "comments") as? String
+        self.playerDetails = aDecoder.decodeObject(forKey: "playerDetails") as? [PlayPlayerDetails]
         self.dontCountWinStats = aDecoder.decodeBool(forKey: "dontCountWinStats")
         self.syncronizedWithBGG = aDecoder.decodeBool(forKey: "syncronizedWithBGG")
         super.init()

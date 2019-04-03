@@ -12,11 +12,11 @@ class LogPlayViewController: UIViewController {
     let cellIdentifier = "positionCell"
     let headerCellIdentifier = "headerPositionCell"
 
-    @IBOutlet var gameTextField: UITextField!
-    @IBOutlet var locationTextField: UITextField!
-    @IBOutlet var commentsTextView: UITextView!
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var saveButton: UIBarButtonItem!
+    @IBOutlet private var gameTextField: UITextField!
+    @IBOutlet private var locationTextField: UITextField!
+    @IBOutlet private var commentsTextView: UITextView!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var saveButton: UIBarButtonItem!
     
     var play: Play?
     var playPlayerDetails: [PlayPlayerDetails]?
@@ -61,8 +61,8 @@ class LogPlayViewController: UIViewController {
             return
         }
         
-        let play = Play(date: Date(), game: game) // TODO: start date?
-        play.gameLength = 0 // TODO: game length?
+        let play = Play(date: Date(), game: game) // TODO: start date? IMPORTANT
+        play.gameLength = 0 // TODO: game length? IMPORTANT
         play.location = locationTextField.text
         play.comments = commentsTextView.text
         play.playerDetails = self.playPlayerDetails
@@ -71,7 +71,7 @@ class LogPlayViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    func toggleErrorTextField(textField: UITextField, isError: Bool) {
+    private func toggleErrorTextField(textField: UITextField, isError: Bool) {
         if isError {
             textField.layer.borderColor = UIColor.red.cgColor
             textField.layer.borderWidth = 1.0

@@ -14,12 +14,11 @@ protocol AddPlayerViewControllerDelegate: class {
 
 class AddPlayerViewController: UIViewController {
     
-    var player: Player?
-
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var bggUserTextField: UITextField!
     @IBOutlet var titleLabel: UILabel!
     
+    var player: Player?
     weak var delegate: AddPlayerViewControllerDelegate?
     
     override func viewDidLoad() {

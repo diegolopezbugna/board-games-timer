@@ -58,7 +58,7 @@ class LogPlayPlayerDetailsViewController: UIViewController {
         self.save()
     }
 
-    func save() {
+    private func save() {
         if let player = self.playerSelectorControl.selectedPlayer {
             let playerDetails = self.playerDetails ?? PlayPlayerDetails()
             playerDetails.player = player

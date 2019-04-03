@@ -31,9 +31,9 @@ class PlaysViewController: UIViewController {
     let cellIdentifier = "playCell"
     let sectionHeaderIdentifier = "monthPlaySectionHeader"
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     
-    var sections = [MonthSection]()
+    private var sections = [MonthSection]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

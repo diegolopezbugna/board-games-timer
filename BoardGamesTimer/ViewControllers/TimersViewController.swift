@@ -28,9 +28,10 @@ class TimersViewController: UIViewController {
     var initialTime: TimeInterval?
     var turnTime: TimeInterval?
     var totalPlayers: Int?
-    var playerViews = [UIView]()
     var playerColors: [PlayerColor]?
-    var hasFinished = false
+
+    private var playerViews = [UIView]()
+    private var hasFinished = false
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,13 +49,13 @@ class TimersViewController: UIViewController {
         for i in 0..<totalPlayers! {
 
             let v = PlayerViewFactory.createPlayerView(playerColor: playerColors![i], initialTime: self.initialTime!, turnTime: self.turnTime!)
-            playerViews.append(v)
+            self.playerViews.append(v)
             
             let gesture = UITapGestureRecognizer(target: self, action: #selector (self.didTap(sender:)))
             v.addGestureRecognizer(gesture)
         }
         
-        addPortraitConstraints()
+        self.addPortraitConstraints()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -94,7 +95,7 @@ class TimersViewController: UIViewController {
     
     @objc func didTap(sender: UITapGestureRecognizer) {
         guard !self.hasFinished else { return }
-        for v in playerViews {
+        for v in self.playerViews {
             let vTimerPlayer = v as! TimerPlayer
             if (v == sender.view) {
                 if (vTimerPlayer.isRunning()) {
@@ -112,9 +113,9 @@ class TimersViewController: UIViewController {
         }
     }
     
-    func endGame() {
+    private func endGame() {
         if !self.hasFinished {
-            for v in playerViews {
+            for v in self.playerViews {
                 let vTimerPlayer = v as! TimerPlayer
                 if (vTimerPlayer.isRunning()) {
                     vTimerPlayer.stopTimer()
@@ -137,7 +138,7 @@ class TimersViewController: UIViewController {
         }
     }
 
-    func addPortraitConstraints() {
+    private func addPortraitConstraints() {
 
         self.navigationController?.navigationBar.isHidden = false
 
@@ -169,7 +170,7 @@ class TimersViewController: UIViewController {
         
     }
     
-    func addLandscapeConstraints() {
+    private func addLandscapeConstraints() {
         
         self.navigationController?.navigationBar.isHidden = true
         
