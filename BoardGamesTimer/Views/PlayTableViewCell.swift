@@ -2,7 +2,7 @@
 //  PlayTableViewCell.swift
 //  BoardGamesTimer
 //
-//  Created by Diego Lopez bugna on 18/3/19.
+//  Created by Diego Lopez bugna on 4/4/19.
 //  Copyright © 2019 Diego. All rights reserved.
 //
 
@@ -10,26 +10,39 @@ import UIKit
 
 class PlayTableViewCell: UITableViewCell {
 
-    var day: UILabel!
-    var gameLabel: UILabel!
+    @IBOutlet private var dayLabel: UILabel!
+    @IBOutlet private var gameLabel: UILabel!
+    @IBOutlet private var locationLabel: UILabel!
+    @IBOutlet private var lengthLabel: UILabel!
+    @IBOutlet private var playersLabel: UILabel!
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        self.day = UILabel(forAutoLayout: ())
-        self.day.font = UIFont.boldSystemFont(ofSize: 17)
-        self.addSubview(self.day)
-        self.day.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 0), excludingEdge: .right)
-        
-        self.gameLabel = UILabel(forAutoLayout: ())
+    override func awakeFromNib() {
+        self.dayLabel.font = UIFont.boldSystemFont(ofSize: 17)
         self.gameLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        self.addSubview(self.gameLabel)
-        self.gameLabel.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 16), excludingEdge: .left)
-        self.gameLabel.autoPinEdge(.left, to: .right, of: self.day, withOffset: 8)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func setup(play: Play) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE d"
+        self.dayLabel.text = dateFormatter.string(from: play.date)
+        self.gameLabel.text = play.game.name
+        self.locationLabel.text = play.location
+        self.lengthLabel.text = "Length: \(play.gameLength != nil ? String(play.gameLength!) : "-")"
+        self.playersLabel.text = self.playersText(playerDetails: play.playerDetails)
+    }
+    
+    func playersText(playerDetails: [PlayPlayerDetails]?) -> String {
+        guard let playerDetails = playerDetails else { return "Players: -" }
+        var nameScoreText = [String]()
+        for pd in playerDetails.sorted(by: { (pd1, pd2) -> Bool in
+            ((pd1.score ?? 0) + ((pd1.won ?? false) ? 10000 : 0)) >
+                (pd2.score ?? 0) + ((pd2.won ?? false) ? 10000 : 0)
+        }) {
+            let name = pd.player?.name ?? pd.teamColor ?? ""
+            let score = pd.score != nil ? " (\(String(pd.score!)))" : ""
+            nameScoreText.append(name + score)
+        }
+        return "Players: " + nameScoreText.joined(separator: ", ")
     }
     
 }

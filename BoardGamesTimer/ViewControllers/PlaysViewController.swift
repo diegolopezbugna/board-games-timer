@@ -23,7 +23,9 @@ struct MonthSection: Comparable {
         let groups = Dictionary(grouping: plays) { (play) -> Date in
             return play.date.firstDayOfMonth()
         }
-        return groups.map({ MonthSection(month: $0.key, plays: $0.value) }).sorted().reversed()
+        return groups.map({ MonthSection(month: $0.key, plays: $0.value.sorted(by: { (p1, p2) -> Bool in
+            p1.date < p2.date
+        })) }).sorted().reversed()
     }
 }
 
@@ -34,6 +36,7 @@ class PlaysViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
     private var sections = [MonthSection]()
+    private var selectedPlay: Play?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +45,9 @@ class PlaysViewController: UIViewController {
         self.tableView.delegate = self
 
         self.tableView.register(PlaySectionHeaderView.self, forHeaderFooterViewReuseIdentifier: self.sectionHeaderIdentifier)
-        self.tableView.register(PlayTableViewCell.self, forCellReuseIdentifier: self.cellIdentifier)
+
+        let playNib = UINib(nibName: "PlayTableViewCell", bundle: nil)
+        self.tableView.register(playNib, forCellReuseIdentifier: self.cellIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,22 +56,31 @@ class PlaysViewController: UIViewController {
     }
     
     private func getPlays() {
-        guard let bggUsername = UserDefaults.standard.value(forKey: UserDefaults.Keys.bggUsername.rawValue) as? String,
-            bggUsername.count > 0 else {
-                self.tabBarController?.selectedIndex = 3  // TODO: remove hardcoded
-            return
-        }
-        
-        let connector = PlaysConnector()
-        connector.getPlays(username: bggUsername) { (plays) in
-            if let onlinePlays = plays {
-                var allPlays = Play.all()
-                allPlays.append(contentsOf: onlinePlays)
-                self.sections = MonthSection.group(plays: allPlays)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+        let offlinePlays = Play.all()
+        if let bggUsername = UserDefaults.standard.value(forKey: UserDefaults.Keys.bggUsername.rawValue) as? String,
+            bggUsername.count > 0 {
+            // TODO: spinner
+            let connector = PlaysConnector()
+            connector.getPlays(username: bggUsername) { (plays) in
+                if let onlinePlays = plays {
+                    var allPlays = offlinePlays
+                    allPlays.append(contentsOf: onlinePlays)
+                    self.sections = MonthSection.group(plays: allPlays)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
+        } else {
+            self.sections = MonthSection.group(plays: offlinePlays)
+            self.tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let vc = segue.destination as? LogPlayViewController {
+            vc.play = self.selectedPlay
         }
     }
 }
@@ -81,14 +95,9 @@ extension PlaysViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let play = self.sections[indexPath.section].plays[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! PlayTableViewCell
-
-        let date = self.sections[indexPath.section].plays[indexPath.row].date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE d"
-        cell.day.text = dateFormatter.string(from: date)
-        
-        cell.gameLabel.text = self.sections[indexPath.section].plays[indexPath.row].game.name
+        cell.setup(play: play)
         return cell
     }
     
@@ -107,6 +116,11 @@ extension PlaysViewController: UITableViewDataSource {
 
 extension PlaysViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedPlay = self.sections[indexPath.section].plays[indexPath.row]
+        self.performSegue(withIdentifier: "playSegue", sender: self)
     }
 }

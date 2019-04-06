@@ -46,6 +46,14 @@ class LogPlayViewController: UIViewController {
         
         self.saveButton.target = self
         self.saveButton.action = #selector(self.saveTapped)
+        
+        if let play = self.play {
+            self.gameTextField.text = play.game.name
+            self.selectedGame = play.game
+            self.locationTextField.text = play.location
+            self.commentsTextView.text = play.comments
+            self.playPlayerDetails = play.playerDetails
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,15 +70,21 @@ class LogPlayViewController: UIViewController {
             self.gameTextField.becomeFirstResponder()
             return
         }
+        if self.play?.syncronizedWithBGG == true {
+            let alert = UIAlertController(title: "Can't modify BGG logged plays", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
-        let play = Play(date: self.gameStartDateTime ?? Date(), game: game)
+        let play = self.play ?? Play(date: self.gameStartDateTime ?? Date(), game: game)
         if let gameLength = self.gameLength {
             play.gameLength = Int((gameLength / 60.0).rounded())
         }
         play.location = locationTextField.text
         play.comments = commentsTextView.text
         play.playerDetails = self.playPlayerDetails
-        Play.insertPlay(play)
+        Play.addOrUpdatePlay(play)
         
         self.navigationController?.popToRootViewController(animated: true)
     }

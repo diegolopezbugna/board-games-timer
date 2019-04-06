@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="142" id="KGk-i7-Jjw" customClass="PlayTableViewCell" customModule="BoardGamesTimer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="427" height="142"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="427" height="141.5"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRA-6h-6aB">
+                        <rect key="frame" x="0.0" y="0.0" width="130.5" height="37"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday 23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPt-ed-YQp">
+                                <rect key="frame" x="8" y="8" width="114.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="d1X-W8-Qo5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="HPt-ed-YQp" secondAttribute="bottom" constant="8" id="AQK-DW-w6F"/>
+                            <constraint firstItem="HPt-ed-YQp" firstAttribute="top" secondItem="iRA-6h-6aB" secondAttribute="top" constant="8" id="D34-FT-I5N"/>
+                            <constraint firstItem="HPt-ed-YQp" firstAttribute="leading" secondItem="iRA-6h-6aB" secondAttribute="leading" constant="8" id="Wr1-Qg-EAo"/>
+                            <constraint firstAttribute="trailing" secondItem="HPt-ed-YQp" secondAttribute="trailing" constant="8" id="u0Y-ht-9Yt"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lords of the Waterdeep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipb-bP-AhM">
+                        <rect key="frame" x="238.5" y="8" width="180.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@Ludoteca" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qD5-IQ-3ah">
+                        <rect key="frame" x="24" y="37" width="87" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="1Hm-rL-VSZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="length: 1:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dor-44-9Um">
+                        <rect key="frame" x="329" y="37" width="90" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="MW2-g7-676"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Players: Pablo (71), Diego (60, Martín (50)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3HW-tm-n1x">
+                        <rect key="frame" x="8" y="66" width="411" height="67.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.1436732312043508" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="3HW-tm-n1x" firstAttribute="top" secondItem="qD5-IQ-3ah" secondAttribute="bottom" constant="8" id="Fis-Wq-aBH"/>
+                    <constraint firstItem="qD5-IQ-3ah" firstAttribute="top" secondItem="iRA-6h-6aB" secondAttribute="bottom" id="Hki-OY-4d4"/>
+                    <constraint firstItem="qD5-IQ-3ah" firstAttribute="leading" secondItem="HPt-ed-YQp" secondAttribute="leading" constant="16" id="LQy-9c-a6K"/>
+                    <constraint firstItem="iRA-6h-6aB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="auk-bq-8BT"/>
+                    <constraint firstItem="iRA-6h-6aB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fDH-mC-CZ9"/>
+                    <constraint firstItem="Dor-44-9Um" firstAttribute="top" secondItem="qD5-IQ-3ah" secondAttribute="top" id="lUY-Ta-VDC"/>
+                    <constraint firstItem="Ipb-bP-AhM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="miC-vj-gbr"/>
+                    <constraint firstItem="Dor-44-9Um" firstAttribute="trailing" secondItem="Ipb-bP-AhM" secondAttribute="trailing" id="nfs-3y-6af"/>
+                    <constraint firstItem="3HW-tm-n1x" firstAttribute="leading" secondItem="HPt-ed-YQp" secondAttribute="leading" id="paU-XS-luR"/>
+                    <constraint firstAttribute="trailing" secondItem="3HW-tm-n1x" secondAttribute="trailing" constant="8" id="vJq-kP-1lV"/>
+                    <constraint firstAttribute="bottom" secondItem="3HW-tm-n1x" secondAttribute="bottom" constant="8" id="wXC-Em-83o"/>
+                    <constraint firstItem="Ipb-bP-AhM" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-8" id="yOY-FN-X3h"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dayLabel" destination="HPt-ed-YQp" id="7J0-7f-cy9"/>
+                <outlet property="gameLabel" destination="Ipb-bP-AhM" id="8QH-Hp-8Vd"/>
+                <outlet property="lengthLabel" destination="Dor-44-9Um" id="kU0-2X-xeW"/>
+                <outlet property="locationLabel" destination="qD5-IQ-3ah" id="ecc-zu-LI1"/>
+                <outlet property="playersLabel" destination="3HW-tm-n1x" id="bVb-uN-CMn"/>
+            </connections>
+            <point key="canvasLocation" x="135.19999999999999" y="138.53073463268368"/>
+        </tableViewCell>
+    </objects>
+</document>

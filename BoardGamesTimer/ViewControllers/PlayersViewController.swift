@@ -15,9 +15,14 @@ class PlayersViewController: UIViewController {
     private var players: [Player] = []
     
     override func viewDidLoad() {
-        self.players = Player.allSorted()
         self.playersTableView.dataSource = self
         self.playersTableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.players = Player.allSorted()
+        self.playersTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

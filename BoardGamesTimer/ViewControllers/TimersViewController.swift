@@ -48,6 +48,8 @@ class TimersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.gameStartDateTime = Date()
+        
         for i in 0..<totalPlayers! {
 
             let v = PlayerViewFactory.createPlayerView(playerColor: playerColors![i], initialTime: self.initialTime!, turnTime: self.turnTime!)
@@ -107,9 +109,6 @@ class TimersViewController: UIViewController {
                 }
                 else {
                     vTimerPlayer.startTimer()
-                    if self.gameStartDateTime == nil {
-                        self.gameStartDateTime = Date()
-                    }
                 }
             }
             else {

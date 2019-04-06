@@ -21,6 +21,10 @@ class PlaysConnector: BaseConnector {
                 if bggPlay.length > 0 {
                     p.gameLength = bggPlay.length
                 }
+                p.location = bggPlay.location
+                p.comments = bggPlay.comments
+                p.dontCountWinStats = bggPlay.nowinstats
+                p.syncronizedWithBGG = true
                 p.playerDetails = bggPlay.players?.player?.map({ (bggPlayerDetails) -> PlayPlayerDetails in
                     var player: Player
                     if bggPlayerDetails.username.count > 0,
@@ -32,7 +36,7 @@ class PlaysConnector: BaseConnector {
                         player = Player(id: UUID(), name: bggPlayerDetails.name, bggUsername: bggPlayerDetails.username.count > 0 ? bggPlayerDetails.username : nil)
                         Player.addOrUpdatePlayer(player)
                     }
-                    let pd = PlayPlayerDetails(player: player, won: bggPlayerDetails.win, score: Int(bggPlayerDetails.score))
+                    let pd = PlayPlayerDetails(player: player, won: bggPlayerDetails.win, firstTimePlaying: bggPlayerDetails.new, score: Int(bggPlayerDetails.score), teamColor: bggPlayerDetails.color, startingPosition: bggPlayerDetails.startposition, playRating: bggPlayerDetails.rating)
                     return pd
                 })
                 return p

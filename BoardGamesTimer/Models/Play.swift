@@ -80,4 +80,15 @@ class Play: NSObject, NSCoding, Codable {
         let data = NSKeyedArchiver.archivedData(withRootObject: allPlays)
         UserDefaults.standard.set(data, forKey: "plays")
     }
+    
+    static func addOrUpdatePlay(_ play: Play) {
+        var allPlays = all()
+        if let index = allPlays.firstIndex(where: { $0.date == play.date }) {
+            allPlays[index] = play
+        } else {
+            allPlays.append(play)
+        }
+        let data = NSKeyedArchiver.archivedData(withRootObject: allPlays)
+        UserDefaults.standard.set(data, forKey: "plays")
+    }
 }

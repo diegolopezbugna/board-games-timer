@@ -21,12 +21,20 @@ class PlayPlayerDetails: NSObject, NSCoding, Codable {
         super.init()
     }
     
-    init(player: Player, won: Bool, score: Int?) {
-        self.player = player
-        self.won = won
-        self.score = score
+    convenience init(player: Player, won: Bool?, score: Int?) {
+        self.init(player: player, won: won, firstTimePlaying: nil, score: score, teamColor: nil, startingPosition: nil, playRating: nil)
     }
 
+    init(player: Player, won: Bool?, firstTimePlaying: Bool?, score: Int?, teamColor: String?, startingPosition: String?, playRating: String?) {
+        self.player = player
+        self.won = won
+        self.firstTimePlaying = firstTimePlaying
+        self.score = score
+        self.teamColor = teamColor
+        self.startingPosition = startingPosition
+        self.playRating = playRating
+    }
+    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.player, forKey: "player");
         aCoder.encode(self.won, forKey: "won");
