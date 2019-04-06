@@ -132,7 +132,7 @@ class TimersViewController: UIViewController {
             if let gameStartDateTime = self.gameStartDateTime {
                 self.gameLength = Date().timeIntervalSince(gameStartDateTime)
             }
-            self.navigationItem.rightBarButtonItem?.title = "Positions"
+            self.navigationItem.rightBarButtonItem?.title = "Log Play"
         } else {
             self.performSegue(withIdentifier: "logPlaySegue", sender: self)
         }

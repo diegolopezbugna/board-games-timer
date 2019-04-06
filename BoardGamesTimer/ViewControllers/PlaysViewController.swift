@@ -34,7 +34,9 @@ class PlaysViewController: UIViewController {
     let sectionHeaderIdentifier = "monthPlaySectionHeader"
 
     @IBOutlet private var tableView: UITableView!
-    
+    private var loadingView: UIView?
+    private var activityIndicatorView: UIActivityIndicatorView? // TODO: move inside a control with the loadingView
+
     private var sections = [MonthSection]()
     private var selectedPlay: Play?
     
@@ -59,7 +61,7 @@ class PlaysViewController: UIViewController {
         let offlinePlays = Play.all()
         if let bggUsername = UserDefaults.standard.value(forKey: UserDefaults.Keys.bggUsername.rawValue) as? String,
             bggUsername.count > 0 {
-            // TODO: spinner
+            self.showLoading()
             let connector = PlaysConnector()
             connector.getPlays(username: bggUsername) { (plays) in
                 if let onlinePlays = plays {
@@ -68,6 +70,7 @@ class PlaysViewController: UIViewController {
                     self.sections = MonthSection.group(plays: allPlays)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        self.hideLoading()
                     }
                 }
             }
@@ -83,6 +86,28 @@ class PlaysViewController: UIViewController {
             vc.play = self.selectedPlay
         }
     }
+    
+    private func showLoading() {
+        if self.loadingView == nil {
+            let loadingView = UIView(forAutoLayout: ())
+            loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+            self.view.addSubview(loadingView)
+            loadingView.autoPinEdgesToSuperviewEdges()
+            let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            loadingView.addSubview(activityIndicatorView)
+            activityIndicatorView.autoCenterInSuperview()
+            self.loadingView = loadingView
+            self.activityIndicatorView = activityIndicatorView
+        }
+        self.activityIndicatorView?.startAnimating()
+        self.loadingView?.isHidden = false
+    }
+    
+    private func hideLoading() {
+        self.activityIndicatorView?.stopAnimating()
+        self.loadingView?.isHidden = true
+    }
+    
 }
 
 extension PlaysViewController: UITableViewDataSource {
