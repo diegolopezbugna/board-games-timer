@@ -11,6 +11,7 @@ import UIKit
 class PositionTableViewCell: UITableViewCell {
     
     var colorLabel: UILabel!
+    var timeLabel: UILabel!
     var playerLabel: UILabel!
     var scoreLabel: UILabel!
     let players = Player.allSorted()
@@ -28,6 +29,10 @@ class PositionTableViewCell: UITableViewCell {
         stackView.addArrangedSubview(self.colorLabel)
 //        self.colorLabel.autoSetDimension(.width, toSize: 80)
         
+        self.timeLabel = self.createLabel()
+        stackView.addArrangedSubview(self.timeLabel)
+        //        self.timeLabel.autoSetDimension(.width, toSize: 80)
+
         self.playerLabel = self.createLabel()
         stackView.addArrangedSubview(self.playerLabel)
 //        self.playerLabel.autoSetDimension(.width, toSize: 80)

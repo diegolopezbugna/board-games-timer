@@ -146,6 +146,7 @@ extension LogPlayViewController: UITableViewDataSource {
         if let d = self.playPlayerDetails?[indexPath.row] {
             //cell?.positionLabel.text = String(indexPath.row + 1)
             cell?.colorLabel.text = d.teamColor
+            cell?.timeLabel.text = d.time?.toString(showMs: false)
             cell?.playerLabel.text = d.player?.name
             cell?.scoreLabel.text = d.score != nil ? String(d.score!) : ""
         }

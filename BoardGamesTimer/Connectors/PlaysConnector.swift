@@ -36,7 +36,7 @@ class PlaysConnector: BaseConnector {
                         player = Player(id: UUID(), name: bggPlayerDetails.name, bggUsername: bggPlayerDetails.username.count > 0 ? bggPlayerDetails.username : nil)
                         Player.addOrUpdatePlayer(player)
                     }
-                    let pd = PlayPlayerDetails(player: player, won: bggPlayerDetails.win, firstTimePlaying: bggPlayerDetails.new, score: Int(bggPlayerDetails.score), teamColor: bggPlayerDetails.color, startingPosition: bggPlayerDetails.startposition, playRating: bggPlayerDetails.rating)
+                    let pd = PlayPlayerDetails(player: player, won: bggPlayerDetails.win, firstTimePlaying: bggPlayerDetails.new, score: Int(bggPlayerDetails.score), teamColor: bggPlayerDetails.color, startingPosition: bggPlayerDetails.startposition, playRating: bggPlayerDetails.rating, time: nil)
                     return pd
                 })
                 return p

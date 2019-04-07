@@ -16,16 +16,17 @@ class PlayPlayerDetails: NSObject, NSCoding, Codable {
     var teamColor: String?
     var startingPosition: String?
     var playRating: String?
+    var time: TimeInterval?
     
     override init() {
         super.init()
     }
     
     convenience init(player: Player, won: Bool?, score: Int?) {
-        self.init(player: player, won: won, firstTimePlaying: nil, score: score, teamColor: nil, startingPosition: nil, playRating: nil)
+        self.init(player: player, won: won, firstTimePlaying: nil, score: score, teamColor: nil, startingPosition: nil, playRating: nil, time: nil)
     }
 
-    init(player: Player, won: Bool?, firstTimePlaying: Bool?, score: Int?, teamColor: String?, startingPosition: String?, playRating: String?) {
+    init(player: Player, won: Bool?, firstTimePlaying: Bool?, score: Int?, teamColor: String?, startingPosition: String?, playRating: String?, time: TimeInterval?) {
         self.player = player
         self.won = won
         self.firstTimePlaying = firstTimePlaying
@@ -33,6 +34,7 @@ class PlayPlayerDetails: NSObject, NSCoding, Codable {
         self.teamColor = teamColor
         self.startingPosition = startingPosition
         self.playRating = playRating
+        self.time = time
     }
     
     func encode(with aCoder: NSCoder) {
@@ -43,6 +45,7 @@ class PlayPlayerDetails: NSObject, NSCoding, Codable {
         aCoder.encode(self.teamColor, forKey: "teamColor");
         aCoder.encode(self.startingPosition, forKey: "startingPosition");
         aCoder.encode(self.playRating, forKey: "playRating");
+        aCoder.encode(self.time, forKey: "time");
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,6 +56,7 @@ class PlayPlayerDetails: NSObject, NSCoding, Codable {
         self.teamColor = aDecoder.decodeObject(forKey: "teamColor") as? String
         self.startingPosition = aDecoder.decodeObject(forKey: "startingPosition") as? String
         self.playRating = aDecoder.decodeObject(forKey: "playRating") as? String
+        self.time = aDecoder.decodeObject(forKey: "time") as? TimeInterval
         super.init()
     }
 }

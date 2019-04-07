@@ -87,8 +87,10 @@ class TimersViewController: UIViewController {
             if let vc = segue.destination as? LogPlayViewController {
                 self.hidesBottomBarWhenPushed = false
                 let playPlayerDetails = self.playerViews.map({ (v) -> PlayPlayerDetails in
+                    let timerPlayer = v as? TimerPlayer
                     let d = PlayPlayerDetails()
-                    d.teamColor = (v as? TimerPlayer)?.colorName
+                    d.teamColor = timerPlayer?.colorName
+                    d.time = timerPlayer?.totalTime
                     return d
                 })
                 vc.playPlayerDetails = playPlayerDetails
