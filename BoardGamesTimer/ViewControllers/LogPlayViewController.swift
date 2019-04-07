@@ -35,7 +35,6 @@ class LogPlayViewController: UIViewController {
         
         self.tableView.register(PositionTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         self.tableView.register(PositionHeaderTableViewCell.self, forHeaderFooterViewReuseIdentifier: headerCellIdentifier)
-//        self.tableView.isEditing = true
         
         self.gameTextField.addTarget(self, action: #selector(self.gameTextFieldEditingChanged), for: .editingChanged)
         
@@ -157,28 +156,11 @@ extension LogPlayViewController: UITableViewDataSource {
         let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: self.headerCellIdentifier) as? PositionHeaderTableViewCell
         return cell ?? UIView()
     }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.playPlayerDetails?[sourceIndexPath.row]
-        if let movedObject = movedObject {
-            self.playPlayerDetails?.remove(at: sourceIndexPath.row)
-            self.playPlayerDetails?.insert(movedObject, at: destinationIndexPath.row)
-            self.tableView.reloadData()
-        }
-    }
 }
 
 extension LogPlayViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
-    }
-    
-    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
+        return 50
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

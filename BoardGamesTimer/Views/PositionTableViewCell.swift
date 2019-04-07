@@ -22,7 +22,7 @@ class PositionTableViewCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         self.addSubview(stackView)
-        stackView.autoPinEdgesToSuperviewEdges(with: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 52))
+        stackView.autoPinEdgesToSuperviewEdges()
         
         self.colorLabel = self.createLabel()
         stackView.addArrangedSubview(self.colorLabel)
