@@ -15,6 +15,7 @@ class LogPlayViewController: UIViewController {
     @IBOutlet private var gameTextField: UITextField!
     @IBOutlet private var locationTextField: UITextField!
     @IBOutlet private var commentsTextView: UITextView!
+    @IBOutlet var lengthLabel: UILabel!
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var saveButton: UIBarButtonItem!
     
@@ -49,10 +50,15 @@ class LogPlayViewController: UIViewController {
         if let play = self.play {
             self.gameTextField.text = play.game.name
             self.selectedGame = play.game
+            if let gameLength = play.gameLength {
+                self.gameLength = TimeInterval(gameLength)
+            }
             self.locationTextField.text = play.location
             self.commentsTextView.text = play.comments
             self.playPlayerDetails = play.playerDetails
         }
+        
+        self.lengthLabel.text = "Length: \(self.gameLength != nil ? self.gameLength!.toString(showMs: false) : "-")"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
