@@ -27,7 +27,7 @@ class PlayTableViewCell: UITableViewCell {
         self.dayLabel.text = dateFormatter.string(from: play.date)
         self.gameLabel.text = play.game.name
         self.locationLabel.text = play.location
-        self.lengthLabel.text = "Length: \(play.gameLength != nil ? String(play.gameLength!) : "-")"
+        self.lengthLabel.text = "Length: \(play.gameLength != nil ? TimeInterval(play.gameLength!).toString(showMs: false) : "-")"
         self.playersLabel.text = self.playersText(playerDetails: play.playerDetails)
     }
     

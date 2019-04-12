@@ -31,9 +31,11 @@ class TimersViewController: UIViewController {
     var playerColors: [PlayerColor]?
 
     private var playerViews = [UIView]()
-    private var hasFinished = false
     private var gameStartDateTime: Date?
-    private var gameLength: TimeInterval?
+    private var gameLength: TimeInterval? {
+        guard let gameStartDateTime = self.gameStartDateTime else { return nil }
+        return Date().timeIntervalSince(gameStartDateTime)
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -68,9 +70,6 @@ class TimersViewController: UIViewController {
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "logPlaySegue" {
-            if self.hasFinished {
-                return true
-            }
             let alert = UIAlertController(title: "End Game", message: "Are you sure?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
                 self.endGame()
@@ -82,27 +81,7 @@ class TimersViewController: UIViewController {
         return super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "logPlaySegue" {
-            if let vc = segue.destination as? LogPlayViewController {
-                self.hidesBottomBarWhenPushed = false
-                let playPlayerDetails = self.playerViews.map({ (v) -> PlayPlayerDetails in
-                    let timerPlayer = v as? TimerPlayer
-                    let d = PlayPlayerDetails()
-                    d.teamColor = timerPlayer?.colorName
-                    d.time = timerPlayer?.totalTime
-                    return d
-                })
-                vc.playPlayerDetails = playPlayerDetails
-                vc.gameStartDateTime = self.gameStartDateTime
-                vc.gameLength = self.gameLength
-//                DispatchQueue.main.async { self.hidesBottomBarWhenPushed = true }
-            }
-        }
-    }
-    
     @objc func didTap(sender: UITapGestureRecognizer) {
-        guard !self.hasFinished else { return }
         for v in self.playerViews {
             let vTimerPlayer = v as! TimerPlayer
             if (v == sender.view) {
@@ -122,22 +101,37 @@ class TimersViewController: UIViewController {
     }
     
     private func endGame() {
-        if !self.hasFinished {
-            for v in self.playerViews {
-                let vTimerPlayer = v as! TimerPlayer
-                if (vTimerPlayer.isRunning()) {
-                    vTimerPlayer.stopTimer()
-                }
-                vTimerPlayer.showTotal()
+        for v in playerViews {
+            let vTimerPlayer = v as! TimerPlayer
+            if (vTimerPlayer.isRunning()) {
+                vTimerPlayer.stopTimer()
             }
-            self.hasFinished = true
-            if let gameStartDateTime = self.gameStartDateTime {
-                self.gameLength = Date().timeIntervalSince(gameStartDateTime)
-            }
-            self.navigationItem.rightBarButtonItem?.title = "Log Play"
-        } else {
-            self.performSegue(withIdentifier: "logPlaySegue", sender: self)
         }
+        self.navigateToLogPlay()
+    }
+    
+    private func navigateToLogPlay() {
+        guard let navigationController = self.navigationController else { return }
+        
+        self.hidesBottomBarWhenPushed = false
+        let playPlayerDetails = self.playerViews.map({ (v) -> PlayPlayerDetails in
+            let timerPlayer = v as? TimerPlayer
+            let d = PlayPlayerDetails()
+            d.teamColor = timerPlayer?.colorName
+            d.time = timerPlayer?.totalTime
+            return d
+        })
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "LogPlayViewController") as! LogPlayViewController
+        vc.playPlayerDetails = playPlayerDetails
+        vc.gameStartDateTime = self.gameStartDateTime
+        vc.gameLength = self.gameLength
+        
+        var vcs = navigationController.viewControllers
+        vcs.removeLast()
+        vcs.append(vc)
+        navigationController.setViewControllers(vcs, animated: true)
     }
     
     @objc func orientationChanged() {
