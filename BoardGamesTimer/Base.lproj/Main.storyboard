@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fd7-VA-mLS">
-                                <rect key="frame" x="0.0" y="80" width="375" height="45"/>
+                                <rect key="frame" x="0.0" y="100.5" width="375" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpX-Gi-sKX" userLabel="Initial Time">
                                         <rect key="frame" x="16" y="8" width="46" height="29"/>
@@ -66,47 +66,64 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRh-Jf-McD" userLabel="Players Label">
-                                <rect key="frame" x="159.5" y="141" width="56" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="159" y="161.5" width="57.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="OPs-fE-7c7" userLabel="Players Stepper">
-                                <rect key="frame" x="140.5" y="173.5" width="94" height="29"/>
+                                <rect key="frame" x="140.5" y="190" width="94" height="29"/>
                                 <connections>
                                     <action selector="playersStepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="mpS-g6-22K"/>
                                 </connections>
                             </stepper>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSo-ve-XTZ" userLabel="Colors View">
-                                <rect key="frame" x="0.0" y="222.5" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="239" width="375" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="V48-d2-kxk"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6k-bu-goQ" userLabel="Colors View 2">
-                                <rect key="frame" x="0.0" y="382.5" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="399" width="375" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OT8-Kw-EcI">
+                                <rect key="frame" x="16" y="80" width="85" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ym4-Rs-7R2">
+                                <rect key="frame" x="280" y="80" width="79" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OPs-fE-7c7" firstAttribute="centerX" secondItem="2Ln-po-zeZ" secondAttribute="centerX" id="0Bg-Aw-Rkk"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="top" secondItem="YSo-ve-XTZ" secondAttribute="bottom" id="2wa-lm-JUQ"/>
-                            <constraint firstItem="OPs-fE-7c7" firstAttribute="top" secondItem="hRh-Jf-McD" secondAttribute="bottom" constant="12" id="3JC-sG-iQr"/>
+                            <constraint firstItem="OPs-fE-7c7" firstAttribute="top" secondItem="hRh-Jf-McD" secondAttribute="bottom" constant="8" id="3JC-sG-iQr"/>
                             <constraint firstItem="YSo-ve-XTZ" firstAttribute="leading" secondItem="2Ln-po-zeZ" secondAttribute="leading" id="3dm-78-3uz"/>
                             <constraint firstItem="YSo-ve-XTZ" firstAttribute="top" secondItem="OPs-fE-7c7" secondAttribute="bottom" constant="20" id="613-PL-4rs"/>
+                            <constraint firstItem="OT8-Kw-EcI" firstAttribute="top" secondItem="2Ln-po-zeZ" secondAttribute="top" constant="16" id="APl-Eu-5If"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="width" secondItem="YSo-ve-XTZ" secondAttribute="width" id="I3E-qu-Da8"/>
+                            <constraint firstItem="OT8-Kw-EcI" firstAttribute="leading" secondItem="2Ln-po-zeZ" secondAttribute="leading" constant="16" id="IaL-tl-OKX"/>
+                            <constraint firstItem="fd7-VA-mLS" firstAttribute="top" secondItem="ym4-Rs-7R2" secondAttribute="bottom" id="IqL-qP-hpE"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="leading" secondItem="YSo-ve-XTZ" secondAttribute="trailing" id="JGG-tt-K9V"/>
                             <constraint firstItem="hRh-Jf-McD" firstAttribute="top" secondItem="fd7-VA-mLS" secondAttribute="bottom" constant="16" id="XpL-QR-jVQ"/>
+                            <constraint firstItem="2Ln-po-zeZ" firstAttribute="trailing" secondItem="ym4-Rs-7R2" secondAttribute="trailing" constant="16" id="Z2i-3Y-dee"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="top" secondItem="YSo-ve-XTZ" secondAttribute="top" id="ZWB-me-T9T"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="leading" secondItem="YSo-ve-XTZ" secondAttribute="leading" id="ech-qw-GTO"/>
+                            <constraint firstItem="ym4-Rs-7R2" firstAttribute="top" secondItem="2Ln-po-zeZ" secondAttribute="top" constant="16" id="edX-IR-g8n"/>
                             <constraint firstItem="hRh-Jf-McD" firstAttribute="centerX" secondItem="2Ln-po-zeZ" secondAttribute="centerX" id="fJ4-et-oML"/>
-                            <constraint firstItem="fd7-VA-mLS" firstAttribute="top" secondItem="2Ln-po-zeZ" secondAttribute="top" constant="16" id="ir8-9S-6cZ"/>
                             <constraint firstItem="2Ln-po-zeZ" firstAttribute="trailing" secondItem="J6k-bu-goQ" secondAttribute="trailing" id="jDY-oG-O38"/>
                             <constraint firstItem="fd7-VA-mLS" firstAttribute="trailing" secondItem="2Ln-po-zeZ" secondAttribute="trailing" id="o5D-ea-0Tg"/>
                             <constraint firstItem="fd7-VA-mLS" firstAttribute="leading" secondItem="2Ln-po-zeZ" secondAttribute="leading" id="pdv-Ra-2aZ"/>
                             <constraint firstItem="J6k-bu-goQ" firstAttribute="height" secondItem="YSo-ve-XTZ" secondAttribute="height" id="qO8-Ua-fNa"/>
+                            <constraint firstItem="fd7-VA-mLS" firstAttribute="top" secondItem="OT8-Kw-EcI" secondAttribute="bottom" id="tBK-5k-rON"/>
                             <constraint firstItem="2Ln-po-zeZ" firstAttribute="trailing" secondItem="YSo-ve-XTZ" secondAttribute="trailing" id="tae-9E-orz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Ln-po-zeZ"/>
@@ -130,7 +147,7 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Jugar" id="v50-9R-8ky"/>
-                    <navigationItem key="navigationItem" title="Setup" id="DKI-ZM-EGz">
+                    <navigationItem key="navigationItem" title="New Game" id="DKI-ZM-EGz">
                         <barButtonItem key="rightBarButtonItem" title="Continue" id="hCt-Ou-pyf">
                             <connections>
                                 <segue destination="GYc-24-aEi" kind="show" id="vUR-1h-kGL"/>
@@ -163,7 +180,7 @@
                         <viewLayoutGuide key="safeArea" id="rVI-vw-73K"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Jugar" id="7Nf-57-v8A"/>
-                    <navigationItem key="navigationItem" title="Timers" id="Ilb-2C-pbo">
+                    <navigationItem key="navigationItem" title="In Progress" id="Ilb-2C-pbo">
                         <barButtonItem key="rightBarButtonItem" title="Finish Game" id="NNx-K7-d43">
                             <connections>
                                 <segue destination="qFD-Xa-jbZ" kind="show" identifier="logPlaySegue" id="Ol8-V0-KIo"/>
