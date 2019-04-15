@@ -1,6 +1,4 @@
-- remove show totals intermidiate view
-- show game length @ log play screen
-- show time @ log player detail
+- setup, reorder color
 
 - move plays to 1st or 2nd place
 - do something with players?
