@@ -39,6 +39,7 @@
 		E8B116B422176633005A1D9A /* lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116B322176633005A1D9A /* lost.mp3 */; };
 		E8D650FE223D9ECC007D9F72 /* AlwaysPopupSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D650FD223D9ECC007D9F72 /* AlwaysPopupSegue.swift */; };
 		E8DC52DF22537F1200EECFDA /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC52DE22537F1200EECFDA /* UIViewControllerExtensions.swift */; };
+		E8EB18832264BF150059BECB /* ColorSelectorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EB18822264BF150059BECB /* ColorSelectorControl.swift */; };
 		E8F4C650225399F600E74821 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F4C64F225399F600E74821 /* SettingsViewController.swift */; };
 		F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */; };
 		F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */; };
@@ -47,9 +48,7 @@
 		F1049AAD1ECCCF1800D05E8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1049AAB1ECCCF1800D05E8F /* Main.storyboard */; };
 		F1049AAE1ECCCF1800D05E8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1049A971ECCCD4D00D05E8F /* Assets.xcassets */; };
 		F11F86741ECCD74E0034EC8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F11F86721ECCD74E0034EC8E /* LaunchScreen.storyboard */; };
-		F14038761ED3613B00320314 /* ColorSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F14038751ED3613B00320314 /* ColorSelectorView.xib */; };
 		F14038781ED3734400320314 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14038771ED3734400320314 /* UIColorExtensions.swift */; };
-		F161CAF51ED4A4FD00EB904F /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F161CAF41ED4A4FD00EB904F /* ColorSelectorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +85,7 @@
 		E8B116B322176633005A1D9A /* lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lost.mp3; sourceTree = "<group>"; };
 		E8D650FD223D9ECC007D9F72 /* AlwaysPopupSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysPopupSegue.swift; sourceTree = "<group>"; };
 		E8DC52DE22537F1200EECFDA /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		E8EB18822264BF150059BECB /* ColorSelectorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorControl.swift; sourceTree = "<group>"; };
 		E8F4C64F225399F600E74821 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F1049A971ECCCD4D00D05E8F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BoardGamesTimer/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BoardGamesTimer/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -95,9 +95,7 @@
 		F1049A9D1ECCCD4D00D05E8F /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetupViewController.swift; path = BoardGamesTimer/ViewControllers/SetupViewController.swift; sourceTree = SOURCE_ROOT; };
 		F1049AAC1ECCCF1800D05E8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BoardGamesTimer/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
 		F11F86731ECCD74E0034EC8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = BoardGamesTimer/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
-		F14038751ED3613B00320314 /* ColorSelectorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ColorSelectorView.xib; path = BoardGamesTimer/Views/ColorSelectorView.xib; sourceTree = SOURCE_ROOT; };
 		F14038771ED3734400320314 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = BoardGamesTimer/Extensions/UIColorExtensions.swift; sourceTree = SOURCE_ROOT; };
-		F161CAF41ED4A4FD00EB904F /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSelectorViewController.swift; path = BoardGamesTimer/ViewControllers/ColorSelectorViewController.swift; sourceTree = SOURCE_ROOT; };
 		F1E366AC1ECA0A07006CBEAF /* BoardGamesTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoardGamesTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73483F46E475F1B60C55F5D /* Pods-BoardGamesTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoardGamesTimer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BoardGamesTimer/Pods-BoardGamesTimer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				E85C181F223E0A870029963D /* PlayerSelectorControl.swift */,
+				E8EB18822264BF150059BECB /* ColorSelectorControl.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -157,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				F1049A9D1ECCCD4D00D05E8F /* SetupViewController.swift */,
-				F161CAF41ED4A4FD00EB904F /* ColorSelectorViewController.swift */,
 				E824F2302114E70900458890 /* PlayersViewController.swift */,
 				E8B0CB852217C30D006FB19F /* AddPlayerViewController.swift */,
 				F1049A9A1ECCCD4D00D05E8F /* TimersViewController.swift */,
@@ -174,7 +172,6 @@
 			children = (
 				F1049A9C1ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift */,
 				E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */,
-				F14038751ED3613B00320314 /* ColorSelectorView.xib */,
 				E80129BD22335C6E0090A896 /* PositionTableViewCell.swift */,
 				E8A50FC6222EB80800CD720F /* PositionHeaderTableViewCell.swift */,
 				E82FC29F224083F400C19B27 /* PlaySectionHeaderView.swift */,
@@ -322,7 +319,6 @@
 				E8B116B222176200005A1D9A /* lostF.mp3 in Resources */,
 				E8B116B422176633005A1D9A /* lost.mp3 in Resources */,
 				E83FC6482256987C00C9F6F1 /* PlayTableViewCell.xib in Resources */,
-				F14038761ED3613B00320314 /* ColorSelectorView.xib in Resources */,
 				F1049AAE1ECCCF1800D05E8F /* Assets.xcassets in Resources */,
 				E8A06D81225A50A000ACA6FD /* todo.txt in Resources */,
 				F1049AAD1ECCCF1800D05E8F /* Main.storyboard in Resources */,
@@ -393,10 +389,10 @@
 				E83886812246D5B000E4E809 /* Game.swift in Sources */,
 				E83886832246D9E700E4E809 /* BGGSearchResultsParser.swift in Sources */,
 				E838867D224693AE00E4E809 /* BaseConnector.swift in Sources */,
+				E8EB18832264BF150059BECB /* ColorSelectorControl.swift in Sources */,
 				E8F4C650225399F600E74821 /* SettingsViewController.swift in Sources */,
 				E84DEFD4224B180D001C2E33 /* PlaysConnector.swift in Sources */,
 				E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */,
-				F161CAF51ED4A4FD00EB904F /* ColorSelectorViewController.swift in Sources */,
 				E824F2312114E70900458890 /* PlayersViewController.swift in Sources */,
 				E838867F224697D600E4E809 /* GameConnector.swift in Sources */,
 				E86CBDA8223F2E98000C3658 /* Play.swift in Sources */,
