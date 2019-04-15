@@ -25,7 +25,6 @@ class SetupViewController: UIViewController {
     @IBOutlet private var playersLabel: UILabel!
     @IBOutlet private var playersStepper: UIStepper!
     @IBOutlet private var colorSelectorsView: UIView!
-    @IBOutlet private var colorSelectors2View: UIView!
     
     private var colorSelectors = [ColorSelectorControl]()
 
@@ -54,10 +53,13 @@ class SetupViewController: UIViewController {
         self.turnTimeStepper.stepValue = 5
         self.turnTimeStepper.value = 30
         
-        self.playersStepper.value = 6
+        self.playersStepper.value = 4
         self.playersStepper.minimumValue = 2
         self.playersStepper.maximumValue = 8
-        
+        for _ in 1...Int(self.playersStepper.value) {
+            self.appendColorSelector()
+        }
+
         self.playersStepperValueChanged(self.playersStepper)
     }
     
@@ -70,31 +72,46 @@ class SetupViewController: UIViewController {
     }
 
     @IBAction func playersStepperValueChanged(_ sender: Any) {
-        let totalPlayers = Int(self.playersStepper.value)
-        self.playersLabel.text =  "\(totalPlayers) players"
+        let newTotalPlayers = Int(self.playersStepper.value)
 
-        for vc in self.colorSelectors {
-            vc.removeFromSuperview()
+        if newTotalPlayers < self.colorSelectors.count {
+            self.removeLastColorSelector()
+        } else if newTotalPlayers > self.colorSelectors.count {
+            self.appendColorSelector()
         }
-        self.colorSelectors = [ColorSelectorControl]()
         
-        for i in 0..<totalPlayers {
+        self.playersLabel.text =  "\(self.colorSelectors.count) players"
+    }
+    
+    private func appendColorSelector() {
+        let index = self.colorSelectors.count
+        let colorSelector = ColorSelectorControl(availableColors: SetupViewController.availableColors, selectedColorIndex: index)
+        self.colorSelectors.append(colorSelector)
+        self.colorSelectorsView.addSubview(colorSelector)
+        
+        if index == 0 {
+            colorSelector.autoPinEdge(toSuperviewEdge: .top)
+        } else {
+            colorSelector.autoPinEdge(.top, to: .bottom, of: self.colorSelectors[index - 1], withOffset: 10)
+        }
+        colorSelector.autoPinEdge(toSuperviewEdge: .left, withInset: 30)
+        colorSelector.autoPinEdge(toSuperviewEdge: .right, withInset: 30)
+        colorSelector.autoSetDimension(.height, toSize: 30)
+        colorSelector.alpha = 0
+        
+        UIView.animate(withDuration: 0.2) {
+            colorSelector.alpha = 1
+        }
+    }
+    
+    private func removeLastColorSelector() {
+        let lastColorSelector = self.colorSelectors[self.colorSelectors.count - 1]
+        self.colorSelectors.removeLast()
 
-            let colorSelector = ColorSelectorControl(availableColors: SetupViewController.availableColors, selectedColorIndex: i)
-            self.view.addSubview(colorSelector)
-
-            self.colorSelectors.append(colorSelector)
-
-            let colorSelectorsViewReferent = i < 4 ? self.colorSelectorsView : self.colorSelectors2View
-            if (i == 0 || i == 4) {
-                colorSelector.autoPinEdge(.top, to: .top, of: colorSelectorsViewReferent!)
-            } else {
-                colorSelector.autoPinEdge(.top, to: .bottom, of: self.colorSelectors[i-1], withOffset: 10)
-            }
-            
-            colorSelector.autoPinEdge(.left, to: .left, of: colorSelectorsViewReferent!, withOffset: 30)
-            colorSelector.autoPinEdge(.right, to: .right, of: colorSelectorsViewReferent!, withOffset: -30)
-            colorSelector.autoSetDimension(.height, toSize: 30)
+        UIView.animate(withDuration: 0.2, animations: {
+            lastColorSelector.alpha = 0
+        }) { (_) in
+            lastColorSelector.removeFromSuperview()
         }
     }
     
