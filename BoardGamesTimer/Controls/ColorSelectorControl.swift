@@ -32,10 +32,10 @@ class ColorSelectorControl: UIControl {
         self.setupViews()
     }
     
-    convenience init(availableColors: [PlayerColor], selectedColorIndex: Int) {
-        self.init()
+    init(availableColors: [PlayerColor], selectedColorIndex: Int) {
         self.availableColors = availableColors
         self.selectedColorIndex = selectedColorIndex
+        super.init(frame: CGRect.zero)
         self.setupViews()
     }
     

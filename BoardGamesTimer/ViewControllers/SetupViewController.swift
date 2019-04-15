@@ -27,7 +27,7 @@ class SetupViewController: UIViewController {
     @IBOutlet private var colorSelectorsView: UIView!
     @IBOutlet private var colorSelectors2View: UIView!
     
-    private var colorSelectors = [ColorSelectorViewController]()
+    private var colorSelectors = [ColorSelectorControl]()
 
     static let availableColors = [
         PlayerColor(name: "Red", textColor: UIColor.white, bgColor: UIColor(red: 0.6, green: 0, blue: 0), bgColor2: UIColor(red: 1, green: 0, blue: 0)),
@@ -74,24 +74,22 @@ class SetupViewController: UIViewController {
         self.playersLabel.text =  "\(totalPlayers) players"
 
         for vc in self.colorSelectors {
-            self.removeViewController(vc)
+            vc.removeFromSuperview()
         }
-        self.colorSelectors = [ColorSelectorViewController]()
+        self.colorSelectors = [ColorSelectorControl]()
         
         for i in 0..<totalPlayers {
 
-            let colorSelectorVC = ColorSelectorViewController(availableColors: SetupViewController.availableColors, selectedColorIndex: i)
-            self.addViewController(colorSelectorVC)
-            let colorSelector = colorSelectorVC.view!
-            colorSelector.translatesAutoresizingMaskIntoConstraints = false
+            let colorSelector = ColorSelectorControl(availableColors: SetupViewController.availableColors, selectedColorIndex: i)
+            self.view.addSubview(colorSelector)
 
-            self.colorSelectors.append(colorSelectorVC)
+            self.colorSelectors.append(colorSelector)
 
             let colorSelectorsViewReferent = i < 4 ? self.colorSelectorsView : self.colorSelectors2View
             if (i == 0 || i == 4) {
                 colorSelector.autoPinEdge(.top, to: .top, of: colorSelectorsViewReferent!)
             } else {
-                colorSelector.autoPinEdge(.top, to: .bottom, of: colorSelectors[i-1].view, withOffset: 10)
+                colorSelector.autoPinEdge(.top, to: .bottom, of: self.colorSelectors[i-1], withOffset: 10)
             }
             
             colorSelector.autoPinEdge(.left, to: .left, of: colorSelectorsViewReferent!, withOffset: 30)
@@ -110,18 +108,5 @@ class SetupViewController: UIViewController {
         timersVC.playerColors = self.colorSelectors.map({ (vc) -> PlayerColor in
             return SetupViewController.availableColors[vc.selectedColorIndex]
         })
-    }
-    
-    private func addViewController(_ vc: UIViewController) {
-        addChildViewController(vc)
-        view.addSubview(vc.view)
-        // constraints
-        vc.didMove(toParentViewController: self)
-    }
-    
-    private func removeViewController(_ vc: UIViewController) {
-        vc.willMove(toParentViewController: nil)
-        vc.view.removeFromSuperview()
-        vc.removeFromParentViewController()
     }
 }
