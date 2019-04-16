@@ -27,6 +27,7 @@ class SetupViewController: UIViewController {
     @IBOutlet private var colorSelectorsView: UIView!
     
     private var colorSelectors = [ColorSelectorControl]()
+    private var colorSelectorBottomConstraint: NSLayoutConstraint?
 
     static let availableColors = [
         PlayerColor(name: "Red", textColor: UIColor.white, bgColor: UIColor(red: 0.6, green: 0, blue: 0), bgColor2: UIColor(red: 1, green: 0, blue: 0)),
@@ -98,7 +99,8 @@ class SetupViewController: UIViewController {
         colorSelector.autoPinEdge(toSuperviewEdge: .right, withInset: 30)
         colorSelector.autoSetDimension(.height, toSize: 30)
         colorSelector.alpha = 0
-        
+        self.updateConstraintForScrollView()
+
         UIView.animate(withDuration: 0.2) {
             colorSelector.alpha = 1
         }
@@ -107,12 +109,18 @@ class SetupViewController: UIViewController {
     private func removeLastColorSelector() {
         let lastColorSelector = self.colorSelectors[self.colorSelectors.count - 1]
         self.colorSelectors.removeLast()
+        self.updateConstraintForScrollView()
 
         UIView.animate(withDuration: 0.2, animations: {
             lastColorSelector.alpha = 0
         }) { (_) in
             lastColorSelector.removeFromSuperview()
         }
+    }
+    
+    private func updateConstraintForScrollView() {
+        self.colorSelectorBottomConstraint?.autoRemove()
+        self.colorSelectorBottomConstraint = self.colorSelectorsView.autoPinEdge(.bottom, to: .bottom, of: self.colorSelectors[self.colorSelectors.count - 1], withOffset: 16)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
