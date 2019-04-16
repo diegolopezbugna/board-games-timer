@@ -144,7 +144,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Ln-po-zeZ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Jugar" id="v50-9R-8ky"/>
+                    <tabBarItem key="tabBarItem" title="Play" id="v50-9R-8ky"/>
                     <navigationItem key="navigationItem" title="New Game" id="DKI-ZM-EGz">
                         <barButtonItem key="rightBarButtonItem" title="Continue" id="hCt-Ou-pyf">
                             <connections>
