@@ -37,6 +37,7 @@
 		E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */; };
 		E8B116B222176200005A1D9A /* lostF.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116B122176200005A1D9A /* lostF.mp3 */; };
 		E8B116B422176633005A1D9A /* lost.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E8B116B322176633005A1D9A /* lost.mp3 */; };
+		E8D150D02266498C00FFCEE6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E8D150D22266498C00FFCEE6 /* Localizable.strings */; };
 		E8D650FE223D9ECC007D9F72 /* AlwaysPopupSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D650FD223D9ECC007D9F72 /* AlwaysPopupSegue.swift */; };
 		E8DC52DF22537F1200EECFDA /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DC52DE22537F1200EECFDA /* UIViewControllerExtensions.swift */; };
 		E8EB18832264BF150059BECB /* ColorSelectorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EB18822264BF150059BECB /* ColorSelectorControl.swift */; };
@@ -83,6 +84,10 @@
 		E8B1169C22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialPlusTurnTimerPlayerView.swift; sourceTree = "<group>"; };
 		E8B116B122176200005A1D9A /* lostF.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lostF.mp3; sourceTree = "<group>"; };
 		E8B116B322176633005A1D9A /* lost.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lost.mp3; sourceTree = "<group>"; };
+		E8D150CA2266411800FFCEE6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		E8D150CB2266411800FFCEE6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		E8D150D12266498C00FFCEE6 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E8D150D32266499500FFCEE6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E8D650FD223D9ECC007D9F72 /* AlwaysPopupSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlwaysPopupSegue.swift; sourceTree = "<group>"; };
 		E8DC52DE22537F1200EECFDA /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		E8EB18822264BF150059BECB /* ColorSelectorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorControl.swift; sourceTree = "<group>"; };
@@ -237,6 +242,7 @@
 				E8B1169B221714BC005A1D9A /* Extensions */,
 				F11F86721ECCD74E0034EC8E /* LaunchScreen.storyboard */,
 				F1049AAB1ECCCF1800D05E8F /* Main.storyboard */,
+				E8D150D22266498C00FFCEE6 /* Localizable.strings */,
 				F1049A9B1ECCCD4D00D05E8F /* Info.plist */,
 				F1049A991ECCCD4D00D05E8F /* AppDelegate.swift */,
 			);
@@ -320,6 +326,7 @@
 				E8B116B422176633005A1D9A /* lost.mp3 in Resources */,
 				E83FC6482256987C00C9F6F1 /* PlayTableViewCell.xib in Resources */,
 				F1049AAE1ECCCF1800D05E8F /* Assets.xcassets in Resources */,
+				E8D150D02266498C00FFCEE6 /* Localizable.strings in Resources */,
 				E8A06D81225A50A000ACA6FD /* todo.txt in Resources */,
 				F1049AAD1ECCCF1800D05E8F /* Main.storyboard in Resources */,
 			);
@@ -423,10 +430,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E8D150D22266498C00FFCEE6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8D150D12266498C00FFCEE6 /* es */,
+				E8D150D32266499500FFCEE6 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		F1049AAB1ECCCF1800D05E8F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F1049AAC1ECCCF1800D05E8F /* Base */,
+				E8D150CB2266411800FFCEE6 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -435,6 +452,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F11F86731ECCD74E0034EC8E /* Base */,
+				E8D150CA2266411800FFCEE6 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -446,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -505,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

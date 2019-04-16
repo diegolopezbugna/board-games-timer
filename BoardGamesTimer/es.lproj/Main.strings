@@ -1,0 +1,135 @@
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "2aE-CE-Ipv"; */
+"2aE-CE-Ipv.title" = "Configuración";
+
+/* Class = "UILabel"; text = "Player"; ObjectID = "4J9-T6-cQU"; */
+"4J9-T6-cQU.text" = "Jugador";
+
+/* Class = "UITabBarItem"; title = "Jugar"; ObjectID = "7Nf-57-v8A"; */
+"7Nf-57-v8A.title" = "Jugar";
+
+/* Class = "UINavigationItem"; title = "Add Player"; ObjectID = "9us-at-uTg"; */
+"9us-at-uTg.title" = "Agregar Jugador";
+
+/* Class = "UIBarButtonItem"; title = "Add"; ObjectID = "BFx-v2-8ta"; */
+"BFx-v2-8ta.title" = "Agregar";
+
+/* Class = "UIViewController"; title = "Setup"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Configurar";
+
+/* Class = "UINavigationItem"; title = "Plays"; ObjectID = "C4B-pS-gEJ"; */
+"C4B-pS-gEJ.title" = "Partidas";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "DAP-yR-Rr2"; */
+"DAP-yR-Rr2.title" = "Grabar";
+
+/* Class = "UINavigationItem"; title = "New Game"; ObjectID = "DKI-ZM-EGz"; */
+"DKI-ZM-EGz.title" = "Nueva Partida";
+
+/* Class = "UILabel"; text = "Preferred Color"; ObjectID = "DLH-FJ-9Ct"; */
+"DLH-FJ-9Ct.text" = "Color Preferido";
+
+/* Class = "UILabel"; text = "Game"; ObjectID = "GFC-Bz-Crt"; */
+"GFC-Bz-Crt.text" = "Juego";
+
+/* Class = "UIViewController"; title = "Timers"; ObjectID = "GYc-24-aEi"; */
+"GYc-24-aEi.title" = "Cronómetros";
+
+/* Class = "UILabel"; text = "Team/Color"; ObjectID = "HQ9-yZ-mCV"; */
+"HQ9-yZ-mCV.text" = "Equipo/Color";
+
+/* Class = "UINavigationItem"; title = "In Progress"; ObjectID = "Ilb-2C-pbo"; */
+"Ilb-2C-pbo.title" = "En Progreso";
+
+/* Class = "UILabel"; text = "Details"; ObjectID = "JKI-Uf-P81"; */
+"JKI-Uf-P81.text" = "Detalle";
+
+/* Class = "UITabBarItem"; title = "Plays"; ObjectID = "K2o-Qm-LeH"; */
+"K2o-Qm-LeH.title" = "Partidas";
+
+/* Class = "UILabel"; text = "New player"; ObjectID = "KSi-UA-Q73"; */
+"KSi-UA-Q73.text" = "Nuevo Jugador";
+
+/* Class = "UIBarButtonItem"; title = "Finish Game"; ObjectID = "NNx-K7-d43"; */
+"NNx-K7-d43.title" = "Terminar Partida";
+
+/* Class = "UILabel"; text = "Initial Time"; ObjectID = "OT8-Kw-EcI"; */
+"OT8-Kw-EcI.text" = "Tiempo Inicial";
+
+/* Class = "UILabel"; text = "First Time Playing?"; ObjectID = "Ojm-aN-D9E"; */
+"Ojm-aN-D9E.text" = "Primera partida?";
+
+/* Class = "UILabel"; text = "03:00"; ObjectID = "PpX-Gi-sKX"; */
+"PpX-Gi-sKX.text" = "03:00";
+
+/* Class = "UILabel"; text = "Won?"; ObjectID = "WbH-Oi-lca"; */
+"WbH-Oi-lca.text" = "Ganador?";
+
+/* Class = "UILabel"; text = "Length: 01:30"; ObjectID = "Wny-Fu-vvj"; */
+"Wny-Fu-vvj.text" = "Duración: 01:30";
+
+/* Class = "UILabel"; text = "Starting Position"; ObjectID = "XWo-J8-Apb"; */
+"XWo-J8-Apb.text" = "Posición Inicial";
+
+/* Class = "UILabel"; text = "Comments"; ObjectID = "Xfr-Z0-Sm1"; */
+"Xfr-Z0-Sm1.text" = "Comentarios";
+
+/* Class = "UITextField"; placeholder = "Location"; ObjectID = "Xie-hb-GcW"; */
+"Xie-hb-GcW.placeholder" = "Lugar";
+
+/* Class = "UITabBarItem"; title = "Players"; ObjectID = "Ymc-ty-gaE"; */
+"Ymc-ty-gaE.title" = "Jugadores";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "ZO6-cG-EOG"; */
+"ZO6-cG-EOG.text" = "Nombre";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "ZaN-C7-M0V"; */
+"ZaN-C7-M0V.text" = "Lugar";
+
+/* Class = "UILabel"; text = "Play Rating"; ObjectID = "c2O-h8-4KG"; */
+"c2O-h8-4KG.text" = "Puntuación";
+
+/* Class = "UITextField"; placeholder = "Type game"; ObjectID = "cXr-no-X9c"; */
+"cXr-no-X9c.placeholder" = "Ingresa el juego";
+
+/* Class = "UILabel"; text = "BGG User"; ObjectID = "fmM-9O-zp9"; */
+"fmM-9O-zp9.text" = "Usuario BGG";
+
+/* Class = "UIBarButtonItem"; title = "Continue"; ObjectID = "hCt-Ou-pyf"; */
+"hCt-Ou-pyf.title" = "Continuar";
+
+/* Class = "UILabel"; text = "Players"; ObjectID = "hRh-Jf-McD"; */
+"hRh-Jf-McD.text" = "Jugadores";
+
+/* Class = "UILabel"; text = "00:30"; ObjectID = "hVj-8V-aF3"; */
+"hVj-8V-aF3.text" = "00:30";
+
+/* Class = "UITabBarItem"; title = "Play"; ObjectID = "jST-yB-2g9"; */
+"jST-yB-2g9.title" = "Jugar";
+
+/* Class = "UILabel"; text = "Board Game Geek Username"; ObjectID = "kwN-4Q-haq"; */
+"kwN-4Q-haq.text" = "Usuario Board Game Geek";
+
+/* Class = "UINavigationItem"; title = "Log Play"; ObjectID = "mSS-Wg-JJX"; */
+"mSS-Wg-JJX.title" = "Registrar Partida";
+
+/* Class = "UINavigationItem"; title = "Players"; ObjectID = "osM-pJ-lHR"; */
+"osM-pJ-lHR.title" = "Jugadores";
+
+/* Class = "UILabel"; text = "Score"; ObjectID = "q64-2p-Xxf"; */
+"q64-2p-Xxf.text" = "Puntos";
+
+/* Class = "UITabBarItem"; title = "Play"; ObjectID = "v50-9R-8ky"; */
+"v50-9R-8ky.title" = "Jugar";
+
+/* Class = "UILabel"; text = "+"; ObjectID = "wEu-WT-hvQ"; */
+"wEu-WT-hvQ.text" = "+";
+
+/* Class = "UILabel"; text = "Turn Time"; ObjectID = "ym4-Rs-7R2"; */
+"ym4-Rs-7R2.text" = "Tiempo por Turno";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "z1J-36-t2u"; */
+"z1J-36-t2u.title" = "Grabar";
+
+/* Class = "UITextView"; text = "Board Games Timer connects with Board Game Geek to get user logged plays.  In a near future, Board Games Timer saved plays will be syncronized with BGG logged plays!"; ObjectID = "z7e-MK-hjl"; */
+"z7e-MK-hjl.text" = "Board Games Timer se conecta con Board Game Geek para obtener las partidas registradas del usuario.  En un futuro cercano, las partidas registradas con Board Games Timer podrán ser sincronizadas con las de la BGG!";
