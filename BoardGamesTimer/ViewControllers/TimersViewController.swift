@@ -70,11 +70,11 @@ class TimersViewController: UIViewController {
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "logPlaySegue" {
-            let alert = UIAlertController(title: "End Game", message: "Are you sure?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (action) in
+            let alert = UIAlertController(title: "End Game?".localized, message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes".localized, style: .destructive, handler: { (action) in
                 self.endGame()
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return false
         }

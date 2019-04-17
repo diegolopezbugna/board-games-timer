@@ -51,7 +51,7 @@
 "KSi-UA-Q73.text" = "Nuevo Jugador";
 
 /* Class = "UIBarButtonItem"; title = "Finish Game"; ObjectID = "NNx-K7-d43"; */
-"NNx-K7-d43.title" = "Terminar Partida";
+"NNx-K7-d43.title" = "Finalizar";
 
 /* Class = "UILabel"; text = "Initial Time"; ObjectID = "OT8-Kw-EcI"; */
 "OT8-Kw-EcI.text" = "Tiempo Inicial";
@@ -87,7 +87,7 @@
 "ZaN-C7-M0V.text" = "Lugar";
 
 /* Class = "UILabel"; text = "Play Rating"; ObjectID = "c2O-h8-4KG"; */
-"c2O-h8-4KG.text" = "Puntuación";
+"c2O-h8-4KG.text" = "Puntos";
 
 /* Class = "UITextField"; placeholder = "Type game"; ObjectID = "cXr-no-X9c"; */
 "cXr-no-X9c.placeholder" = "Ingresa el juego";
@@ -131,5 +131,5 @@
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "z1J-36-t2u"; */
 "z1J-36-t2u.title" = "Grabar";
 
-/* Class = "UITextView"; text = "Board Games Timer connects with Board Game Geek to get user logged plays.  In a near future, Board Games Timer saved plays will be syncronized with BGG logged plays!"; ObjectID = "z7e-MK-hjl"; */
-"z7e-MK-hjl.text" = "Board Games Timer se conecta con Board Game Geek para obtener las partidas registradas del usuario.  En un futuro cercano, las partidas registradas con Board Games Timer podrán ser sincronizadas con las de la BGG!";
+/* Class = "UITextView"; text = "Board Games Timer connects with Board Game Geek to get user logged plays. In a near future, Board Games Timer saved plays will be syncronized with BGG logged plays!"; ObjectID = "z7e-MK-hjl"; */
+"z7e-MK-hjl.text" = "Board Games Timer se conecta con Board Game Geek para obtener las partidas registradas del usuario. En un futuro cercano, las partidas registradas con Board Games Timer podrán ser sincronizadas con las de la BGG!";

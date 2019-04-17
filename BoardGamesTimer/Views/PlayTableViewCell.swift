@@ -27,12 +27,12 @@ class PlayTableViewCell: UITableViewCell {
         self.dayLabel.text = dateFormatter.string(from: play.date)
         self.gameLabel.text = play.game.name
         self.locationLabel.text = play.location
-        self.lengthLabel.text = NSLocalizedString("Length", comment: "") +  ": " + (play.gameLength != nil ? TimeInterval(play.gameLength!).toString(showMs: false) : "-")
+        self.lengthLabel.text = "Length".localized +  ": " + (play.gameLength != nil ? TimeInterval(play.gameLength!).toString(showMs: false) : "-")
         self.playersLabel.text = self.playersText(playerDetails: play.playerDetails)
     }
     
     func playersText(playerDetails: [PlayPlayerDetails]?) -> String {
-        guard let playerDetails = playerDetails else { return "\(NSLocalizedString("Players", comment: "")): -" }
+        guard let playerDetails = playerDetails else { return "Players".localized + ": -" }
         var nameScoreText = [String]()
         for pd in playerDetails.sorted(by: { (pd1, pd2) -> Bool in
             ((pd1.score ?? 0) + ((pd1.won ?? false) ? 10000 : 0)) >
@@ -42,7 +42,7 @@ class PlayTableViewCell: UITableViewCell {
             let score = pd.score != nil ? " (\(String(pd.score!)))" : ""
             nameScoreText.append(name + score)
         }
-        return NSLocalizedString("Players", comment: "") + ": " + nameScoreText.joined(separator: ", ")
+        return "Players".localized + ": " + nameScoreText.joined(separator: ", ")
     }
     
 }

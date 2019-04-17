@@ -58,7 +58,7 @@ class LogPlayViewController: UIViewController {
             self.playPlayerDetails = play.playerDetails
         }
         
-        self.lengthLabel.text = "Length: \(self.gameLength != nil ? self.gameLength!.toString(showMs: false) : "-")"
+        self.lengthLabel.text = "Length".localized + ": " + (self.gameLength != nil ? self.gameLength!.toString(showMs: false) : "-")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,8 +76,8 @@ class LogPlayViewController: UIViewController {
             return
         }
         if self.play?.syncronizedWithBGG == true {
-            let alert = UIAlertController(title: "Can't modify BGG logged plays", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Can't modify BGG logged plays".localized, message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
         }

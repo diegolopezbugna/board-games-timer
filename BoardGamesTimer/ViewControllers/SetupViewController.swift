@@ -30,15 +30,15 @@ class SetupViewController: UIViewController {
     private var colorSelectorBottomConstraint: NSLayoutConstraint?
 
     static let availableColors = [
-        PlayerColor(name: "Red", textColor: UIColor.white, bgColor: UIColor(red: 0.6, green: 0, blue: 0), bgColor2: UIColor(red: 1, green: 0, blue: 0)),
-        PlayerColor(name: "Green", textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0.5, blue: 0), bgColor2: UIColor(red: 0, green: 0.9, blue: 0)),
-        PlayerColor(name: "Blue", textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0, blue: 0.6), bgColor2: UIColor(red: 0.3, green: 0.3, blue: 1)),
-        PlayerColor(name: "Yellow", textColor: UIColor.black, bgColor: UIColor.yellow, bgColor2: UIColor(red: 0.6, green: 0.6, blue: 0)),
-        PlayerColor(name: "Black", textColor: UIColor.white, bgColor: UIColor.black, bgColor2: UIColor(red: 0.4, green: 0.4, blue: 0.4)),
-        PlayerColor(name: "White", textColor: UIColor.black, bgColor: UIColor.white, bgColor2: UIColor(red: 0.6, green: 0.6, blue: 0.6)),
-        PlayerColor(name: "Orange", textColor: UIColor.white, bgColor: UIColor.orange, bgColor2: UIColor(red: 0.6, green: 0.3, blue: 0)),
-        PlayerColor(name: "Purple", textColor: UIColor.white, bgColor: UIColor.purple, bgColor2: UIColor(red: 0.9, green: 0, blue: 0.9)),
-        PlayerColor(name: "Brown", textColor: UIColor.white, bgColor: UIColor.brown, bgColor2: UIColor(red: 0.9, green: 0.7, blue: 0.5)),
+        PlayerColor(name: "Red".localized, textColor: UIColor.white, bgColor: UIColor(red: 0.6, green: 0, blue: 0), bgColor2: UIColor(red: 1, green: 0, blue: 0)),
+        PlayerColor(name: "Green".localized, textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0.5, blue: 0), bgColor2: UIColor(red: 0, green: 0.9, blue: 0)),
+        PlayerColor(name: "Blue".localized, textColor: UIColor.white, bgColor: UIColor(red: 0, green: 0, blue: 0.6), bgColor2: UIColor(red: 0.3, green: 0.3, blue: 1)),
+        PlayerColor(name: "Yellow".localized, textColor: UIColor.black, bgColor: UIColor.yellow, bgColor2: UIColor(red: 0.6, green: 0.6, blue: 0)),
+        PlayerColor(name: "Black".localized, textColor: UIColor.white, bgColor: UIColor.black, bgColor2: UIColor(red: 0.4, green: 0.4, blue: 0.4)),
+        PlayerColor(name: "White".localized, textColor: UIColor.black, bgColor: UIColor.white, bgColor2: UIColor(red: 0.6, green: 0.6, blue: 0.6)),
+        PlayerColor(name: "Orange".localized, textColor: UIColor.white, bgColor: UIColor.orange, bgColor2: UIColor(red: 0.6, green: 0.3, blue: 0)),
+        PlayerColor(name: "Purple".localized, textColor: UIColor.white, bgColor: UIColor.purple, bgColor2: UIColor(red: 0.9, green: 0, blue: 0.9)),
+        PlayerColor(name: "Brown".localized, textColor: UIColor.white, bgColor: UIColor.brown, bgColor2: UIColor(red: 0.9, green: 0.7, blue: 0.5)),
         ]
     
     override func viewDidLoad() {
@@ -81,7 +81,7 @@ class SetupViewController: UIViewController {
             self.appendColorSelector()
         }
         
-        self.playersLabel.text =  "\(self.colorSelectors.count) players"
+        self.playersLabel.text =  "\(self.colorSelectors.count) " + "players".localized
     }
     
     private func appendColorSelector() {

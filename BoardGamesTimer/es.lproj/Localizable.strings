@@ -1,9 +1,23 @@
-/* 
-  Localizable.strings
-  BoardGamesTimer
-
-  Created by Diego Lopez bugna on 16/4/19.
-  Copyright © 2019 Diego. All rights reserved.
-*/
+"Black" = "Negro";
+"Blue" = "Azul";
+"Brown" = "Marrón";
+"Can't modify BGG logged plays" = "No se pueden modificar las partidas de la BGG";
+"Cancel" = "Cancelar";
+"Color" = "Color";
+"Delete" = "Borrar";
+"Edit Player" = "Editar Jugador";
+"End Game?" = "¿Finalizar Partida?";
+"Green" = "Verde";
 "Length" = "Duración";
+"OK" = "OK";
+"Orange" = "Naranja";
+"Player" = "Jugador";
 "Players" = "Jugadores";
+"Points" = "Puntos";
+"Purple" = "Violeta";
+"Red" = "Rojo";
+"Time" = "Tiempo";
+"White" = "Blanco";
+"Yellow" = "Amarillo";
+"Yes" = "Sí";
+"players" = "jugadores";

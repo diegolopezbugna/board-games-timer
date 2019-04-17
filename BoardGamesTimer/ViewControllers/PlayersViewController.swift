@@ -40,7 +40,7 @@ extension PlayersViewController: AddPlayerViewControllerDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete".localized) { (action, indexPath) in
             Player.deletePlayer(self.players[indexPath.row])
             self.players = Player.allSorted()
             tableView.reloadData()

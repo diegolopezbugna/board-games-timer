@@ -21,10 +21,10 @@ class PositionHeaderTableViewCell: UITableViewHeaderFooterView {
         self.addSubview(stackView)
         self.stackView.autoPinEdgesToSuperviewEdges()
 
-        self.addColumnTitle("Color", width: 80)
-        self.addColumnTitle("Time", width: 80)
-        self.addColumnTitle("Player", width: 80)
-        self.addColumnTitle("Points", width: 80)
+        self.addColumnTitle("Color".localized, width: 80)
+        self.addColumnTitle("Time".localized, width: 80)
+        self.addColumnTitle("Player".localized, width: 80)
+        self.addColumnTitle("Points".localized, width: 80)
     }
     
     required init?(coder aDecoder: NSCoder) {

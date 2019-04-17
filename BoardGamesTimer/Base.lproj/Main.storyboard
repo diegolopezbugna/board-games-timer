@@ -718,7 +718,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="159" id="l6u-NL-rz6"/>
                                 </constraints>
-                                <string key="text">Board Games Timer connects with Board Game Geek to get user logged plays.  In a near future, Board Games Timer saved plays will be syncronized with BGG logged plays!</string>
+                                <string key="text">Board Games Timer connects with Board Game Geek to get user logged plays.   In a near future, Board Games Timer saved plays will be syncronized with BGG logged plays!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

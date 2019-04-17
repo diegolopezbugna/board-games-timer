@@ -27,8 +27,8 @@ class AddPlayerViewController: UIViewController {
         if let player = player {
             self.nameTextField.text = player.name
             self.bggUserTextField.text = player.bggUsername
-            self.title = "Edit Player"
-            self.titleLabel.text = "Edit Player"
+            self.title = "Edit Player".localized
+            self.titleLabel.text = "Edit Player".localized
         }
     }
 
