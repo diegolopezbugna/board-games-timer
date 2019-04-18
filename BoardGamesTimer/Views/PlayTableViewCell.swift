@@ -24,7 +24,7 @@ class PlayTableViewCell: UITableViewCell {
     func setup(play: Play) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE d"
-        self.dayLabel.text = dateFormatter.string(from: play.date)
+        self.dayLabel.text = dateFormatter.string(from: play.date).camelcased()
         self.gameLabel.text = play.game.name
         self.locationLabel.text = play.location
         self.lengthLabel.text = "Length".localized +  ": " + (play.gameLength != nil ? TimeInterval(play.gameLength!).toString(showMs: false) : "-")

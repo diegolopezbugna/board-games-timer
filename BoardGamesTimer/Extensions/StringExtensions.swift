@@ -21,4 +21,9 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
+    
+    func camelcased() -> String {
+        let rest = self.dropFirst()
+        return self.prefix(1).uppercased() + rest.lowercased()
+    }
 }

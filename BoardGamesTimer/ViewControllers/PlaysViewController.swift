@@ -24,7 +24,7 @@ struct MonthSection: Comparable {
             return play.date.firstDayOfMonth()
         }
         return groups.map({ MonthSection(month: $0.key, plays: $0.value.sorted(by: { (p1, p2) -> Bool in
-            p1.date < p2.date
+            p1.date > p2.date
         })) }).sorted().reversed()
     }
 }
@@ -130,7 +130,7 @@ extension PlaysViewController: UITableViewDataSource {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: self.sectionHeaderIdentifier) as! PlaySectionHeaderView
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM yyyy"
-        let title = dateFormatter.string(from: self.sections[section].month)
+        let title = dateFormatter.string(from: self.sections[section].month).camelcased()
         let colors = SetupViewController.availableColors.count
         let textColor = SetupViewController.availableColors[section % colors].textColor
         let backgroundColor = SetupViewController.availableColors[section % colors].bgColor
