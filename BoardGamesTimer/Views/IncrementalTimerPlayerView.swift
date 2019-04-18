@@ -122,4 +122,12 @@ class IncrementalTimerPlayerView: UIView, TimerPlayer {
     func showTotal() {
         self.timerLabel.text = "TOTAL:"
     }
+    
+    func showStartingPlayerMark() {
+        fatalError("implement")
+    }
+
+    func hideStartingPlayerMark() {
+        fatalError("implement")
+    }
 }

@@ -22,3 +22,4 @@
 "Yes" = "Sí";
 "players" = "jugadores";
 "Board Games Timer connects with Board Game Geek to get user logged plays. \n\nIn a near future, Board Games Timer saved plays will be syncronized with BGG logged plays!" = "Board Games Timer se conecta con Board Game Geek para obtener las partidas registradas del usuario. \n\nEn un futuro cercano, las partidas registradas con Board Games Timer podrán ser sincronizadas con las de la BGG!";
+"Tap to randomize starting player!" = "¡Presiona para calcular aleatoriamente el jugador inicial!";

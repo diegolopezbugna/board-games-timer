@@ -174,4 +174,16 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
         self.timePenaltyLabel.text = "TOTAL:"
         self.remainingTimeLabel.text = self.totalTime.toString(showMs: false)
     }
+    
+    func showStartingPlayerMark() {
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: {
+            self.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        }, completion: nil)
+    }
+    
+    func hideStartingPlayerMark() {
+        UIView.animate(withDuration: 0.5) {
+            self.transform = CGAffineTransform.identity
+        }
+    }
 }

@@ -1,5 +1,3 @@
-- starting player
-
 - plays infinite scrolling
 - setup, reorder color
 

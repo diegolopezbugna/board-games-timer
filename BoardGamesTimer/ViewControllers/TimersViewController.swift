@@ -15,6 +15,8 @@ protocol TimerPlayer {
     func startTimer()
     func stopTimer()
     func showTotal()
+    func showStartingPlayerMark()
+    func hideStartingPlayerMark()
 }
 
 struct PlayerViewFactory {
@@ -36,6 +38,8 @@ class TimersViewController: UIViewController {
         guard let gameStartDateTime = self.gameStartDateTime else { return nil }
         return Date().timeIntervalSince(gameStartDateTime)
     }
+    private var isShowingStartingPlayer = false
+    private var tapToSeeStartingPlayerView: UIView?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,7 +56,7 @@ class TimersViewController: UIViewController {
 
         self.gameStartDateTime = Date()
         
-        for i in 0..<totalPlayers! {
+        for i in 0..<(self.totalPlayers!) {
 
             let v = PlayerViewFactory.createPlayerView(playerColor: playerColors![i], initialTime: self.initialTime!, turnTime: self.turnTime!)
             self.playerViews.append(v)
@@ -62,6 +66,8 @@ class TimersViewController: UIViewController {
         }
         
         self.addPortraitConstraints()
+        
+        self.showTapToSeeStartingPlayerView()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -84,6 +90,9 @@ class TimersViewController: UIViewController {
     @objc func didTap(sender: UITapGestureRecognizer) {
         for v in self.playerViews {
             let vTimerPlayer = v as! TimerPlayer
+            if self.isShowingStartingPlayer {
+                vTimerPlayer.hideStartingPlayerMark()
+            }
             if (v == sender.view) {
                 if (vTimerPlayer.isRunning()) {
                     vTimerPlayer.stopTimer()
@@ -202,5 +211,38 @@ class TimersViewController: UIViewController {
             v.autoMatch(.width, to: .width, of: view, withMultiplier: 1 / CGFloat(columns))
             v.autoMatch(.height, to: .height, of: view, withMultiplier: 1 / CGFloat(rows))
         }
+    }
+    
+    private func showTapToSeeStartingPlayerView() {
+        let tapView = UIView(forAutoLayout: ())
+        tapView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        self.view.addSubview(tapView)
+        tapView.autoPinEdgesToSuperviewEdges()
+        let label = UILabel(forAutoLayout: ())
+        tapView.addSubview(label)
+        label.text = "Tap to randomize starting player!".localized
+        label.numberOfLines = 0
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.textColor = UIColor.white
+        label.autoPinEdge(toSuperviewEdge: .left, withInset: 32)
+        label.autoPinEdge(toSuperviewEdge: .right, withInset: 32)
+        label.autoAlignAxis(toSuperviewAxis: .horizontal)
+        label.textAlignment = .center
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector (self.didTapTapToSeeStartingPlayerView(sender:)))
+        tapView.addGestureRecognizer(gestureRecognizer)
+        self.tapToSeeStartingPlayerView = tapView
+    }
+    
+    @objc func didTapTapToSeeStartingPlayerView(sender: UITapGestureRecognizer) {
+        self.showStartingPlayer()
+        self.tapToSeeStartingPlayerView?.removeFromSuperview()
+    }
+    
+    private func showStartingPlayer() {
+        let firstPlayer = Int.random(in: 0..<self.totalPlayers!)
+        if let v = self.playerViews[firstPlayer] as? TimerPlayer {
+            v.showStartingPlayerMark()
+        }
+        self.isShowingStartingPlayer = true
     }
 }
