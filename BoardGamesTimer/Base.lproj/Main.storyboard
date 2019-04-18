@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GOg-pb-gHT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GOg-pb-gHT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -713,11 +713,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7e-MK-hjl">
-                                <rect key="frame" x="32" y="235" width="311" height="159"/>
+                                <rect key="frame" x="32" y="235" width="311" height="383"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="159" id="l6u-NL-rz6"/>
-                                </constraints>
                                 <string key="text">Board Games Timer connects with Board Game Geek to get user logged plays.   In a near future, Board Games Timer saved plays will be syncronized with BGG logged plays!</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -728,6 +725,7 @@
                             <constraint firstItem="kwN-4Q-haq" firstAttribute="centerX" secondItem="0CE-1m-mSp" secondAttribute="centerX" id="C95-G0-Co5"/>
                             <constraint firstItem="z7e-MK-hjl" firstAttribute="leading" secondItem="0CE-1m-mSp" secondAttribute="leading" constant="32" id="Dga-l9-clP"/>
                             <constraint firstItem="ITi-5g-lUW" firstAttribute="centerX" secondItem="0CE-1m-mSp" secondAttribute="centerX" id="EJb-ov-xwy"/>
+                            <constraint firstItem="0CE-1m-mSp" firstAttribute="bottom" secondItem="z7e-MK-hjl" secondAttribute="bottom" id="J1m-2j-Qln"/>
                             <constraint firstItem="z7e-MK-hjl" firstAttribute="top" secondItem="ITi-5g-lUW" secondAttribute="bottom" constant="48" id="JVJ-T1-6Lo"/>
                             <constraint firstItem="ITi-5g-lUW" firstAttribute="top" secondItem="kwN-4Q-haq" secondAttribute="bottom" constant="16" id="TMr-lW-4Fa"/>
                             <constraint firstItem="0CE-1m-mSp" firstAttribute="trailing" secondItem="z7e-MK-hjl" secondAttribute="trailing" constant="32" id="ubu-qh-kyk"/>
@@ -737,6 +735,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="spanner-7" id="2aE-CE-Ipv"/>
                     <connections>
+                        <outlet property="mainTextView" destination="z7e-MK-hjl" id="atA-AH-Ub4"/>
                         <outlet property="usernameTextField" destination="ITi-5g-lUW" id="zgz-hO-peC"/>
                     </connections>
                 </viewController>

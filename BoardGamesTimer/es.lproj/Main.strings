@@ -130,6 +130,3 @@
 
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "z1J-36-t2u"; */
 "z1J-36-t2u.title" = "Grabar";
-
-/* Class = "UITextView"; text = "Board Games Timer connects with Board Game Geek to get user logged plays. In a near future, Board Games Timer saved plays will be syncronized with BGG logged plays!"; ObjectID = "z7e-MK-hjl"; */
-"z7e-MK-hjl.text" = "Board Games Timer se conecta con Board Game Geek para obtener las partidas registradas del usuario. En un futuro cercano, las partidas registradas con Board Games Timer podrán ser sincronizadas con las de la BGG!";
