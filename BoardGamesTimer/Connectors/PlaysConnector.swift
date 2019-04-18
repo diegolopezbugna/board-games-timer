@@ -10,10 +10,11 @@ import Foundation
 
 class PlaysConnector: BaseConnector {
     
-    func getPlays(username: String, completion: @escaping ([Play]?) -> Void) {
+    func getPlays(username: String, page: Int = 1, completion: @escaping ([Play]?) -> Void) {
         let uri = "xmlapi2/plays"
         
-        let queryItems = [URLQueryItem(name: "username", value: username)] // TODO: page
+        let queryItems = [URLQueryItem(name: "username", value: username),
+                          URLQueryItem(name: "page", value: String(page))]
         self.requestDecodable(uri: uri, queryItems: queryItems) { (bggPlays: BggPlays?) in
             let plays = bggPlays?.play?.map({ (bggPlay) -> Play in
                 let game = Game(id: bggPlay.item.objectid, name: bggPlay.item.name)

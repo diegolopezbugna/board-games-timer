@@ -1,3 +1,6 @@
+- starting player
+
+- plays infinite scrolling
 - setup, reorder color
 
 - move plays to 1st or 2nd place

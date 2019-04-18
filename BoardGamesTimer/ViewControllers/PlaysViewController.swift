@@ -62,8 +62,7 @@ class PlaysViewController: UIViewController {
         if let bggUsername = UserDefaults.standard.value(forKey: UserDefaults.Keys.bggUsername.rawValue) as? String,
             bggUsername.count > 0 {
             self.showLoading()
-            let connector = PlaysConnector()
-            connector.getPlays(username: bggUsername) { (plays) in
+            self.getOnlinePlays(username: bggUsername, page: 1) { (plays) in
                 if let onlinePlays = plays {
                     var allPlays = offlinePlays
                     allPlays.append(contentsOf: onlinePlays)
@@ -80,6 +79,21 @@ class PlaysViewController: UIViewController {
         }
     }
     
+    private func getOnlinePlays(username: String, page: Int, previousPlays: [Play]? = nil, callback: @escaping ([Play]?) -> Void) {
+        // TODO: change to an infinite scrolling
+        // https://www.raywenderlich.com/5786-uitableview-infinite-scrolling-tutorial
+        let connector = PlaysConnector()
+        var onlinePlays = previousPlays ?? [Play]()
+        connector.getPlays(username: username, page: page) { (plays) in
+            if let plays = plays, page < 11 {
+                onlinePlays.append(contentsOf: plays)
+                self.getOnlinePlays(username: username, page: page + 1, previousPlays: onlinePlays, callback: callback)
+            } else {
+                callback(onlinePlays)
+            }
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let vc = segue.destination as? LogPlayViewController {
