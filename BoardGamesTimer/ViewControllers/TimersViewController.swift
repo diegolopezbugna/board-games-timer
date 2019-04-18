@@ -150,6 +150,11 @@ class TimersViewController: UIViewController {
         else if UIDevice.current.orientation == .portrait {
             addPortraitConstraints()
         }
+        if let tapToSeeStartingPlayerView = self.tapToSeeStartingPlayerView {
+            tapToSeeStartingPlayerView.removeFromSuperview()
+            self.view.addSubview(tapToSeeStartingPlayerView)
+            tapToSeeStartingPlayerView.autoPinEdgesToSuperviewEdges()
+        }
     }
 
     private func addPortraitConstraints() {
@@ -236,6 +241,7 @@ class TimersViewController: UIViewController {
     @objc func didTapTapToSeeStartingPlayerView(sender: UITapGestureRecognizer) {
         self.showStartingPlayer()
         self.tapToSeeStartingPlayerView?.removeFromSuperview()
+        self.tapToSeeStartingPlayerView = nil
     }
     
     private func showStartingPlayer() {
