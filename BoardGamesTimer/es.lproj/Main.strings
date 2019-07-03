@@ -108,7 +108,7 @@
 "jST-yB-2g9.title" = "Jugar";
 
 /* Class = "UILabel"; text = "Board Game Geek Username"; ObjectID = "kwN-4Q-haq"; */
-"kwN-4Q-haq.text" = "Usuario Board Game Geek";
+"kwN-4Q-haq.text" = "Usuario BGG";
 
 /* Class = "UINavigationItem"; title = "Log Play"; ObjectID = "mSS-Wg-JJX"; */
 "mSS-Wg-JJX.title" = "Registrar Partida";

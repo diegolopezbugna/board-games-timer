@@ -300,11 +300,12 @@
 			};
 			buildConfigurationList = F1E366A71ECA0A07006CBEAF /* Build configuration list for PBXProject "BoardGamesTimer" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = F1E366A31ECA0A07006CBEAF;
 			productRefGroup = F1E366AD1ECA0A07006CBEAF /* Products */;

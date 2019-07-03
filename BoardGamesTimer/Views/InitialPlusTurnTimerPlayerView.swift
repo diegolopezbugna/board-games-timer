@@ -40,6 +40,7 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     var timePenaltyTimeInterval: TimeInterval = 0 {
         didSet {
             self.timePenaltyLabel.text = timePenaltyTimeInterval.toString(showMs: false) + " exceeded"
+            self.timePenaltyLabel.isHidden = false
         }
     }
     
@@ -71,9 +72,10 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
             self.audioPlayer2.numberOfLoops = 100
         }
 
-        self.remainingTimeLabel = createLabel(fontSize: 44, constraintConstantY: 20)
+        self.remainingTimeLabel = createLabel(fontSize: 44, constraintConstantY: 0)
         self.remainingTimeLabel.text = remainingTimeInterval.toString(showMs: false)
-        self.timePenaltyLabel = createLabel(fontSize: 16, constraintConstantY: -30)
+        self.timePenaltyLabel = createLabel(fontSize: 16, constraintConstantY: 40)
+        self.timePenaltyLabel.isHidden = true
         self.timePenaltyLabel.text = timePenaltyTimeInterval.toString(showMs: false)
     }
     
@@ -172,6 +174,7 @@ class InitialPlusTurnTimerPlayerView: UIView, TimerPlayer {
     
     func showTotal() {
         self.timePenaltyLabel.text = "TOTAL:"
+        self.timePenaltyLabel.isHidden = false
         self.remainingTimeLabel.text = self.totalTime.toString(showMs: false)
     }
     
