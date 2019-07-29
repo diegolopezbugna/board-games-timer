@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		D25ED460CF76A30A08594BB0 /* Pods_BoardGamesTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A592835F9F62E4D8390805 /* Pods_BoardGamesTimer.framework */; };
 		E80129BE22335C6E0090A896 /* PositionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80129BD22335C6E0090A896 /* PositionTableViewCell.swift */; };
+		E80F4B2522EA68D700483EE5 /* StartPlayerTimerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B2422EA68D700483EE5 /* StartPlayerTimerUseCase.swift */; };
+		E80F4B2722EA68F400483EE5 /* StopPlayerTimerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B2622EA68F400483EE5 /* StopPlayerTimerUseCase.swift */; };
+		E80F4B2922EA695100483EE5 /* StartNewPlayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B2822EA695100483EE5 /* StartNewPlayUseCase.swift */; };
+		E80F4B2B22EA696300483EE5 /* EndPlayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B2A22EA696300483EE5 /* EndPlayUseCase.swift */; };
+		E80F4B2D22EA699300483EE5 /* GetPlayersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B2C22EA699300483EE5 /* GetPlayersUseCase.swift */; };
+		E80F4B2F22EA69A700483EE5 /* SavePlayerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B2E22EA69A700483EE5 /* SavePlayerUseCase.swift */; };
+		E80F4B3122EA69D700483EE5 /* LogPlayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B3022EA69D700483EE5 /* LogPlayUseCase.swift */; };
+		E80F4B3322EA69EC00483EE5 /* GetLoggedPlaysUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B3222EA69EC00483EE5 /* GetLoggedPlaysUseCase.swift */; };
+		E80F4B3522EA6A0500483EE5 /* SaveBggUsernameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B3422EA6A0500483EE5 /* SaveBggUsernameUseCase.swift */; };
+		E80F4B3722EA6B0F00483EE5 /* BggUsernameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B3622EA6B0F00483EE5 /* BggUsernameProvider.swift */; };
+		E80F4B3922EA6CEB00483EE5 /* GetBggUsernameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B3822EA6CEB00483EE5 /* GetBggUsernameUseCase.swift */; };
+		E80F4B4922EA74E600483EE5 /* GetBggUsernameUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B4822EA74E600483EE5 /* GetBggUsernameUseCaseTests.swift */; };
+		E80F4B4B22EA775100483EE5 /* SaveBggUsernameUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F4B4A22EA775100483EE5 /* SaveBggUsernameUseCaseTests.swift */; };
 		E81A652C22401412001A1D5F /* PlaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A652B22401412001A1D5F /* PlaysViewController.swift */; };
 		E81A652E22402F19001A1D5F /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E81A652D22402F19001A1D5F /* DateExtensions.swift */; };
 		E824F2312114E70900458890 /* PlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E824F2302114E70900458890 /* PlayersViewController.swift */; };
@@ -52,10 +65,35 @@
 		F14038781ED3734400320314 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14038771ED3734400320314 /* UIColorExtensions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E80F4B4322EA749D00483EE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1E366A41ECA0A07006CBEAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1E366AB1ECA0A07006CBEAF;
+			remoteInfo = BoardGamesTimer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		611FDBE10BA4EF324A44B672 /* Pods-BoardGamesTimer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BoardGamesTimer.release.xcconfig"; path = "Pods/Target Support Files/Pods-BoardGamesTimer/Pods-BoardGamesTimer.release.xcconfig"; sourceTree = "<group>"; };
 		E3A592835F9F62E4D8390805 /* Pods_BoardGamesTimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BoardGamesTimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E80129BD22335C6E0090A896 /* PositionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionTableViewCell.swift; sourceTree = "<group>"; };
+		E80F4B2422EA68D700483EE5 /* StartPlayerTimerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPlayerTimerUseCase.swift; sourceTree = "<group>"; };
+		E80F4B2622EA68F400483EE5 /* StopPlayerTimerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopPlayerTimerUseCase.swift; sourceTree = "<group>"; };
+		E80F4B2822EA695100483EE5 /* StartNewPlayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartNewPlayUseCase.swift; sourceTree = "<group>"; };
+		E80F4B2A22EA696300483EE5 /* EndPlayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPlayUseCase.swift; sourceTree = "<group>"; };
+		E80F4B2C22EA699300483EE5 /* GetPlayersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlayersUseCase.swift; sourceTree = "<group>"; };
+		E80F4B2E22EA69A700483EE5 /* SavePlayerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePlayerUseCase.swift; sourceTree = "<group>"; };
+		E80F4B3022EA69D700483EE5 /* LogPlayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayUseCase.swift; sourceTree = "<group>"; };
+		E80F4B3222EA69EC00483EE5 /* GetLoggedPlaysUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLoggedPlaysUseCase.swift; sourceTree = "<group>"; };
+		E80F4B3422EA6A0500483EE5 /* SaveBggUsernameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBggUsernameUseCase.swift; sourceTree = "<group>"; };
+		E80F4B3622EA6B0F00483EE5 /* BggUsernameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BggUsernameProvider.swift; sourceTree = "<group>"; };
+		E80F4B3822EA6CEB00483EE5 /* GetBggUsernameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBggUsernameUseCase.swift; sourceTree = "<group>"; };
+		E80F4B3E22EA749D00483EE5 /* BoardGamesTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoardGamesTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E80F4B4222EA749D00483EE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E80F4B4822EA74E600483EE5 /* GetBggUsernameUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBggUsernameUseCaseTests.swift; sourceTree = "<group>"; };
+		E80F4B4A22EA775100483EE5 /* SaveBggUsernameUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBggUsernameUseCaseTests.swift; sourceTree = "<group>"; };
 		E81A652B22401412001A1D5F /* PlaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaysViewController.swift; sourceTree = "<group>"; };
 		E81A652D22402F19001A1D5F /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		E824F2302114E70900458890 /* PlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +144,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E80F4B3B22EA749D00483EE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1E366A91ECA0A07006CBEAF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,6 +168,58 @@
 				E3A592835F9F62E4D8390805 /* Pods_BoardGamesTimer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E80F4B2022EA682600483EE5 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				E80F4B2322EA687400483EE5 /* Providers */,
+				E80F4B2222EA684000483EE5 /* UseCases */,
+				E80F4B2122EA683500483EE5 /* Entities */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		E80F4B2122EA683500483EE5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		E80F4B2222EA684000483EE5 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				E80F4B2422EA68D700483EE5 /* StartPlayerTimerUseCase.swift */,
+				E80F4B2622EA68F400483EE5 /* StopPlayerTimerUseCase.swift */,
+				E80F4B2822EA695100483EE5 /* StartNewPlayUseCase.swift */,
+				E80F4B2A22EA696300483EE5 /* EndPlayUseCase.swift */,
+				E80F4B2C22EA699300483EE5 /* GetPlayersUseCase.swift */,
+				E80F4B2E22EA69A700483EE5 /* SavePlayerUseCase.swift */,
+				E80F4B3022EA69D700483EE5 /* LogPlayUseCase.swift */,
+				E80F4B3222EA69EC00483EE5 /* GetLoggedPlaysUseCase.swift */,
+				E80F4B3422EA6A0500483EE5 /* SaveBggUsernameUseCase.swift */,
+				E80F4B3822EA6CEB00483EE5 /* GetBggUsernameUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		E80F4B2322EA687400483EE5 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				E80F4B3622EA6B0F00483EE5 /* BggUsernameProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		E80F4B3F22EA749D00483EE5 /* BoardGamesTimerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E80F4B4222EA749D00483EE5 /* Info.plist */,
+				E80F4B4822EA74E600483EE5 /* GetBggUsernameUseCaseTests.swift */,
+				E80F4B4A22EA775100483EE5 /* SaveBggUsernameUseCaseTests.swift */,
+			);
+			path = BoardGamesTimerTests;
 			sourceTree = "<group>";
 		};
 		E838867B2246939900E4E809 /* Connectors */ = {
@@ -216,6 +313,7 @@
 			children = (
 				E8A06D80225A50A000ACA6FD /* todo.txt */,
 				F1E366AE1ECA0A07006CBEAF /* BoardGamesTimer */,
+				E80F4B3F22EA749D00483EE5 /* BoardGamesTimerTests */,
 				F1E366AD1ECA0A07006CBEAF /* Products */,
 				FEE74871FD0BE3315C8D1A82 /* Pods */,
 				D8C338971AA89ABB287C6BF7 /* Frameworks */,
@@ -226,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E366AC1ECA0A07006CBEAF /* BoardGamesTimer.app */,
+				E80F4B3E22EA749D00483EE5 /* BoardGamesTimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +332,7 @@
 		F1E366AE1ECA0A07006CBEAF /* BoardGamesTimer */ = {
 			isa = PBXGroup;
 			children = (
+				E80F4B2022EA682600483EE5 /* Business */,
 				E838867B2246939900E4E809 /* Connectors */,
 				E86CBDA6223F2E79000C3658 /* Models */,
 				E85C1822223E0AE00029963D /* Controls */,
@@ -261,6 +361,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E80F4B3D22EA749D00483EE5 /* BoardGamesTimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E80F4B4522EA749D00483EE5 /* Build configuration list for PBXNativeTarget "BoardGamesTimerTests" */;
+			buildPhases = (
+				E80F4B3A22EA749D00483EE5 /* Sources */,
+				E80F4B3B22EA749D00483EE5 /* Frameworks */,
+				E80F4B3C22EA749D00483EE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E80F4B4422EA749D00483EE5 /* PBXTargetDependency */,
+			);
+			name = BoardGamesTimerTests;
+			productName = BoardGamesTimerTests;
+			productReference = E80F4B3E22EA749D00483EE5 /* BoardGamesTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F1E366AB1ECA0A07006CBEAF /* BoardGamesTimer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1E366BE1ECA0A07006CBEAF /* Build configuration list for PBXNativeTarget "BoardGamesTimer" */;
@@ -286,10 +404,16 @@
 		F1E366A41ECA0A07006CBEAF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Diego;
 				TargetAttributes = {
+					E80F4B3D22EA749D00483EE5 = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = X32L2WT2YT;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F1E366AB1ECA0A07006CBEAF;
+					};
 					F1E366AB1ECA0A07006CBEAF = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = X32L2WT2YT;
@@ -313,11 +437,19 @@
 			projectRoot = "";
 			targets = (
 				F1E366AB1ECA0A07006CBEAF /* BoardGamesTimer */,
+				E80F4B3D22EA749D00483EE5 /* BoardGamesTimerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E80F4B3C22EA749D00483EE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1E366AA1ECA0A07006CBEAF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,23 +519,39 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E80F4B3A22EA749D00483EE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E80F4B4922EA74E600483EE5 /* GetBggUsernameUseCaseTests.swift in Sources */,
+				E80F4B4B22EA775100483EE5 /* SaveBggUsernameUseCaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F1E366A81ECA0A07006CBEAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E8D650FE223D9ECC007D9F72 /* AlwaysPopupSegue.swift in Sources */,
+				E80F4B3922EA6CEB00483EE5 /* GetBggUsernameUseCase.swift in Sources */,
 				F1049AA31ECCCD4D00D05E8F /* IncrementalTimerPlayerView.swift in Sources */,
 				E8B0CB862217C30D006FB19F /* AddPlayerViewController.swift in Sources */,
+				E80F4B3722EA6B0F00483EE5 /* BggUsernameProvider.swift in Sources */,
 				E83886812246D5B000E4E809 /* Game.swift in Sources */,
 				E83886832246D9E700E4E809 /* BGGSearchResultsParser.swift in Sources */,
+				E80F4B2922EA695100483EE5 /* StartNewPlayUseCase.swift in Sources */,
+				E80F4B3522EA6A0500483EE5 /* SaveBggUsernameUseCase.swift in Sources */,
 				E838867D224693AE00E4E809 /* BaseConnector.swift in Sources */,
 				E8EB18832264BF150059BECB /* ColorSelectorControl.swift in Sources */,
 				E8F4C650225399F600E74821 /* SettingsViewController.swift in Sources */,
+				E80F4B2722EA68F400483EE5 /* StopPlayerTimerUseCase.swift in Sources */,
 				E84DEFD4224B180D001C2E33 /* PlaysConnector.swift in Sources */,
+				E80F4B2D22EA699300483EE5 /* GetPlayersUseCase.swift in Sources */,
 				E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */,
 				E824F2312114E70900458890 /* PlayersViewController.swift in Sources */,
 				E838867F224697D600E4E809 /* GameConnector.swift in Sources */,
 				E86CBDA8223F2E98000C3658 /* Play.swift in Sources */,
+				E80F4B3122EA69D700483EE5 /* LogPlayUseCase.swift in Sources */,
 				E89DBBFA22543F5400C279B6 /* UserDefaultsExtensions.swift in Sources */,
 				E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */,
 				E850AAF8224DB630005BFC72 /* StringExtensions.swift in Sources */,
@@ -413,7 +561,9 @@
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
 				E86CBDAA223F2EBA000C3658 /* PlayPlayerDetails.swift in Sources */,
 				E89A6034225110FD00CE50B2 /* BggModels.swift in Sources */,
+				E80F4B3322EA69EC00483EE5 /* GetLoggedPlaysUseCase.swift in Sources */,
 				E8DC52DF22537F1200EECFDA /* UIViewControllerExtensions.swift in Sources */,
+				E80F4B2522EA68D700483EE5 /* StartPlayerTimerUseCase.swift in Sources */,
 				E80129BE22335C6E0090A896 /* PositionTableViewCell.swift in Sources */,
 				E82FC2A0224083F400C19B27 /* PlaySectionHeaderView.swift in Sources */,
 				E81A652E22402F19001A1D5F /* DateExtensions.swift in Sources */,
@@ -421,14 +571,24 @@
 				E86685DD22586C5C00E89B0D /* UITabBarControllerExtensions.swift in Sources */,
 				F1049AA41ECCCD4D00D05E8F /* SetupViewController.swift in Sources */,
 				E83FC6472256987C00C9F6F1 /* PlayTableViewCell.swift in Sources */,
+				E80F4B2B22EA696300483EE5 /* EndPlayUseCase.swift in Sources */,
 				E85C1820223E0A870029963D /* PlayerSelectorControl.swift in Sources */,
 				E86CBDAC223F2F20000C3658 /* Player.swift in Sources */,
 				F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */,
 				E8545DCB2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift in Sources */,
+				E80F4B2F22EA69A700483EE5 /* SavePlayerUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E80F4B4422EA749D00483EE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1E366AB1ECA0A07006CBEAF /* BoardGamesTimer */;
+			targetProxy = E80F4B4322EA749D00483EE5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E8D150D22266498C00FFCEE6 /* Localizable.strings */ = {
@@ -461,6 +621,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E80F4B4622EA749D00483EE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X32L2WT2YT;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BoardGamesTimerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = DiegoLB.BoardGamesTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoardGamesTimer.app/BoardGamesTimer";
+			};
+			name = Debug;
+		};
+		E80F4B4722EA749D00483EE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X32L2WT2YT;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = BoardGamesTimerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = DiegoLB.BoardGamesTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BoardGamesTimer.app/BoardGamesTimer";
+			};
+			name = Release;
+		};
 		F1E366BC1ECA0A07006CBEAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -609,6 +816,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E80F4B4522EA749D00483EE5 /* Build configuration list for PBXNativeTarget "BoardGamesTimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E80F4B4622EA749D00483EE5 /* Debug */,
+				E80F4B4722EA749D00483EE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F1E366A71ECA0A07006CBEAF /* Build configuration list for PBXProject "BoardGamesTimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
