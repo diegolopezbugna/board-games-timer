@@ -19,14 +19,21 @@ class LogPlayViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var saveButton: UIBarButtonItem!
     
-    var play: Play?
-    var playPlayerDetails: [PlayPlayerDetails]?
+    var logPlayUseCase: LogPlayUseCaseProtocol
+    
+    var play: LoggedPlay?
+    var playPlayerDetails: [LoggedPlayPlayerDetails]?
     var gameStartDateTime: Date?
     var gameLength: TimeInterval?
-    private var selectedPlayer: PlayPlayerDetails?
+    private var selectedPlayer: LoggedPlayPlayerDetails?
     private var timer: Timer?
     private var selectedGame: Game?
 
+    required init?(coder aDecoder: NSCoder) {
+        self.logPlayUseCase = LogPlayUseCase(offlineLoggedPlaysProvider: OfflineLoggedPlaysProvider())
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -70,11 +77,13 @@ class LogPlayViewController: UIViewController {
     }
     
     @objc func saveTapped() {
+        // TODO: move inside logPlayUseCase
         guard let game = self.selectedGame else {
             self.toggleErrorTextField(textField: self.gameTextField, isError: true)
             self.gameTextField.becomeFirstResponder()
             return
         }
+        // TODO: move inside logPlayUseCase
         if self.play?.syncronizedWithBGG == true {
             let alert = UIAlertController(title: "Can't modify BGG logged plays".localized, message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
@@ -82,14 +91,15 @@ class LogPlayViewController: UIViewController {
             return
         }
         
-        let play = self.play ?? Play(date: self.gameStartDateTime ?? Date(), game: game)
+        // TODO: move inside logPlayUseCase
+        let play = self.play ?? LoggedPlay(date: self.gameStartDateTime ?? Date(), game: game)
         if let gameLength = self.gameLength {
             play.gameLength = Int((gameLength / 60.0).rounded())
         }
         play.location = locationTextField.text
         play.comments = commentsTextView.text
         play.playerDetails = self.playPlayerDetails
-        Play.addOrUpdatePlay(play)
+        logPlayUseCase.execute(play: play)
         
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -116,6 +126,7 @@ class LogPlayViewController: UIViewController {
     }
     
     private func searchGame() {
+        // TODO: use searchGameUseCase
         guard let textField = self.gameTextField,
             let prefix = textField.text,
             prefix.count > 2 else {
@@ -181,7 +192,7 @@ extension LogPlayViewController: UITableViewDelegate {
 }
 
 extension LogPlayViewController: LogPlayPlayerDetailsDelegate {
-    func detailsDismissed(playerDetails: PlayPlayerDetails?) {
+    func detailsDismissed(playerDetails: LoggedPlayPlayerDetails?) {
         self.tableView.reloadData()
     }
 }

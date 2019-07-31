@@ -11,14 +11,14 @@ import Foundation
 protocol StartPlayerTimerUseCaseProtocol {
     var completionSuccess: (() -> Void)? { get set }
     var completionError: (() -> Void)? { get set }
-    func execute(bggUsername: String?)
+    func execute()
 }
 
 class StartPlayerTimerUseCase: StartPlayerTimerUseCaseProtocol {
     var completionSuccess: (() -> Void)?
     var completionError: (() -> Void)?
 
-    func execute(bggUsername: String?) {
+    func execute() {
         
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 struct MonthSection: Comparable {
     var month : Date
-    var plays: [Play]
+    var plays: [LoggedPlay]
 
     static func < (lhs: MonthSection, rhs: MonthSection) -> Bool {
         return lhs.month < rhs.month
@@ -19,7 +19,7 @@ struct MonthSection: Comparable {
         return lhs.month == rhs.month
     }
     
-    static func group(plays: [Play]) -> [MonthSection] {
+    static func group(plays: [LoggedPlay]) -> [MonthSection] {
         let groups = Dictionary(grouping: plays) { (play) -> Date in
             return play.date.firstDayOfMonth()
         }
@@ -37,72 +37,57 @@ class PlaysViewController: UIViewController {
     private var loadingView: UIView?
     private var activityIndicatorView: UIActivityIndicatorView? // TODO: move inside a control with the loadingView
 
+    private var getLoggedPlaysUseCase: GetLoggedPlaysUseCaseProtocol
+    
     private var sections = [MonthSection]()
-    private var selectedPlay: Play?
+    private var selectedPlay: LoggedPlay?
+    
+    required init?(coder aDecoder: NSCoder) {
+        getLoggedPlaysUseCase = GetLoggedPlaysUseCase(
+            offlineLoggedPlaysProvider: OfflineLoggedPlaysProvider(),
+            bggLoggedPlaysProvider: BggLoggedPlaysProvider(),
+            getBggUsernameUseCase: GetBggUsernameUseCase(bggUsernameProvider: BggUsernameProvider()))
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
 
-        self.tableView.register(PlaySectionHeaderView.self, forHeaderFooterViewReuseIdentifier: self.sectionHeaderIdentifier)
+        tableView.register(PlaySectionHeaderView.self, forHeaderFooterViewReuseIdentifier: sectionHeaderIdentifier)
 
         let playNib = UINib(nibName: "PlayTableViewCell", bundle: nil)
-        self.tableView.register(playNib, forCellReuseIdentifier: self.cellIdentifier)
+        tableView.register(playNib, forCellReuseIdentifier: cellIdentifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.getPlays()
+        getPlays()
     }
     
     private func getPlays() {
-        let offlinePlays = Play.all()
-        if let bggUsername = UserDefaults.standard.value(forKey: UserDefaults.Keys.bggUsername.rawValue) as? String,
-            bggUsername.count > 0 {
-            self.showLoading()
-            self.getOnlinePlays(username: bggUsername, page: 1) { (plays) in
-                if let onlinePlays = plays {
-                    var allPlays = offlinePlays
-                    allPlays.append(contentsOf: onlinePlays)
-                    self.sections = MonthSection.group(plays: allPlays)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.hideLoading()
-                    }
-                }
-            }
-        } else {
-            self.sections = MonthSection.group(plays: offlinePlays)
-            self.tableView.reloadData()
-        }
-    }
-    
-    private func getOnlinePlays(username: String, page: Int, previousPlays: [Play]? = nil, callback: @escaping ([Play]?) -> Void) {
-        // TODO: change to an infinite scrolling
-        // https://www.raywenderlich.com/5786-uitableview-infinite-scrolling-tutorial
-        let connector = PlaysConnector()
-        var onlinePlays = previousPlays ?? [Play]()
-        connector.getPlays(username: username, page: page) { (plays) in
-            if let plays = plays, page < 11 {
-                onlinePlays.append(contentsOf: plays)
-                self.getOnlinePlays(username: username, page: page + 1, previousPlays: onlinePlays, callback: callback)
-            } else {
-                callback(onlinePlays)
+        showLoading()
+        getLoggedPlaysUseCase.completionSuccess = { plays in
+            self.sections = MonthSection.group(plays: plays)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.hideLoading()
             }
         }
+        getLoggedPlaysUseCase.execute()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let vc = segue.destination as? LogPlayViewController {
-            vc.play = self.selectedPlay
+            vc.play = selectedPlay
         }
     }
     
     private func showLoading() {
-        if self.loadingView == nil {
+        if loadingView == nil {
             let loadingView = UIView(forAutoLayout: ())
             loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
             self.view.addSubview(loadingView)
@@ -113,28 +98,27 @@ class PlaysViewController: UIViewController {
             self.loadingView = loadingView
             self.activityIndicatorView = activityIndicatorView
         }
-        self.activityIndicatorView?.startAnimating()
-        self.loadingView?.isHidden = false
+        activityIndicatorView?.startAnimating()
+        loadingView?.isHidden = false
     }
     
     private func hideLoading() {
-        self.activityIndicatorView?.stopAnimating()
-        self.loadingView?.isHidden = true
+        activityIndicatorView?.stopAnimating()
+        loadingView?.isHidden = true
     }
-    
 }
 
 extension PlaysViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sections.count
+        return sections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sections[section].plays.count
+        return sections[section].plays.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let play = self.sections[indexPath.section].plays[indexPath.row]
+        let play = sections[indexPath.section].plays[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! PlayTableViewCell
         cell.setup(play: play)
         return cell
@@ -159,7 +143,7 @@ extension PlaysViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedPlay = self.sections[indexPath.section].plays[indexPath.row]
-        self.performSegue(withIdentifier: "playSegue", sender: self)
+        selectedPlay = sections[indexPath.section].plays[indexPath.row]
+        performSegue(withIdentifier: "playSegue", sender: self)
     }
 }

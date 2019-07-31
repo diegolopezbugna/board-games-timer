@@ -123,9 +123,9 @@ class TimersViewController: UIViewController {
         guard let navigationController = self.navigationController else { return }
         
         self.hidesBottomBarWhenPushed = false
-        let playPlayerDetails = self.playerViews.map({ (v) -> PlayPlayerDetails in
+        let playPlayerDetails = self.playerViews.map({ (v) -> LoggedPlayPlayerDetails in
             let timerPlayer = v as? TimerPlayer
-            let d = PlayPlayerDetails()
+            let d = LoggedPlayPlayerDetails()
             d.teamColor = timerPlayer?.colorName
             d.time = timerPlayer?.totalTime
             return d

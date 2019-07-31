@@ -1,3 +1,6 @@
+- do "move inside logPlayUseCase" todos
+- remove self. (swift format)
+
 - plays infinite scrolling
 - setup, reorder color
 

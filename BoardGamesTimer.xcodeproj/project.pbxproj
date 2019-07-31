@@ -37,9 +37,13 @@
 		E8545DCB2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */; };
 		E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8545DCC2235B74700A65759 /* LogPlayViewController.swift */; };
 		E85C1820223E0A870029963D /* PlayerSelectorControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85C181F223E0A870029963D /* PlayerSelectorControl.swift */; };
+		E8666F6122F0B66B0001F32F /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8666F6022F0B66B0001F32F /* Play.swift */; };
+		E8666F6322F0B7A20001F32F /* OfflineLoggedPlaysProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8666F6222F0B7A20001F32F /* OfflineLoggedPlaysProvider.swift */; };
+		E8666F6722F135830001F32F /* GetLoggedPlaysUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8666F6622F135830001F32F /* GetLoggedPlaysUseCaseTests.swift */; };
+		E8666F6B22F138B00001F32F /* BggLoggedPlaysProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8666F6A22F138B00001F32F /* BggLoggedPlaysProvider.swift */; };
 		E86685DD22586C5C00E89B0D /* UITabBarControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86685DC22586C5C00E89B0D /* UITabBarControllerExtensions.swift */; };
-		E86CBDA8223F2E98000C3658 /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDA7223F2E98000C3658 /* Play.swift */; };
-		E86CBDAA223F2EBA000C3658 /* PlayPlayerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDA9223F2EBA000C3658 /* PlayPlayerDetails.swift */; };
+		E86CBDA8223F2E98000C3658 /* LoggedPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDA7223F2E98000C3658 /* LoggedPlay.swift */; };
+		E86CBDAA223F2EBA000C3658 /* LoggedPlayPlayerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDA9223F2EBA000C3658 /* LoggedPlayPlayerDetails.swift */; };
 		E86CBDAC223F2F20000C3658 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86CBDAB223F2F20000C3658 /* Player.swift */; };
 		E89A6034225110FD00CE50B2 /* BggModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89A6033225110FD00CE50B2 /* BggModels.swift */; };
 		E89DBBFA22543F5400C279B6 /* UserDefaultsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89DBBF922543F5400C279B6 /* UserDefaultsExtensions.swift */; };
@@ -109,9 +113,13 @@
 		E8545DCA2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayPlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		E8545DCC2235B74700A65759 /* LogPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPlayViewController.swift; sourceTree = "<group>"; };
 		E85C181F223E0A870029963D /* PlayerSelectorControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectorControl.swift; sourceTree = "<group>"; };
+		E8666F6022F0B66B0001F32F /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
+		E8666F6222F0B7A20001F32F /* OfflineLoggedPlaysProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineLoggedPlaysProvider.swift; sourceTree = "<group>"; };
+		E8666F6622F135830001F32F /* GetLoggedPlaysUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLoggedPlaysUseCaseTests.swift; sourceTree = "<group>"; };
+		E8666F6A22F138B00001F32F /* BggLoggedPlaysProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BggLoggedPlaysProvider.swift; sourceTree = "<group>"; };
 		E86685DC22586C5C00E89B0D /* UITabBarControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarControllerExtensions.swift; sourceTree = "<group>"; };
-		E86CBDA7223F2E98000C3658 /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
-		E86CBDA9223F2EBA000C3658 /* PlayPlayerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPlayerDetails.swift; sourceTree = "<group>"; };
+		E86CBDA7223F2E98000C3658 /* LoggedPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedPlay.swift; sourceTree = "<group>"; };
+		E86CBDA9223F2EBA000C3658 /* LoggedPlayPlayerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedPlayPlayerDetails.swift; sourceTree = "<group>"; };
 		E86CBDAB223F2F20000C3658 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E89A6033225110FD00CE50B2 /* BggModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BggModels.swift; sourceTree = "<group>"; };
 		E89DBBF922543F5400C279B6 /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
@@ -183,6 +191,11 @@
 		E80F4B2122EA683500483EE5 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				E86CBDA7223F2E98000C3658 /* LoggedPlay.swift */,
+				E86CBDA9223F2EBA000C3658 /* LoggedPlayPlayerDetails.swift */,
+				E86CBDAB223F2F20000C3658 /* Player.swift */,
+				E83886802246D5B000E4E809 /* Game.swift */,
+				E8666F6022F0B66B0001F32F /* Play.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -208,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				E80F4B3622EA6B0F00483EE5 /* BggUsernameProvider.swift */,
+				E8666F6222F0B7A20001F32F /* OfflineLoggedPlaysProvider.swift */,
+				E8666F6A22F138B00001F32F /* BggLoggedPlaysProvider.swift */,
 			);
 			path = Providers;
 			sourceTree = "<group>";
@@ -215,9 +230,9 @@
 		E80F4B3F22EA749D00483EE5 /* BoardGamesTimerTests */ = {
 			isa = PBXGroup;
 			children = (
+				E8666F6922F138230001F32F /* Providers */,
+				E8666F6822F1381A0001F32F /* UseCases */,
 				E80F4B4222EA749D00483EE5 /* Info.plist */,
-				E80F4B4822EA74E600483EE5 /* GetBggUsernameUseCaseTests.swift */,
-				E80F4B4A22EA775100483EE5 /* SaveBggUsernameUseCaseTests.swift */,
 			);
 			path = BoardGamesTimerTests;
 			sourceTree = "<group>";
@@ -243,13 +258,26 @@
 			path = Controls;
 			sourceTree = "<group>";
 		};
+		E8666F6822F1381A0001F32F /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				E80F4B4822EA74E600483EE5 /* GetBggUsernameUseCaseTests.swift */,
+				E80F4B4A22EA775100483EE5 /* SaveBggUsernameUseCaseTests.swift */,
+				E8666F6622F135830001F32F /* GetLoggedPlaysUseCaseTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		E8666F6922F138230001F32F /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
 		E86CBDA6223F2E79000C3658 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E86CBDA7223F2E98000C3658 /* Play.swift */,
-				E86CBDA9223F2EBA000C3658 /* PlayPlayerDetails.swift */,
-				E86CBDAB223F2F20000C3658 /* Player.swift */,
-				E83886802246D5B000E4E809 /* Game.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -525,6 +553,7 @@
 			files = (
 				E80F4B4922EA74E600483EE5 /* GetBggUsernameUseCaseTests.swift in Sources */,
 				E80F4B4B22EA775100483EE5 /* SaveBggUsernameUseCaseTests.swift in Sources */,
+				E8666F6722F135830001F32F /* GetLoggedPlaysUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,12 +574,13 @@
 				E8EB18832264BF150059BECB /* ColorSelectorControl.swift in Sources */,
 				E8F4C650225399F600E74821 /* SettingsViewController.swift in Sources */,
 				E80F4B2722EA68F400483EE5 /* StopPlayerTimerUseCase.swift in Sources */,
+				E8666F6122F0B66B0001F32F /* Play.swift in Sources */,
 				E84DEFD4224B180D001C2E33 /* PlaysConnector.swift in Sources */,
 				E80F4B2D22EA699300483EE5 /* GetPlayersUseCase.swift in Sources */,
 				E8545DCD2235B74700A65759 /* LogPlayViewController.swift in Sources */,
 				E824F2312114E70900458890 /* PlayersViewController.swift in Sources */,
 				E838867F224697D600E4E809 /* GameConnector.swift in Sources */,
-				E86CBDA8223F2E98000C3658 /* Play.swift in Sources */,
+				E86CBDA8223F2E98000C3658 /* LoggedPlay.swift in Sources */,
 				E80F4B3122EA69D700483EE5 /* LogPlayUseCase.swift in Sources */,
 				E89DBBFA22543F5400C279B6 /* UserDefaultsExtensions.swift in Sources */,
 				E8B1169A22171465005A1D9A /* TimeIntervalExtensions.swift in Sources */,
@@ -559,7 +589,7 @@
 				E8B1169D22171A0A005A1D9A /* InitialPlusTurnTimerPlayerView.swift in Sources */,
 				E8A50FC7222EB80800CD720F /* PositionHeaderTableViewCell.swift in Sources */,
 				F1049AA01ECCCD4D00D05E8F /* AppDelegate.swift in Sources */,
-				E86CBDAA223F2EBA000C3658 /* PlayPlayerDetails.swift in Sources */,
+				E86CBDAA223F2EBA000C3658 /* LoggedPlayPlayerDetails.swift in Sources */,
 				E89A6034225110FD00CE50B2 /* BggModels.swift in Sources */,
 				E80F4B3322EA69EC00483EE5 /* GetLoggedPlaysUseCase.swift in Sources */,
 				E8DC52DF22537F1200EECFDA /* UIViewControllerExtensions.swift in Sources */,
@@ -571,10 +601,12 @@
 				E86685DD22586C5C00E89B0D /* UITabBarControllerExtensions.swift in Sources */,
 				F1049AA41ECCCD4D00D05E8F /* SetupViewController.swift in Sources */,
 				E83FC6472256987C00C9F6F1 /* PlayTableViewCell.swift in Sources */,
+				E8666F6322F0B7A20001F32F /* OfflineLoggedPlaysProvider.swift in Sources */,
 				E80F4B2B22EA696300483EE5 /* EndPlayUseCase.swift in Sources */,
 				E85C1820223E0A870029963D /* PlayerSelectorControl.swift in Sources */,
 				E86CBDAC223F2F20000C3658 /* Player.swift in Sources */,
 				F1049AA11ECCCD4D00D05E8F /* TimersViewController.swift in Sources */,
+				E8666F6B22F138B00001F32F /* BggLoggedPlaysProvider.swift in Sources */,
 				E8545DCB2235B62A00A65759 /* LogPlayPlayerDetailsViewController.swift in Sources */,
 				E80F4B2F22EA69A700483EE5 /* SavePlayerUseCase.swift in Sources */,
 			);

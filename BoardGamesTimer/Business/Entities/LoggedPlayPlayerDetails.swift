@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PlayPlayerDetails: NSObject, NSCoding, Codable {
+class LoggedPlayPlayerDetails: NSObject, NSCoding, Codable {
     var player: Player?
     var won: Bool?
     var firstTimePlaying: Bool?

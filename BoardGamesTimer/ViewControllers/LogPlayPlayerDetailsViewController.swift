@@ -9,7 +9,7 @@
 import UIKit
 
 protocol LogPlayPlayerDetailsDelegate: class {
-    func detailsDismissed(playerDetails: PlayPlayerDetails?)
+    func detailsDismissed(playerDetails: LoggedPlayPlayerDetails?)
 }
 
 class LogPlayPlayerDetailsViewController: UIViewController {
@@ -24,7 +24,7 @@ class LogPlayPlayerDetailsViewController: UIViewController {
     @IBOutlet private var bottomConstraint: NSLayoutConstraint!
     
     weak var delegate: LogPlayPlayerDetailsDelegate?
-    var playerDetails: PlayPlayerDetails?
+    var playerDetails: LoggedPlayPlayerDetails?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class LogPlayPlayerDetailsViewController: UIViewController {
 
     private func save() {
         if let player = self.playerSelectorControl.selectedPlayer {
-            let playerDetails = self.playerDetails ?? PlayPlayerDetails()
+            let playerDetails = self.playerDetails ?? LoggedPlayPlayerDetails()
             playerDetails.player = player
             playerDetails.won = wonSwitch.isOn
             playerDetails.firstTimePlaying = firstTimePlaying.isOn

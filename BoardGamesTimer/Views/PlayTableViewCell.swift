@@ -21,7 +21,7 @@ class PlayTableViewCell: UITableViewCell {
         self.gameLabel.font = UIFont.boldSystemFont(ofSize: 17)
     }
     
-    func setup(play: Play) {
+    func setup(play: LoggedPlay) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE d"
         self.dayLabel.text = dateFormatter.string(from: play.date).camelcased()
@@ -31,7 +31,7 @@ class PlayTableViewCell: UITableViewCell {
         self.playersLabel.text = self.playersText(playerDetails: play.playerDetails)
     }
     
-    func playersText(playerDetails: [PlayPlayerDetails]?) -> String {
+    func playersText(playerDetails: [LoggedPlayPlayerDetails]?) -> String {
         guard let playerDetails = playerDetails else { return "Players".localized + ": -" }
         var nameScoreText = [String]()
         for pd in playerDetails.sorted(by: { (pd1, pd2) -> Bool in

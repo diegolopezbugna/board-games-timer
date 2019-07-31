@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+protocol StartNewPlayUseCaseProtocol {
+    var completionSuccess: (() -> Void)? { get set }
+    var completionError: (() -> Void)? { get set }
+    func execute()
+}
+
+class StartNewPlayUseCase: StartNewPlayUseCaseProtocol {
+    var completionSuccess: (() -> Void)?
+    var completionError: (() -> Void)?
+
+    func execute() {
+        
+    }
+}

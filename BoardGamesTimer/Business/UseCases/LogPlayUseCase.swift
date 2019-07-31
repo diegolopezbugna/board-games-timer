@@ -7,3 +7,25 @@
 //
 
 import Foundation
+
+protocol LogPlayUseCaseProtocol {
+    var completionSuccess: (() -> Void)? { get set }
+    var completionError: (() -> Void)? { get set }
+    func execute(play: LoggedPlay)
+}
+
+class LogPlayUseCase: LogPlayUseCaseProtocol {
+    var completionSuccess: (() -> Void)?
+    var completionError: (() -> Void)?
+    
+    let offlineLoggedPlaysProvider: OfflineLoggedPlaysProviderProtocol
+    
+    init(offlineLoggedPlaysProvider: OfflineLoggedPlaysProviderProtocol) {
+        self.offlineLoggedPlaysProvider = offlineLoggedPlaysProvider
+    }
+    
+    func execute(play: LoggedPlay) {
+        offlineLoggedPlaysProvider.addOrUpdateOfflineLoggedPlay(play)
+        completionSuccess?()
+    }
+}
