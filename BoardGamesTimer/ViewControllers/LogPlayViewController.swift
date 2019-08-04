@@ -20,6 +20,7 @@ class LogPlayViewController: UIViewController {
     @IBOutlet private var saveButton: UIBarButtonItem!
     
     var logPlayUseCase: LogPlayUseCaseProtocol
+    var getPlayersUseCase: GetPlayersUseCaseProtocol
     
     var play: LoggedPlay?
     var playPlayerDetails: [LoggedPlayPlayerDetails]?
@@ -28,9 +29,11 @@ class LogPlayViewController: UIViewController {
     private var selectedPlayer: LoggedPlayPlayerDetails?
     private var timer: Timer?
     private var selectedGame: Game?
+    private var players: [Player]?
 
     required init?(coder aDecoder: NSCoder) {
         self.logPlayUseCase = LogPlayUseCase(offlineLoggedPlaysProvider: OfflineLoggedPlaysProvider())
+        self.getPlayersUseCase = GetPlayersUseCase(playersProvider: PlayersProvider())
         super.init(coder: aDecoder)
     }
     
@@ -66,6 +69,8 @@ class LogPlayViewController: UIViewController {
         }
         
         self.lengthLabel.text = "Length".localized + ": " + (self.gameLength != nil ? self.gameLength!.toString(showMs: false) : "-")
+        
+        self.getPlayers()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,25 +78,17 @@ class LogPlayViewController: UIViewController {
         if let vc = segue.destination as? LogPlayPlayerDetailsViewController {
             vc.delegate = self
             vc.playerDetails = self.selectedPlayer
+            vc.players = self.players
         }
     }
     
     @objc func saveTapped() {
-        // TODO: move inside logPlayUseCase
         guard let game = self.selectedGame else {
             self.toggleErrorTextField(textField: self.gameTextField, isError: true)
             self.gameTextField.becomeFirstResponder()
             return
         }
-        // TODO: move inside logPlayUseCase
-        if self.play?.syncronizedWithBGG == true {
-            let alert = UIAlertController(title: "Can't modify BGG logged plays".localized, message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
         
-        // TODO: move inside logPlayUseCase
         let play = self.play ?? LoggedPlay(date: self.gameStartDateTime ?? Date(), game: game)
         if let gameLength = self.gameLength {
             play.gameLength = Int((gameLength / 60.0).rounded())
@@ -99,9 +96,18 @@ class LogPlayViewController: UIViewController {
         play.location = locationTextField.text
         play.comments = commentsTextView.text
         play.playerDetails = self.playPlayerDetails
-        logPlayUseCase.execute(play: play)
         
-        self.navigationController?.popToRootViewController(animated: true)
+        logPlayUseCase.completionError = {
+            // TODO: error codes/response?
+            let alert = UIAlertController(title: "Can't modify BGG logged plays".localized, message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK".localized, style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        logPlayUseCase.completionSuccess = {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        logPlayUseCase.execute(play: play)
     }
     
     private func toggleErrorTextField(textField: UITextField, isError: Bool) {
@@ -150,6 +156,13 @@ class LogPlayViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func getPlayers() {
+        getPlayersUseCase.completionSuccess = { players in
+            self.players = players
+        }
+        getPlayersUseCase.execute()
     }
 }
 

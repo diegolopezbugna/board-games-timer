@@ -21,6 +21,12 @@ class AddPlayerViewController: UIViewController {
     var player: Player?
     weak var delegate: AddPlayerViewControllerDelegate?
     
+    let playersProvider: PlayersProviderProtocol = PlayersProvider()
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +50,7 @@ class AddPlayerViewController: UIViewController {
         } else {
             player = Player(id: UUID(), name: name, bggUsername: bggUserTextField.text)
         }
-        Player.addOrUpdatePlayer(player!)
+        playersProvider.addOrUpdatePlayer(player!)
         self.delegate?.adedOrUpdatedPlayer(player!)
         self.navigationController?.popViewController(animated: true)
     }

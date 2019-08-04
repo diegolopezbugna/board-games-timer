@@ -14,7 +14,6 @@ class PositionTableViewCell: UITableViewCell {
     var timeLabel: UILabel!
     var playerLabel: UILabel!
     var scoreLabel: UILabel!
-    let players = Player.allSorted()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

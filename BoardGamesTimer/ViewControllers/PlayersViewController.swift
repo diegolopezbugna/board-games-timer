@@ -14,6 +14,14 @@ class PlayersViewController: UIViewController {
     
     private var players: [Player] = []
     
+    var getPlayersUseCase: GetPlayersUseCaseProtocol
+    let playersProvider: PlayersProviderProtocol = PlayersProvider()
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.getPlayersUseCase = GetPlayersUseCase(playersProvider: playersProvider)
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         self.playersTableView.dataSource = self
         self.playersTableView.delegate = self
@@ -21,8 +29,13 @@ class PlayersViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.players = Player.allSorted()
-        self.playersTableView.reloadData()
+        // TODO: loading
+        getPlayersUseCase.completionSuccess = { players in
+            self.players = players
+            // TODO: end loading
+            self.playersTableView.reloadData()
+        }
+        getPlayersUseCase.execute()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,20 +43,26 @@ class PlayersViewController: UIViewController {
             (segue.destination as! AddPlayerViewController).delegate = self
         }
     }
+    
+    private func reloadPlayers() {
+        getPlayersUseCase.completionSuccess = { players in
+            self.players = players
+            self.playersTableView.reloadData()
+        }
+        getPlayersUseCase.execute()
+    }
 }
 
 extension PlayersViewController: AddPlayerViewControllerDelegate {
     
     func adedOrUpdatedPlayer(_ player: Player) {
-        self.players = Player.allSorted()
-        self.playersTableView.reloadData()
+        self.reloadPlayers()
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete".localized) { (action, indexPath) in
-            Player.deletePlayer(self.players[indexPath.row])
-            self.players = Player.allSorted()
-            tableView.reloadData()
+            self.playersProvider.deletePlayer(self.players[indexPath.row])
+            self.reloadPlayers()
         }
         return [deleteAction]
     }

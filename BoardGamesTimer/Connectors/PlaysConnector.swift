@@ -9,6 +9,7 @@
 import Foundation
 
 class PlaysConnector: BaseConnector {
+    let playersProvider: PlayersProviderProtocol = PlayersProvider()
     
     func getPlays(username: String, page: Int = 1, completion: @escaping ([LoggedPlay]?) -> Void) {
         let uri = "xmlapi2/plays"
@@ -29,13 +30,13 @@ class PlaysConnector: BaseConnector {
                 p.playerDetails = bggPlay.players?.player?.map({ (bggPlayerDetails) -> LoggedPlayPlayerDetails in
                     var player: Player
                     if bggPlayerDetails.username.count > 0,
-                        let foundPlayer = Player.findByBggUsername(bggPlayerDetails.username) {
+                        let foundPlayer = self.playersProvider.findByBggUsername(bggPlayerDetails.username) {
                         player = foundPlayer
-                    } else if let foundPlayer = Player.findByName(bggPlayerDetails.name) {
+                    } else if let foundPlayer = self.playersProvider.findByName(bggPlayerDetails.name) {
                         player = foundPlayer
                     } else {
                         player = Player(id: UUID(), name: bggPlayerDetails.name, bggUsername: bggPlayerDetails.username.count > 0 ? bggPlayerDetails.username : nil)
-                        Player.addOrUpdatePlayer(player)
+                        self.playersProvider.addOrUpdatePlayer(player)
                     }
                     let pd = LoggedPlayPlayerDetails(player: player, won: bggPlayerDetails.win, firstTimePlaying: bggPlayerDetails.new, score: Int(bggPlayerDetails.score), teamColor: bggPlayerDetails.color, startingPosition: bggPlayerDetails.startposition, playRating: bggPlayerDetails.rating, time: nil)
                     return pd

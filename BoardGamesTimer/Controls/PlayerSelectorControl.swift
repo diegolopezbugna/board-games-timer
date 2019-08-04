@@ -9,13 +9,18 @@
 import UIKit
 import PureLayout
 
+protocol PlayerSelectorControlDatasource: AnyObject {
+    var players: [Player]? { get }
+}
+
 class PlayerSelectorControl: UIControl {
 
     var leftButton: UIButton!
     var rightButton: UIButton!
     var label: UILabel!
     
-    var players = Player.allSorted()
+    weak var datasource: PlayerSelectorControlDatasource?
+    
     var selectedPlayer: Player? {
         didSet {
             self.label.text = self.selectedPlayer?.name
@@ -63,20 +68,20 @@ class PlayerSelectorControl: UIControl {
     }
     
     @objc func leftTapped() {
-        guard let lastPlayer = self.players.last else { return }
-        if let p = self.selectedPlayer, let i = self.players.firstIndex(of: p) {
-            self.selectedPlayer = i > 0 ? self.players[i-1] : lastPlayer
+        guard let players = datasource?.players, let lastPlayer = players.last else { return }
+        if let p = selectedPlayer, let i = players.firstIndex(of: p) {
+            selectedPlayer = i > 0 ? players[i-1] : lastPlayer
         } else {
-            self.selectedPlayer = lastPlayer
+            selectedPlayer = lastPlayer
         }
     }
 
     @objc func rightTapped() {
-        guard let firstPlayer = self.players.first else { return }
-        if let p = self.selectedPlayer, let i = self.players.firstIndex(of: p) {
-            self.selectedPlayer = p == self.players.last ? firstPlayer : self.players[i+1]
+        guard let players = datasource?.players, let firstPlayer = players.first else { return }
+        if let p = selectedPlayer, let i = players.firstIndex(of: p) {
+            selectedPlayer = p == players.last ? firstPlayer : players[i+1]
         } else {
-            self.selectedPlayer = firstPlayer
+            selectedPlayer = firstPlayer
         }
     }
 }

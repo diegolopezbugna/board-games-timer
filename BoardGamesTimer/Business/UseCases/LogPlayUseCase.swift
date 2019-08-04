@@ -25,6 +25,11 @@ class LogPlayUseCase: LogPlayUseCaseProtocol {
     }
     
     func execute(play: LoggedPlay) {
+        if play.syncronizedWithBGG == true {
+            completionError?()  // TODO: error codes/response?
+            return
+        }
+        
         offlineLoggedPlaysProvider.addOrUpdateOfflineLoggedPlay(play)
         completionSuccess?()
     }

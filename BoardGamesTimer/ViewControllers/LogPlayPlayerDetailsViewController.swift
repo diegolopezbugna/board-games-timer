@@ -12,7 +12,7 @@ protocol LogPlayPlayerDetailsDelegate: class {
     func detailsDismissed(playerDetails: LoggedPlayPlayerDetails?)
 }
 
-class LogPlayPlayerDetailsViewController: UIViewController {
+class LogPlayPlayerDetailsViewController: UIViewController, PlayerSelectorControlDatasource {
     
     @IBOutlet private var playerSelectorControl: PlayerSelectorControl!
     @IBOutlet private var wonSwitch: UISwitch!
@@ -25,7 +25,8 @@ class LogPlayPlayerDetailsViewController: UIViewController {
     
     weak var delegate: LogPlayPlayerDetailsDelegate?
     var playerDetails: LoggedPlayPlayerDetails?
-
+    var players: [Player]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -39,6 +40,8 @@ class LogPlayPlayerDetailsViewController: UIViewController {
             playRatingTextField.text = d.playRating
             firstTimePlaying.isOn = d.firstTimePlaying ?? false
         }
+        
+        playerSelectorControl.datasource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,4 +75,3 @@ class LogPlayPlayerDetailsViewController: UIViewController {
         }
     }
 }
-

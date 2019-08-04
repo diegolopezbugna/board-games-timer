@@ -32,44 +32,4 @@ class Player: NSObject, NSCoding, Codable {
         self.name = name
         self.bggUsername = bggUsername
     }
-
-    static func all() -> [UUID: Player] {
-        if let data = UserDefaults.standard.data(forKey: "players"),
-            let players = NSKeyedUnarchiver.unarchiveObject(with: data) as? [UUID: Player] {
-            return players
-        }
-        return [:]
-    }
-    
-    static func allSorted() -> [Player] {
-        return Array(Player.all().values).sorted { $0.name < $1.name }
-    }
-    
-    static func addOrUpdatePlayer(_ player: Player) {
-        var allPlayers = all()
-        allPlayers[player.id] = player
-        let data = NSKeyedArchiver.archivedData(withRootObject: allPlayers)
-        UserDefaults.standard.set(data, forKey: "players")
-    }
-    
-    static func deletePlayer(_ player: Player) {
-        var allPlayers = all()
-        allPlayers.removeValue(forKey: player.id)
-        let data = NSKeyedArchiver.archivedData(withRootObject: allPlayers)
-        UserDefaults.standard.set(data, forKey: "players")
-    }
-    
-    static func findByBggUsername(_ bggUsername: String) -> Player? {
-        return (all().first { (arg0) -> Bool in
-            let (_, value) = arg0
-            return value.bggUsername == bggUsername
-        })?.value
-    }
-    
-    static func findByName(_ name: String) -> Player? {
-        return (all().first { (arg0) -> Bool in
-            let (_, value) = arg0
-            return value.name == name
-        })?.value
-    }
 }
